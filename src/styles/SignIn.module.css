@@ -1,0 +1,88 @@
+.body{
+    padding: 60px 100px;
+}
+.section{
+    display: flex;
+    gap: 100px;
+    padding-top: 80px;
+}
+.ctn{
+    width: 400px;
+    padding-top: 200px;
+}
+.right{
+    display: grid;
+    gap: 32px;
+    padding: 24px 32px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    flex-grow: 1;
+}
+.form{
+    display: grid;
+    gap: 32px;
+}
+.inputField{
+    display: grid;
+    gap: 24px;
+}
+.form a{
+    font-size: 0.875rem;
+    font-weight: 300;
+    text-align: right;
+}
+.textSize{
+    font-size: 0.875rem;
+    font-weight: 300;
+}
+.pad{
+    padding: 32px 32px 178px 32px;
+}
+.fg{
+    display: grid;
+    gap: 40px;
+    height: fit-content;
+    padding-top: 64px;
+}
+.fg h2, .fg p{
+    text-align: center;
+}
+.fg p{
+    font-size: 0.875rem;
+    font-weight: 300;
+}
+.fg h2{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.codeForm{
+    display: grid;
+    gap: 32px;
+    text-align: center;
+}
+.codeForm p{
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+.codeForm p span{
+    color: var(--secondary-color);
+}
+.padd{
+    padding: 180px 64px;
+}
+.paddd{
+    padding: 103px 32px;
+}
+.resetForm{
+    display: grid;
+    gap: 32px;
+}
+.resetForm h2{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+}
+.inputField{
+    display: grid;
+    gap: 16px;
+}

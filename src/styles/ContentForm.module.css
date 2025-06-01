@@ -1,0 +1,45 @@
+.formCnt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 64px;
+}
+.formCnt .info{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+.head{
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: left;
+}
+.pa{
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-align: left;
+}
+.con{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.num{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.checks{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.cont{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.pa{
+    font-size: 0.875rem;
+    font-weight: 400;
+}

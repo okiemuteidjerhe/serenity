@@ -1,0 +1,11 @@
+.backArrow{
+    font-size: 1.125rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    outline: none;
+}
+.backArrow:focus{
+    outline: none;
+}

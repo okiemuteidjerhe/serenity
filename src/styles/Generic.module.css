@@ -1,0 +1,26 @@
+dialog {
+  border: 0;
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: transparent;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+dialog::backdrop {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.dialog {
+  width: 45rem;
+  height: fit-content;
+  margin: auto;
+  background-color: white;
+  border-radius: 16px;
+  margin-top: 50%;
+  transform: translateY(-50%); 
+}

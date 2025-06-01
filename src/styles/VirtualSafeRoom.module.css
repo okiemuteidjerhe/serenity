@@ -1,0 +1,313 @@
+.body{
+    background-color: var(--second-backgroundC);
+}
+.dHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+}
+.primary{
+    background-color: #fff;
+    border-radius: 32px;
+    padding: 6px 0;
+}
+.primary ul{
+    display: flex;
+    gap: 16px;
+}
+.primary ul li a{
+    display: inline-block;
+    padding: 16px 24px;
+    transition: all 0.6s ease ;
+}
+.primary ul li:nth-of-type(2) a{
+    background-color: var(--foundation-color);
+    color: #fff;
+    border-radius: 32px;
+}
+.primary ul li a:hover{
+    background-color: rgba(1, 31, 27, 0.8);
+    color: #ffffff;
+    border-radius: 32px;
+}
+.secondary ul{
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+.secondary ul li:nth-of-type(3) a{
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+}
+.logoCtn{
+    width: 180px;
+    height: 40px;
+}
+.mainSide{
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 3fr 1.5fr;
+    gap: 24px;
+}
+.leftS{
+    display: grid;
+    gap: 24px;
+}
+.topLeft{
+    padding: 32px;
+    background-color: #fff;
+    height: fit-content;
+    border-radius: 16px;
+    position: relative;
+}
+.topLeft h3{
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.topLeft p{
+    font-weight: 1rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+.play{
+    background-color: var(--alternate-button-color);
+    width: 56px;
+    height: 56px;
+    border-radius: 50px;
+    display: grid;
+    place-content: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+.resizer{
+    background-color: transparent;
+    position: absolute;
+    bottom: 49px;
+    right: 49px;
+}
+.bottomLeft{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    height: fit-content;
+}
+.blLeft{
+    background-color: #fff;
+    padding: 32px;
+    border-radius: 16px;
+    display: grid;
+    gap: 16px;
+}
+.blLeft h3, .blRight h3{
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+.bllImg{
+    width: 147px;
+    margin: auto;
+}
+.blLeft button{
+    padding: 12px 16px;
+    margin: auto;
+}
+.blRight{
+    background-color: var(--button-color);
+    padding: 32px;
+    border-radius: 16px;
+    color: #fff;
+}
+.blRight h3{
+    margin-bottom: 24px;
+}
+.blRight p{
+    margin-bottom: 58px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+}
+.blRight p:last-of-type{
+    text-align: right;
+}
+.rightS{
+    display: grid;
+    gap: 24px;
+}
+.change{
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 16px;
+}
+.change h3{
+    font-weight: 1.25rem;
+    font-weight: 500;
+}
+.sceneCtn{
+    display: flex;
+    justify-content: space-between;
+}
+.group{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.group p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+.music{
+    padding: 18px 24px;
+    background-color: #fff;
+    border-radius: 16px;
+    display: grid;
+    gap: 32px;
+    position: relative;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+.title h3{
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+.title button{
+    background-color: transparent;
+}
+.cover{
+    width: 300px;
+    margin: auto;
+}
+.queue{
+    margin: auto;
+    display: grid;
+    gap: 6px;
+    text-align: center;
+}
+.queue > p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+.queue p:last-of-type{
+    font-size: 0.875rem;
+    font-weight: 300;
+}
+.slider{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    /* background-image: linear-gradient(to right, var(--primary-color) 50%, #fff 50%); */
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+}
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--primary-color);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+} 
+
+.control{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+}
+.control button{
+    background-color: transparent;
+    color: var(--primary-color);
+}
+.topBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.topBar button{
+    background-color: transparent;
+}
+.search{
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--second-backgroundC);
+    flex-grow: 0.7;
+    padding:6px 12px;
+}
+.search input{
+    border: none;
+}
+.list{
+    height: 85%;
+    overflow-y: scroll;
+}
+.songList{
+    padding: 18px 24px;
+    background-color: #fff;
+    border-radius: 16px;
+    display: grid;
+    gap: 32px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    transform: translateX(100%);
+    display: none;
+    transition: transform 0.3s ease-in-out;
+}
+.open{
+    display: block;
+    transform: translateX(0);
+}
+.song{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+.song button{
+    background-color: transparent;
+}
+.main{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.mImg{
+    width: 40px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.mTexts{
+    display: grid;
+    gap: 8px;
+}
+.mTexts > p{
+    font-size: 1rem;   
+    font-weight: 400;
+}
+.mTexts p:last-of-type{
+    font-size: 0.875rem;
+    font-weight: 300;
+}
+.noResult{
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 50%;
+}

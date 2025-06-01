@@ -1,0 +1,47 @@
+.item {
+    display: grid;
+    gap: 13px;
+    background-color: #fff;
+    color: var(--primary-color);
+    padding: 24px;
+  }
+  
+  .item button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    color: var(--primary-color);
+  }
+  
+  .item button p {
+    text-align: left;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  .open{
+    background-color: var(--second-backgroundC);
+    display: grid;
+    gap: 13px;
+    color: #011F1B;
+    padding: 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 -1px 0 0  rgba(1, 31, 27, 0.7);
+  }
+  .open button{
+    background-color: var(--second-backgroundC);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #011F1B;
+  }
+  .open button p{
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .open > p{
+    font-size: 0.875rem;
+  }
+  

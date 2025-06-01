@@ -1,0 +1,61 @@
+:root{
+    --button-color: #02473E;
+    --secondary-color: #03594E;
+    --primary-color:#131927;
+    --border-color:#B1CCC8;
+    --second-backgroundC:#F3F4FB;
+    --foundation-color:#011F1B;
+    --alternate-button-color:#6D717F;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #fff;
+    font-family: "Manrope", sans-serif;
+    max-width: 1440px;
+    margin: auto;
+    min-height: 100vh;
+    color: var(--primary-color);
+    font-size: 1rem;
+    /* max-width: 1440px;
+    height: 100%;
+    min-height: 100vh; */
+}
+img{
+    width: 100%;
+    
+    object-fit: cover;
+    
+}
+a{
+    text-decoration: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    display: inline-block;
+}
+ul li{
+    list-style: none;
+}
+input{
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--primary-color);
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+input:focus{
+    outline: none;
+}
+button{
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    font-family: inherit;
+    border-radius: 12px;
+    cursor: pointer;
+}

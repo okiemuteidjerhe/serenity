@@ -1,0 +1,8 @@
+.ldiv{
+    display: grid;
+    gap: 100px;
+}
+.lp{
+    font-size: 1.5rem;
+    font-weight: 500;
+}

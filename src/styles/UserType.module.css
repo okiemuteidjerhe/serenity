@@ -1,0 +1,46 @@
+.body{
+    background-color: var(--second-backgroundC);
+    padding: 60px 100px;
+}
+.sectionCtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    gap: 80px;
+}
+.sectionCtn h2{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+}
+.ctn{
+    display: flex;
+    gap: 48px;
+}
+.ctn figure{
+    background-color: #fff;
+    height: 400px;
+    width: 400px;
+    border-radius: 16px;
+    display: grid;
+    place-content: center;
+}
+.ctn figure:first-of-type{
+    gap: 74px;
+}
+.ctn figure:last-of-type{
+    gap: 120px;
+}
+.ctn figcaption{
+    text-align: center;
+}
+.imgCtn{
+    width: 200px;
+    height: 160px;
+}
+.indCtn{
+    width: 130px;
+    height: 117px;
+}
