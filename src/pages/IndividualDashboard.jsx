@@ -93,7 +93,7 @@ export default function IndvidualDashboard(){
                         <div className={styles.trTexts}>
                             <h1>Virtual Safe Room</h1>
                             <p>Take a breath. You're safe here.</p>
-                            <Link to=''>Visit Safe Room</Link>
+                            <Link to='/vsr'>Visit Safe Room</Link>
                         </div>
                         <div className={styles.trImg}><img src={zen} alt="" /></div>
                     </div>

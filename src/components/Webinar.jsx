@@ -1,39 +1,40 @@
+import { GoDotFill } from 'react-icons/go';
 import styles from '../styles/Webinar.module.css'
 export default function Webinar(props) {
   return (
-    <div className={styles.wCard} onClick={props.handleClick}>
+    <button className={styles.wCard} type="button" onClick={props.handleClick}>
       <div className={styles.wImg}>
-        <img src="" alt="" />
+        <img src={props.src} alt={props.alt} />
       </div>
       <h3>{props.heading}</h3>
       <div className={styles.row1}>
-        <span>Podcast</span>
-        <span>dot</span>
-        <span>Austin & Leo</span>
+        <span>{props.type}</span>
+        <span><GoDotFill/></span>
+        <span>{props.host}</span>
       </div>
       <div className={styles.row2}>
-        <p>2nd June, 2025</p>
-        <span>dot</span>
-        <p>11:00 AM</p>
+        <span>{props.date}</span>
+        <span><GoDotFill size={10}/></span>
+        <span>{props.time}</span>
       </div>
-    </div>
+    </button>
   );
 }
 
-export function Pdf() {
+export function Pdf(props) {
   return (
     <div className={styles.pCard}>
       <div className={styles.pImg}>
-        <img src="" alt="" />
+        <img src={props.src} alt={props.alt} />
       </div>
-      <h3>Company Mental Well Policy</h3>
+      <h3>{props.heading}</h3>
       <div className={styles.pr1}>
         <span>File:</span>
         <span>PDF</span>
       </div>
       <div className={styles.pr2}>
         <span>Updated:</span>
-        <span>March 2025</span>
+        <span>{props.date}</span>
       </div>
     </div>
   );

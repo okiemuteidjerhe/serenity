@@ -4,21 +4,49 @@ import { TfiAngleRight } from 'react-icons/tfi'
 import { Link } from 'react-router'
 import { useRef, useState } from 'react'
 import { LiaTimesSolid } from 'react-icons/lia'
+import pod from '../images/pod.png'
+import pdf from '../images/pdf.png'
+import { GoCopy, GoDotFill, GoLink } from 'react-icons/go'
 
 const webinarData = [
     {
         heading:'Dealing with depression',
+        type: "Podcast",
+        host: "Austin & Leo",
+        src: pod,
+        alt: "Talking",
+        url: "https://serenity.com",
+        date: "2nd June, 2025",
+        time: "11:00 AM"
     },
     {
-        heading:1,
+        heading:"Work place mental health peptalk",
+        type: "Webinar",
+        host: "Austin & Leo",
+        src: pod,
+        alt: "Talking",
+        url: "https://Jenandthepen.org",
+        date: "2nd June, 2025",
+        time: "11:00 AM"
     },
     {
-        heading:1,
+        heading:"Dealing with work related stress",
+        type: 'Audio',
+        host: "Austin & Leo",
+        src: pod,
+        alt: "Talking",
+        url: "https://serenity.com",
+        date: "2nd June, 2025",
+        time: "11:00 AM"
     }
 ]
 const pdfData =[
     {
-        a:2
+        heading:"Company Mental Well Policy",
+        date: "March 2025",
+        src: pdf,
+        alt: "pdf folder"
+
     }
 ]
 
@@ -36,12 +64,28 @@ export default function CompanyMaterials(){
         setIsOpen(true)
     }
 
+    async function handleCopy(){
+        if(!trigger||!trigger.url){
+            return;
+        }
+        try{
+            await navigator.clipboard.writeText(trigger.url)
+        }catch(e){
+            console.log('Failed to copy')
+        }
+    }
     
 const webinars = webinarData.map((item, index)=>{
     return(
         <Webinar
         key={index}
         heading={item.heading}
+        type={item.type}
+        host={item.host}
+        src={item.src}
+        alt={item.alt}
+        date={item.date}
+        time={item.time}
         handleClick={()=>handleOpen(item)}
         />
     )
@@ -49,7 +93,13 @@ const webinars = webinarData.map((item, index)=>{
 
 const pdfs = pdfData.map(item=>{
     return(
-        <Pdf/>
+        <Pdf
+        key={item.heading}
+        heading={item.heading}
+        date={item.date}
+        src={item.src}
+        alt={item.alt}
+        />
     )
 })
     return(
@@ -89,24 +139,29 @@ const pdfs = pdfData.map(item=>{
                 <div className={styles.dialog}>
                     <button type='button' onClick={handleClose}><LiaTimesSolid size={23} color="var(--primary-color)"/></button>
                     <div className={styles.dImg}>
-                        <img src="" alt="" />
+                        <img src={trigger? trigger.src : ""} alt="" />
                     </div>
                     <div className={styles.dTexts}>
                         <p>Details:</p>
                         <div className={styles.dRows}>
-                            <span>Host:</span><span>Ted Anjelo</span>
+                            <span>Host:</span>
+                            <span>{trigger? trigger.host : ""}</span>
                         </div>
                         <div className={styles.dRows}>
-                            <span>Topic:</span><span>{/* Work place mental health */} {trigger?trigger.heading: ""}</span>
+                            <span>Topic:</span>
+                            <span> {trigger?trigger.heading: ""}</span>
                         </div>
                         <div className={styles.dRows}>
-                            <span>14th June,2025</span>
-                            <span>dot</span>
-                            <span>01:00PM</span>
+                            <span>{trigger?trigger.date : ""}</span>
+                            <span><GoDotFill size={10}/></span>
+                            <span>{trigger ? trigger.time : ""}</span>
                         </div>
                         <div className={styles.dRows}>
-                            <span>link icon</span>
-                            <a href=''>Workplacementalhealth/pop</a>
+                            <div className={styles.link}>
+                                <span><GoLink/></span>
+                                <span>{trigger ? trigger.url : ''}</span>
+                            </div>
+                            <button type='button' onClick={handleCopy}><GoCopy size={16} color='var(--primary-color)'/></button>
                         </div>
                     </div>
                 </div>

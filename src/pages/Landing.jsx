@@ -14,6 +14,10 @@ import Feature from "../components/Feature";
 import { FaStar } from "react-icons/fa6";
 import { FiInstagram } from "react-icons/fi";
 import { CiLinkedin, CiTwitter } from "react-icons/ci";
+import vsrVector from '../images/vsrVector.png';
+import wwoVector from '../images/wwoVector.png';
+import wwo2 from '../images/wwo2.png';
+import ctaVector from '../images/ctaVector.png'
 
 /*This will come from api */
 let data = [
@@ -173,6 +177,9 @@ export default function Landing() {
               mindful break, reset emotionally and breathe.
             </p>
           </div>
+          <div className={styles.vsrVector}>
+            <img src={vsrVector} alt="squigglies" />
+          </div>
           <div className={styles.fImg}>
             <img src={yoga} alt="yoga pose" />
           </div>
@@ -182,6 +189,12 @@ export default function Landing() {
         </div>
       </section>
       <section className={styles.offerings}>
+        <div className={styles.wwo1}>
+          <img src={wwoVector} alt="squiggles" />
+        </div>
+        <div className={styles.wwo2}>
+          <img src={wwo2} alt="" />
+        </div>
         <h2>What We Offer?</h2>
         <div className={styles.offerInfo}>
           <div className={styles.card}>
@@ -220,6 +233,9 @@ export default function Landing() {
       </section>
       <section className={styles.cta}>
           <div className={styles.mainCta}>
+            <div className={styles.ctaVector}>
+              <img src={ctaVector} alt="squiggles" />
+            </div>
             <div className={styles.texts}>
               <h2>Take a step toward a healthier workplace</h2>
               <p>
@@ -262,9 +278,6 @@ export default function Landing() {
                 <li>
                   <Link to="">Pricing</Link>
                 </li>
-                <li>
-                  <Link to="">Link 4</Link>
-                </li>
               </ul>
             </div>
             <div className={styles.footerText}>
@@ -278,9 +291,6 @@ export default function Landing() {
                 </li>
                 <li>
                   <Link to="">Help Center</Link>
-                </li>
-                <li>
-                  <Link to="">Link 4</Link>
                 </li>
               </ul>
             </div>

@@ -1,0 +1,45 @@
+.wCard, .pCard{
+    display: grid;
+    gap: 16px;
+    background-color: transparent;
+    color: var(--primary-color);
+    text-align: left;
+    height: fit-content;
+}
+.wImg{
+    width: 350px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.wCard h3, .pCard h3{
+    font-weight: 1.125rem;
+    font-weight: 600;
+}
+.row1, .row2{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.row1 span:first-of-type, .row1 span:last-of-type{
+    font-size: 0.98rem;
+    font-weight: 400;
+}
+.row2 span:first-of-type, .row2 span:last-of-type{
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+.pImg{
+    width: 63px;
+    margin: auto;
+}
+.pr1, .pr2{
+    display: inline-flex;
+    gap: 8px;
+}
+.pr1 span, .pr2 span{
+    font-size: 1rem;
+    font-weight: 400;
+}
+.pr1 span:last-of-type, .pr2 span:last-of-type{
+    font-weight: 400;
+}

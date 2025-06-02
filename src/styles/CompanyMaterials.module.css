@@ -1,0 +1,94 @@
+.body{
+    background-color: var(--second-backgroundC);
+}
+.cHeader{
+    padding: 48px 32px;
+}
+.miniNav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.miniNav ul li a{
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 400;
+    padding: 12px 8px;
+}
+.miniNav ul li:first-of-type a, .mini-nav ul li:nth-of-type(2){
+    color: #9EA2AE;
+}
+.cSection{
+    padding: 0 142px 97px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: fit-content;
+}
+.webinar, .pdf{
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+    height: fit-content;
+}
+.webinar h2, .pdf h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+.cardCnt{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+    height: fit-content;
+}
+.pdfCnt{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+    gap: 22px;
+    height: fit-content;
+}
+.dialog{
+    background-color: #fff;
+    padding: 32px;
+    border-radius: 16px;
+    display: grid;
+    gap: 32px;
+}
+.dialog button{
+    background-color: transparent;
+    display: inline-block;
+    text-align: right;
+}
+.dTexts{
+    display: grid;
+    gap: 32px;
+}
+.dTexts p, .dRows:first-of-type span:last-of-type, .dRows:nth-of-type(2) span:last-of-type{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.dRows{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.dRows:first-of-type span:first-of-type, .dRows:nth-of-type(2) span:first-of-type{
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+.dRows:nth-of-type(3) span{
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+.dRows:last-of-type{
+    display: flex;
+    gap: 64px;
+    align-items: center;
+}
+.link{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #0095FF;
+}
