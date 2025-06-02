@@ -132,7 +132,8 @@ let progress;
 
   const filteredSongs = data.filter(item=>{
     if(searchMusic){
-      return item.title.toLowerCase() === searchMusic.toLowerCase()
+      /* return item.title.toLowerCase() === searchMusic.toLowerCase() */
+      return item.title.toLowerCase().includes(searchMusic.toLowerCase())
     } else{
       return true
     }
@@ -155,8 +156,8 @@ let progress;
   )
 })
 
-function handleSearch(formData){
-      const search = formData.get("searchMusic") 
+function handleSearch(e){
+      const search = /* formData.get("searchMusic")  */ e.target.value;
       setSearchMusic(search)
 }
 
@@ -317,14 +318,14 @@ progress = (currentTime/duration) * 100;
                 </button>
                 <div className={`${styles.songList} ${isPlayListOpen? styles.open : undefined}`}>
         <div className={styles.topBar}>
-          <form action={handleSearch} className={styles.search}>
+          <div /* action={handleSearch} */ className={styles.search}>
             <FiSearch size={30}/>
-            <input type="text"placeholder="Search" name="searchMusic"/>
-          </form>
+            <input type="text"placeholder="Search" name="searchMusic" value={searchMusic} onChange={handleSearch}/>
+          </div>
           <button onClick={handleClosePlaylist}><LiaTimesSolid size={23} color="var(--primary-color)"/></button>
         </div>
         <div className={filteredSongs.length < 7 ? undefined : `${styles.list}`}>
-          {filteredSongs.length===0? <h3 className={styles.noResult}>Sorry. Nothing was found. Press Enter</h3> : songList}
+          {/* filteredSongs.length===0? <h3 className={styles.noResult}>Sorry. Nothing was found. Press Enter</h3> : */ songList}
         </div>
       </div>
             </div>
