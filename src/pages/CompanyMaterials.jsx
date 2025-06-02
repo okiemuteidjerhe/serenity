@@ -161,7 +161,9 @@ const pdfs = pdfData.map(item=>{
                                 <span><GoLink/></span>
                                 <span>{trigger ? trigger.url : ''}</span>
                             </div>
-                            <button type='button' onClick={handleCopy}><GoCopy size={16} color='var(--primary-color)'/></button>
+                            <button type='button' onClick={handleCopy}>
+                            <GoCopy size={16} color='var(--primary-color)'/>
+                            </button>
                         </div>
                     </div>
                 </div>
