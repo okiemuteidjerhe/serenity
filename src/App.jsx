@@ -14,6 +14,8 @@ import VirtualSafeRoom from "./pages/VirtualSafeRoom";
 import Scenarios from "./pages/Scenarios";
 import CompanyMaterials from "./pages/CompanyMaterials";
 import Journal from "./pages/Journal";
+import Message from "./pages/Message";
+import Reminder from "./pages/Reminder";
 
 
 function App() {
@@ -34,6 +36,8 @@ function App() {
         <Route path="/scenarios" element={<Scenarios />} />
         <Route path="/companyresources" element={<CompanyMaterials />} />        
         <Route path="/journal" element={<Journal />} />        
+        <Route path="/message" element={<Message />} />        
+        <Route path="/reminder" element={<Reminder />} />        
       </Routes>
     </BrowserRouter>
   )

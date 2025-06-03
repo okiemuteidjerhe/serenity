@@ -1,8 +1,8 @@
 .body{
     background-color: var(--second-backgroundC);
-    padding-bottom: 32px;
+    padding-bottom: 80px;
 }
-.jHeader{
+.mHeader{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,7 +22,7 @@
     padding: 16px 24px;
     transition: all 0.6s ease ;
 }
-.primary ul li:nth-of-type(3) a{
+.primary ul li:nth-of-type(4) a{
     background-color: var(--foundation-color);
     color: #fff;
     border-radius: 32px;
@@ -46,29 +46,37 @@
     width: 180px;
     height: 40px;
 }
-.jSection{
-    margin: 32px 100px;
+.messageSection{
+    margin: 0 100px;
+    margin-top: 32px;
     background-color: #fff;
     display: grid;
     grid-template-columns: 2fr 3fr;
-    gap: 24px;
-    padding: 32px;
+    gap: 16px;
+    padding: 16px 0;
     border-radius: 12px;
 }
 .left{
-    border: 1px solid #DBDCE2;
+    border-right: 1px solid #DBDCE2;
+    border-left: 1px solid #DBDCE2;
     display: grid;
-    gap: 24px;
+    gap: 16px;
     height: fit-content;
 }
 .box{
     border-bottom: 1px solid #DBDCE2;
+    padding: 16px;
+    display: grid;
+    gap: 16px;
+}
+.box p{
+    font-size: 0.875rem;
+    font-weight: 600;
 }
 .inputB{
     display: flex;
     align-items: center;
     gap: 12px;
-    margin: 16px 24px;
     border: 1.5px solid #E5E7EA;
     padding: 12px;
     border-radius: 12px;
@@ -77,51 +85,37 @@
 .inputB input{
     border: none;
 }
-.entry{
+.allMessages{
     display: grid;
+}
+.message{
+    display: flex;
     gap: 8px;
-    padding: 24px;
-}
-.entry h3{
-    font-size: 1.125rem;
-    font-weight: 600;
-}
-.entry p{
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 22px;
-    width: 324px;
-}
-.entry:not(:last-of-type){
+    padding: 16px;
     border-bottom: 1px solid #DBDCE2;
 }
-.right{
+.avatarCtn{
+    width: 48px;
+}
+.texts{
     display: grid;
-    gap: 24px;
-    height: fit-content;
+    gap: 4px;
+    width: 100%;
 }
-.right h2{
-    font-size: 1.5rem;
-    font-weight: 500;
-} 
-.right textarea{
-    width: 686px;
-    height: 664px;
-    background-image: url(../images/notebook.png);
-    border: none;
-    padding: 32px;
-    resize: none;
-    position: relative;
+.top, .bottom{
+    display: flex;
+    justify-content: space-between;
+    
 }
-.right textarea:focus{
-    outline: none;
+.top h3{
+    font-size: 1rem;
+    font-weight: 600;
 }
-.right button{
-    padding: 14px 20px;
-    margin-left: 594px;
+.top p{
+    font-size: 0.75rem;
+    font-weight: 400;
 }
-/* .right::before{
-    content: '';
-    background-image: url(../images/prescription.png);
-    background-repeat: no-repeat;
-} */
+.bottom p{
+    font-size: 0.875rem;
+    font-weight: 400;
+}

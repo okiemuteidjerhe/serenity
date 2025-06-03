@@ -74,8 +74,8 @@ export default function IndvidualDashboard(){
                         <li><Link to="/dashind">Dashboard</Link></li>
                         <li><Link to="/vsr">Safe Room</Link></li>
                         <li><Link to="/journal">Journal</Link></li>
-                        <li><Link to="">Message</Link></li>
-                        <li><Link to=''>Reminder</Link></li>
+                        <li><Link to="/message">Message</Link></li>
+                        <li><Link to='/reminder'>Reminder</Link></li>
                     </ul>
                 </nav>
 
