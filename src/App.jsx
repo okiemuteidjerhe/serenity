@@ -13,6 +13,7 @@ import IndividualDashboard from "./pages/IndividualDashboard";
 import VirtualSafeRoom from "./pages/VirtualSafeRoom";
 import Scenarios from "./pages/Scenarios";
 import CompanyMaterials from "./pages/CompanyMaterials";
+import Journal from "./pages/Journal";
 
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
         <Route path="/dashind" element={<IndividualDashboard />} />
         <Route path="/vsr" element={<VirtualSafeRoom />} />
         <Route path="/scenarios" element={<Scenarios />} />
-        <Route path="/companyresources" element={<CompanyMaterials />} />
+        <Route path="/companyresources" element={<CompanyMaterials />} />        
+        <Route path="/journal" element={<Journal />} />        
       </Routes>
     </BrowserRouter>
   )

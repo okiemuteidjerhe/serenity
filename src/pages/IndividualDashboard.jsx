@@ -73,7 +73,7 @@ export default function IndvidualDashboard(){
                     <ul>
                         <li><Link to="/dashind">Dashboard</Link></li>
                         <li><Link to="/vsr">Safe Room</Link></li>
-                        <li><Link to="">Journal</Link></li>
+                        <li><Link to="/journal">Journal</Link></li>
                         <li><Link to="">Message</Link></li>
                         <li><Link to=''>Reminder</Link></li>
                     </ul>
@@ -105,7 +105,7 @@ export default function IndvidualDashboard(){
                 </div>
                 <div className={styles.bottom}>
                     <div className={styles.bottomR}>
-                        <Link to=''>
+                        <Link to='/journal'>
                             <div className={styles.journal}>
                             <h2>Journal</h2>
                             <p>What's been on your mind today? Let it out.</p>

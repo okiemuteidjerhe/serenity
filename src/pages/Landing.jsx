@@ -10,7 +10,6 @@ import company from "../images/company.png"
 import { Link } from "react-router";
 import FaqItem from "../components/FaqItem";
 import { useState } from "react";
-import Feature from "../components/Feature";
 import { FaStar } from "react-icons/fa6";
 import { FiInstagram } from "react-icons/fi";
 import { CiLinkedin, CiTwitter } from "react-icons/ci";
@@ -18,6 +17,8 @@ import vsrVector from '../images/vsrVector.png';
 import wwoVector from '../images/wwoVector.png';
 import wwo2 from '../images/wwo2.png';
 import ctaVector from '../images/ctaVector.png'
+import { GiHamburgerMenu } from "react-icons/gi";
+import { LiaTimesSolid } from "react-icons/lia";
 
 /*This will come from api */
 let data = [
@@ -26,7 +27,7 @@ let data = [
     question: "What is Serenity?",
     answer:
       "Serenity is your private, personalized mental health and wellness space at work. Serenity is not a performance tracker. It supports your mental health, not monitor it.",
-    isOpen: false,
+    isOpen: true,
   },
   {
     id: 2,
@@ -52,40 +53,9 @@ let data = [
 ];
 
 
-const content = [
-  {
-    featureHeading:"Interactive Role-Play Scenarios",
-    information:"Serenity helps you learn how others handle burnout, anxiety and stigma, and build empathy.",
-    src: focused,
-    alt: "logo"
-  },
-  {
-    featureHeading: "Daily Mood Check-ins",
-    information:"Serenity provides quick mood tracking that helps build emotional awareness over time.",
-    src: emoji,
-    alt: "logo"
-  },
-  {
-    featureHeading: "Journal",
-    information: "Serenity helps you reflect, release and reconnect with yourself. The journal is designed to be confiental and visible only to you.",
-    src: journal,
-    alt: "logo"
-  },
-]
-
-const otherF = content.map(cnt=>{
-  return(
-    <Feature
-    key={cnt.featureHeading}
-    featureHeading={cnt.featureHeading}
-    information={cnt.information}
-    src={cnt.src}
-    alt={cnt.alt}
-    />
-  )
-})
 export default function Landing() {
   const [copyOfData, setCopyOfData] = useState(data);
+  const [menuOpen, setMenuOpen] = useState(false)
 
   function handleCopy(id) {
     setCopyOfData((prevDataCopy) => {
@@ -111,6 +81,13 @@ export default function Landing() {
       />
     );
   });
+
+  function handleMenuOpen(){
+    setMenuOpen(true)
+  }
+  function handleCloseMenu(){
+    setMenuOpen(false)
+  }
 
   return (
     <div className={styles.body}>
@@ -146,6 +123,18 @@ export default function Landing() {
             </li>
           </ul>
         </nav>
+        <button type="button"><GiHamburgerMenu size={24} color="var(--primary-color)"/></button>
+        <nav className={styles.mobileNav}>
+          <ul>
+            <li><LiaTimesSolid/></li>
+            <li><Link>Home</Link></li>
+            <li><Link>Pricing</Link></li>
+            <li><Link>Features</Link></li>
+            <li><Link>FAQs</Link></li>
+            <li><Link>Sign in</Link></li>
+            <li><Link>Sign Up</Link></li>
+          </ul>
+        </nav>
       </header>
 
       <section className={styles.section}>
@@ -153,12 +142,12 @@ export default function Landing() {
           <h1>
             Harmonize your work and <span>well-being.</span>
           </h1>
-          <div className={styles.t}>
+          
             <p>
               Transform your work-life balance. Prioritize your mental health
               with resources and support.
             </p>
-          </div>
+          
           <Link to="" className={styles.book}>
             Book an Appointment
           </Link>
@@ -185,7 +174,33 @@ export default function Landing() {
           </div>
         </article>
         <div className={styles.others}>
-          {otherF}
+          <div className={styles.rpg}>
+                <h2>Interactive Role-Play Scenarios</h2>
+                <p>
+                    Serenity helps you learn how others handle burnout, anxiety and stigma, and build empathy.
+                </p>
+                <div className={styles.f0Img}>
+                  <img src={focused} alt="focused" />
+                </div>
+          </div>
+          <div className={styles.rpg}>
+                <h2>Daily Mood Check-ins</h2>
+                <p>
+                    Serenity provides quick mood tracking that helps build emotional awareness over time.
+                </p>
+                <div className={styles.f3Img}>
+                  <img src={emoji} alt="emoji" />
+                </div>
+          </div>
+          <div className={styles.rpg}>
+                <h2>Journal</h2>
+                <p>
+                    Serenity helps you reflect, release and reconnect with yourself. The journal is designed to be confiental and visible only to you.
+                </p>
+                <div className={styles.f3Img}>
+                  <img src={journal} alt="journal" />
+                </div>
+          </div>
         </div>
       </section>
       <section className={styles.offerings}>
@@ -252,7 +267,7 @@ export default function Landing() {
             <div className={styles.logoCtn}>
               <img src={logo} alt="Serenity logo" />
             </div>
-            <p>Your Mental Health Wellness Company</p>
+            <p>Your Mental Wellness Company</p>
             <div className={styles.smIcons}>
               <Link to="">
                 <FiInstagram size={25}/>
@@ -295,7 +310,7 @@ export default function Landing() {
               </ul>
             </div>
             <div className={styles.footerText}>
-              <h3>FAQ</h3>
+              <h3>Contact</h3>
               <ul>
                 <li>
                   <a href="mailto:info@serenitywellness.org">

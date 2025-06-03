@@ -21,7 +21,7 @@
   }
 
   .open{
-    background-color: var(--second-backgroundC);
+    background-color: #E6EEED;
     display: grid;
     gap: 13px;
     color: #011F1B;
@@ -31,7 +31,7 @@
     box-shadow: 0 -1px 0 0  rgba(1, 31, 27, 0.7);
   }
   .open button{
-    background-color: var(--second-backgroundC);
+    background-color: #E6EEED;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,4 +44,15 @@
   .open > p{
     font-size: 0.875rem;
   }
-  
+  @media screen and (max-width: 440px) {
+    .open button p, .item button p{
+      font-size: 1rem;
+    }
+    .open button svg, .item button svg{
+      width: 24px;
+    }
+    .open > p{
+      font-size: 0.75rem;
+      line-height: 20px;
+    }
+  }  
