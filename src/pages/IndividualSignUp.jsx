@@ -74,7 +74,7 @@ export default function IndividualSignUp() {
             />
           </form>
           <p className={styles.p}>
-            Already have an account? <Link to="">Sign In</Link>
+            Already have an account? <Link to="/signin">Sign In</Link>
           </p>
         </div>
       </section>

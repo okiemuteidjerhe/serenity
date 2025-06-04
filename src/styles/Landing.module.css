@@ -463,7 +463,6 @@ ul{
     }
     .mainCta a{
         margin: auto;
-        cursor: pointer;
     }
     .lfoot{
         display: flex;

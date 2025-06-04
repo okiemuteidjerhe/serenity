@@ -41,6 +41,8 @@ const data = [
 
 export default function Reminder(){
     const[reminderList, setReminderList] = useState(data)
+    const[searchTerm, setSearcTerm] = useState("")
+
     function handleNewReminder(formData){
         const reminder = Object.fromEntries(formData);
         
@@ -103,9 +105,22 @@ export default function Reminder(){
       return item.event !== event
     })
   })
-    }
+}
 
-    const reminders = reminderList.map(r=>{
+function handleSearch(e){
+    let word = e.target.value;
+    setSearcTerm(word);
+}
+
+const filteredReminders = reminderList.filter(item=>{
+    if(searchTerm){
+        return item.event.toLowerCase().includes(searchTerm.toLowerCase())
+    }else{
+        return true
+    }
+})
+
+    const reminders = filteredReminders.map(r=>{
         return(
             <div 
             key={r.id}
@@ -175,7 +190,7 @@ export default function Reminder(){
                         <h2>Reminder</h2>
                         <div className={styles.searchBar}>
                             <FiSearch size={24}/>
-                            <input type="text" placeholder="Search"/>
+                            <input type="text" placeholder="Search" value={searchTerm} onChange={handleSearch}/>
                         </div>
                     </div>
                     <div className={styles.reminderTable}>

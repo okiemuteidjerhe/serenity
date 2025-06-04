@@ -23,9 +23,21 @@ const journalEntries = [
 ]
 export default function Journal(){
 const[entries, setEntries] = useState(journalEntries);
+const[searchWord, setSearchWord] = useState('')
 const[diaryEntry, setDiaryEntry] = useState('');
 
-const entriesArr = entries.map((e,index)=>{
+function handleSearch(e){
+    const search = e.target.value;
+    setSearchWord(search);
+}
+const filteredSearch = entries.filter(item=>{
+    if(searchWord){
+        return item.entry.toLowerCase().includes(searchWord.toLowerCase())
+    }else{
+        return true
+    }
+})
+const entriesArr = filteredSearch.map((e,index)=>{
     return(
         <div 
         key={index}
@@ -75,7 +87,7 @@ function handleDiaryEntry(formData){
                     <div className={styles.box}>
                         <div className={styles.inputB}>
                             <FiSearch size={24}/>
-                            <input type="text" placeholder="Search"/>
+                            <input type="text" placeholder="Search" value={searchWord} onChange={handleSearch}/>
                         </div>
                     </div>
                     <div className={styles.journalEntries}>
