@@ -2,58 +2,170 @@
     background-color: var(--second-backgroundC);
     padding-bottom: 46px;
 }
-.rHeader{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px;
-}
-.primary{
-    background-color: #fff;
-    border-radius: 32px;
-    padding: 6px 0;
-}
-.primary ul{
-    display: flex;
-    gap: 16px;
-}
-.primary ul li a{
-    display: inline-block;
-    padding: 16px 24px;
-    transition: all 0.6s ease ;
-}
-.primary ul li:nth-of-type(5) a{
-    background-color: var(--foundation-color);
-    color: #fff;
-    border-radius: 32px;
-}
-.primary ul li a:hover{
-    background-color: rgba(1, 31, 27, 0.8);
-    color: #ffffff;
-    border-radius: 32px;
-}
-.secondary ul{
-    display: flex;
-    gap: 32px;
-    align-items: center;
-}
-.secondary ul li:nth-of-type(3) a{
-    display: inline-flex;
-    gap: 8px;
-    align-items: center;
-}
-.logoCtn{
-    width: 180px;
-    height: 40px;
-}
 .rSection{
-    background-color: #fff;
     margin: 32px 142px 0;
     display: grid;
     gap: 24px;
 }
 .top{
+    display: grid;
+    grid-template-columns: 566px 566px;
+    gap: 24px;
+}
+.topLeft{
+    display: grid;
+    gap: 16px;
+    padding: 24px 32px;
+    border-radius: 16px;
+    background-color: #fff;
+}
+.topLeft h3, .topRight h3{
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.tlBox{
+    display: grid;
+    grid-template-columns: 296px 1fr;
+}
+.tlTexts{
+    display: grid;
+    gap: 16px;
+}
+.topT{
+    display: grid;
+    gap: 4px;
+}
+.topT > p{
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 26px;
+}
+.row{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.row span:first-of-type, .row span:last-of-type, .topT p:last-of-type{
+    font-size: 0.827rem;
+    font-weight: 400;
+}
+.tlTexts button{
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-size: 0.827rem;
+    font-weight: 400;
+    display: inline-flex;
+    justify-self: left;
+}
+.topRight{
+    padding: 24px 32px;
+    border-radius: 16px;
+    background-color: #fff;
+    display: grid;
+    gap: 24px;
+}
+.inputField{
+    display: grid;
+    gap: 16px;
+}
+.lab{
+    display: grid;
+    gap: 8px;
+}
+.labelText{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.lab input{
+    min-width: 0;
+    width: 100%;
+}
+.inputRow{
     display: flex;
     gap: 24px;
 }
-
+.topRight button{
+    padding: 14px 20px;
+    border-radius: 12px;
+    width: fit-content;
+    display: flex;
+    justify-self: right;
+}
+.bottom{
+    display: grid;
+    padding: 16px 32px;
+    gap: 24px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 16px;
+}
+.topBottom{
+    display: flex;
+    gap: 379px;
+    align-items: center;
+}
+.topBottom h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.searchBar{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border: 1.5px solid #E5E7EA;
+    flex-grow: 1;
+    border-radius: 12px;
+}
+.searchBar input{
+    flex-grow: 1;
+    border: none;
+}
+.reminderTable{
+    border: 1px solid #DBDCE2;
+}
+.row1{
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr 1fr 0.9fr;
+    padding: 24px 32px;
+    border-bottom: 1px solid #DBDCE2;
+}
+.row1 h3{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.row2{
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr 1fr 0.9fr;
+    padding: 24px 32px;
+    align-items: center;
+}
+.row2:not(:last-of-type){
+    border-bottom: 1px solid #DBDCE2;
+}
+.row2 p:not(:last-of-type){
+    font-size: 1rem;
+    font-weight: 400;
+}
+.row2 p:nth-of-type(4){
+    padding: 8px 12px;
+    border-radius: 12px;
+    width: fit-content;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    justify-self: center;    
+}
+.row1 h3:not(:first-of-type), .row2 p:not(:first-of-type), .row2 span{
+    text-align: center;
+}
+.inActive{
+    background-color: #FDECEC;
+    color: #EE443F;
+    border: 1px solid #EE443F;
+}
+.active{
+    background-color: #ECF8EF;
+    border: 1px solid #43B75D;
+    color: #43B75D;
+}

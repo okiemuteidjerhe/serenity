@@ -101,13 +101,13 @@ export default function Landing() {
               <Link to="">Home</Link>
             </li>
             <li>
-              <Link to="">Features</Link>
+              <a href="#features">Features</a>
             </li>
             <li>
               <Link to="">Pricing</Link>
             </li>
             <li>
-              <Link to="">FAQs</Link>
+              <a href="#faq">FAQs</a>
             </li>
           </ul>
         </nav>
@@ -157,7 +157,7 @@ export default function Landing() {
         </div>
       </section>
 
-      <section className={styles.features}>
+      <section className={styles.features} id="features">
         <article className={styles.vs}>
           <div className={styles.vsTexts}>
             <h2>Virtual Safe Room</h2>
@@ -240,7 +240,7 @@ export default function Landing() {
           </div>
         </div>
       </section>
-      <section className={styles.faq}>
+      <section className={styles.faq} id="faq">
         <h2>Frequently asked questions</h2>
         <div className={styles.content}>
           {items}

@@ -229,6 +229,7 @@ ul{
     border: 1.5px solid var(--border-color);
     border-radius: 12px;
     color: var(--alternate-button-color);
+    cursor: pointer;
 } 
 .lfoot{
     display: grid;
@@ -462,6 +463,7 @@ ul{
     }
     .mainCta a{
         margin: auto;
+        cursor: pointer;
     }
     .lfoot{
         display: flex;

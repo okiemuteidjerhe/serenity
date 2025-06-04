@@ -18,6 +18,7 @@ import { BsBell } from "react-icons/bs"
 import { TfiAngleDown } from "react-icons/tfi"
 import { GoArrowRight, GoFile, GoVideo } from "react-icons/go"
 import { useRef, useState } from "react"
+import NavBar from "../components/NavBar"
 
 export default function IndvidualDashboard(){
  const [mood, setMood] = useState(null);
@@ -65,28 +66,7 @@ export default function IndvidualDashboard(){
  ]
     return(
         <div className={styles.body}>
-            <header className={styles.dHeader}>
-                <div className={styles.logoCtn}>
-                    <img src={logo} alt="Serenity logo" />
-                </div>
-                <nav className={styles.primary}>
-                    <ul>
-                        <li><Link to="/dashind">Dashboard</Link></li>
-                        <li><Link to="/vsr">Safe Room</Link></li>
-                        <li><Link to="/journal">Journal</Link></li>
-                        <li><Link to="/message">Message</Link></li>
-                        <li><Link to='/reminder'>Reminder</Link></li>
-                    </ul>
-                </nav>
-
-                <nav className={styles.secondary}>
-                    <ul>
-                        <li><Link to=''><PiGearSixLight/></Link></li>
-                        <li><Link to=''><BsBell/></Link></li>
-                        <li><Link to=''><img src={Avatar} alt="Avatar" /> <TfiAngleDown/></Link></li>
-                    </ul>
-                </nav>
-            </header>
+            <NavBar/>
             <section className={styles.mainS}>
                 <div className={styles.top}>
                     <div className={styles.topRight}>

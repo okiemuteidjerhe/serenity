@@ -1,12 +1,8 @@
-import { Link } from 'react-router'
 import styles from '../styles/Message.module.css'
-import { PiGearSixLight } from 'react-icons/pi'
-import { BsBell } from 'react-icons/bs'
-import { TfiAngleDown } from 'react-icons/tfi'
-import logo from "../images/serenity.svg"
 import Avatar from '../images/Avatar.png'
 import { FiSearch } from 'react-icons/fi'
 import { BiCheckDouble } from 'react-icons/bi'
+import NavBar from '../components/NavBar'
 
 const allMessages = [
     {
@@ -49,28 +45,7 @@ export default function Message(){
 
     return(
         <div className={styles.body}>
-            <header className={styles.mHeader}>
-                <div className={styles.logoCtn}>
-                                    <img src={logo} alt="Serenity logo" />
-                                </div>
-                                <nav className={styles.primary}>
-                                    <ul>
-                                        <li><Link to="/dashind">Dashboard</Link></li>
-                                        <li><Link to="/vsr">Safe Room</Link></li>
-                                        <li><Link to="/journal">Journal</Link></li>
-                                        <li><Link to="/message">Message</Link></li>
-                                        <li><Link to='/reminder'>Reminder</Link></li>
-                                    </ul>
-                                </nav>
-                
-                                <nav className={styles.secondary}>
-                                    <ul>
-                                        <li><Link to=''><PiGearSixLight/></Link></li>
-                                        <li><Link to=''><BsBell/></Link></li>
-                                        <li><Link to=''><img src={Avatar} alt="Avatar" /> <TfiAngleDown/></Link></li>
-                                    </ul>
-                                </nav>
-            </header>
+            <NavBar/>
             <section className={styles.messageSection}>
                             <div className={styles.left}>
                                 <div className={styles.box}>

@@ -1,5 +1,4 @@
 import styles from "../styles/VirtualSafeRoom.module.css";
-import logo from "../images/serenity.svg";
 import scene from "../images/scene.png";
 import breathe from "../images/breathe.png";
 import nature from "../images/nature.png";
@@ -7,11 +6,6 @@ import waterfall from "../images/waterfall.png";
 import whitenoise from "../images/white-noise.png";
 import raindrops from "../images/raindrops.png";
 import cover from "../images/cover.png";
-import { Link } from "react-router";
-import { PiGearSixLight } from "react-icons/pi";
-import { BsBell } from "react-icons/bs";
-import { TfiAngleDown } from "react-icons/tfi";
-import Avatar from '../images/Avatar.png'
 import { AiOutlineExpand } from "react-icons/ai";
 import { CiPlay1 } from "react-icons/ci";
 import { MdQueueMusic } from "react-icons/md";
@@ -22,6 +16,7 @@ import { IoPlayCircleOutline } from "react-icons/io5";
 import { useRef, useState } from "react";
 import music from '../media/Jaden_Smith_-_Cabin_Fever.mp3'
 import music1 from '../media/Kendrick_Lamar_ft_SZA_-_luther.mp3'
+import NavBar from "../components/NavBar";
 
 const data = [
   {
@@ -199,28 +194,7 @@ progress = (currentTime/duration) * 100;
 
   return (
     <div className={styles.body}>
-      <header className={styles.dHeader}>
-                      <div className={styles.logoCtn}>
-                          <img src={logo} alt="Serenity logo" />
-                      </div>
-                      <nav className={styles.primary}>
-                          <ul>
-                              <li><Link to="/dashind">Dashboard</Link></li>
-                              <li><Link to="/vsr">Safe Room</Link></li>
-                              <li><Link to="">Journal</Link></li>
-                              <li><Link to="">Message</Link></li>
-                              <li><Link to=''>Reminder</Link></li>
-                          </ul>
-                      </nav>
-      
-                      <nav className={styles.secondary}>
-                          <ul>
-                              <li><Link to=''><PiGearSixLight/></Link></li>
-                              <li><Link to=''><BsBell/></Link></li>
-                              <li><Link to=''><img src={Avatar} alt="Avatar" /> <TfiAngleDown/></Link></li>
-                          </ul>
-                      </nav>
-                  </header>
+      <NavBar/>
       <section className={styles.mainSide}>
         <div className={styles.leftS}>
           <div className={styles.topLeft}>

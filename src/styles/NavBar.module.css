@@ -1,0 +1,173 @@
+.Header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    position: relative;
+}
+.primary{
+    background-color: #fff;
+    border-radius: 32px;
+    padding: 6px 0;
+}
+.primary ul{
+    display: flex;
+    gap: 16px;
+}
+.primary ul li a{
+    display: inline-block;
+    padding: 16px 24px;
+    transition: all 0.6s ease ;
+}
+/* .primary ul li:nth-of-type(5) a */ .active{
+    background-color: var(--foundation-color);
+    color: #fff;
+    border-radius: 32px;
+}
+.primary ul li a:hover{
+    background-color: rgba(1, 31, 27, 0.8);
+    color: #ffffff;
+    border-radius: 32px;
+}
+.secondary ul{
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+.secondary ul li:nth-of-type(3) a{
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+}
+.secondary ul li:nth-of-type(2) button{
+    background-color: transparent;
+    color: var(--primary-color);
+    position: relative;
+    padding: 14px;
+}
+.secondary ul li:nth-of-type(2) button span{
+    position: absolute;
+    top: 6px;
+    right: 6px;
+
+}
+.logoCtn{
+    width: 180px;
+    height: 40px;
+}
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.backdropOpen{
+    opacity: 1;
+}
+.notifications{
+    display: grid; 
+    gap: 50px;
+    border: 1px solid #DBDCE2;
+    border-radius: 16px;
+    background-color: #FEFEFF;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    width: 465px;
+    /* transform: translateY(-100%); */
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.open{
+    /* transform: translateY(0); */
+    opacity: 1;
+}
+.topSide{
+    display: grid;
+    gap: 8px;
+    border-bottom: 1px solid #B6B7BC;
+    padding: 16px 32px;
+}
+.tt{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tt h3{
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.tt button{
+    background-color: transparent;
+    color: var(--primary-color);
+}
+.tb{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tb > button{
+    font-size: 1.125rem;
+    font-weight: 400;
+    background-color: transparent;
+    color: var(--primary-color);
+}
+.tb button:last-of-type{
+    font-size: 1.125rem;
+    font-weight: 400;
+    background-color: transparent;
+    color: #6D717F;
+}
+.msg{
+    display: flex;
+    gap: 80px;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 16px 32px;
+}
+.msg:not(:last-of-type){
+    border-bottom: 1px solid #B6B7BC;
+}
+.msgB{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-grow: 1;
+}
+.msgImg{
+    width: 48px;
+    overflow: hidden;
+}
+.msgTexts{
+    display: grid;
+    width: 249px;
+    gap: 8px;
+}
+.msgTexts p{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.msgRow{
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+}
+.msgRow span:first-of-type, .msgRow span:last-of-type{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #6D717F;
+    flex-grow: 1;
+    display: inline-block;
+    
+}
+.scrollArea{
+    height: 73vh;
+    overflow-y: scroll;
+}
