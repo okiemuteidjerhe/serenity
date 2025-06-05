@@ -51,33 +51,65 @@
 .entry:not(:last-of-type){
     border-bottom: 1px solid #DBDCE2;
 }
+.scrollArea{
+    height: 92vh;
+    overflow-y: scroll;
+}
 .right{
     display: grid;
     gap: 24px;
     height: fit-content;
 }
+.topH{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.topH h2{
+    flex: 1;
+}
+.topH button{
+    background-color: transparent;
+    color: var(--primary-color);
+}
 .right h2{
     font-size: 1.5rem;
     font-weight: 500;
 } 
+.right p{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 28px;
+}
 .right textarea{
     width: 686px;
     height: 664px;
     background-image: url(../images/notebook.png);
     border: none;
     padding: 32px;
+    padding-top: 40px;
     resize: none;
     position: relative;
+    font-size: 1.15rem;
+    font-family: "Quicksand", sans-serif;
+}
+.container{
+    position: absolute;
+    width: 131px;
+}
+.container:first-of-type{
+    top: 30%;
+    right: 7%;
+}
+.container:last-of-type{
+    bottom:-40%;
+    left: 40.5%;
 }
 .right textarea:focus{
     outline: none;
 }
-.right button{
+.save{
     padding: 14px 20px;
-    margin-left: 594px;
+    display: flex;
+    justify-self: right;
 }
-/* .right::before{
-    content: '';
-    background-image: url(../images/prescription.png);
-    background-repeat: no-repeat;
-} */

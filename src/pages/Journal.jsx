@@ -2,6 +2,9 @@ import styles from '../styles/Journal.module.css'
 import { FiSearch } from "react-icons/fi"
 import { useState } from "react"
 import NavBar from '../components/NavBar';
+import { LiaTimesSolid } from 'react-icons/lia';
+import prescription from '../images/prescription.png'
+import prescription1 from '../images/prescription1.png'
 
 const journalEntries = [
     {
@@ -24,11 +27,15 @@ const journalEntries = [
 export default function Journal(){
 const[entries, setEntries] = useState(journalEntries);
 const[searchWord, setSearchWord] = useState('')
-const[diaryEntry, setDiaryEntry] = useState('');
+const[selectedEntry, setSelectedEntry] = useState(null);
 
 function handleSearch(e){
     const search = e.target.value;
     setSearchWord(search);
+}
+
+function handleSelection(item){
+    setSelectedEntry(item)
 }
 const filteredSearch = entries.filter(item=>{
     if(searchWord){
@@ -41,9 +48,13 @@ const entriesArr = filteredSearch.map((e,index)=>{
     return(
         <div 
         key={index}
-        className={styles.entry}>
+        className={styles.entry}
+        onClick={()=>{
+            handleSelection(e)
+        }}
+        >
             <h3>{e.date}</h3>
-            <p>{e.entry}</p>
+            <p>{e.entry.slice(0,83)}...</p>
         </div>
     )
 })
@@ -90,15 +101,27 @@ function handleDiaryEntry(formData){
                             <input type="text" placeholder="Search" value={searchWord} onChange={handleSearch}/>
                         </div>
                     </div>
-                    <div className={styles.journalEntries}>
+                    <div className={`${styles.journalEntries} ${filteredSearch.length > 5 ? styles.scrollArea : undefined}`}>
                         {entriesArr}
                     </div>
                 </div>
-                <form action={handleDiaryEntry} className={styles.right}>
+                
+            {selectedEntry ? <div className={styles.right}>
+                                <div className={styles.topH}>
+                                    <h2>{selectedEntry.date}</h2>
+                                    <button onClick={()=>setSelectedEntry(null)}><LiaTimesSolid size={25}/></button>
+                                </div>
+                                <p>{selectedEntry.entry}</p>
+                            </div> 
+                            :   <form action={handleDiaryEntry} className={styles.right}>
                     <h2>Private Journal</h2>
                     <textarea name="entry"></textarea>
-                    <button>Save</button>
-                </form>
+                    <div className={styles.container}><img src={prescription} alt="" /></div>
+                    <div className={styles.container}><img src={prescription1} alt="" /></div>
+                    <button className={styles.save}>Save</button>
+                </form> 
+        }
+                
             </section>
         </div>
     )

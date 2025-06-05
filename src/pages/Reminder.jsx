@@ -4,7 +4,7 @@ import man from '../images/man.png'
 import { FiSearch } from 'react-icons/fi'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import NavBar from '../components/NavBar'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 
 const data = [
@@ -40,9 +40,17 @@ const data = [
 
 
 export default function Reminder(){
+    const dialogRef = useRef(null)
+    const [isOpen, setIsOpen] = useState(false)
     const[reminderList, setReminderList] = useState(data)
     const[searchTerm, setSearcTerm] = useState("")
 
+    function handleOpen(){
+        setIsOpen(true)
+    }
+    function handleClose(){
+        setIsOpen(false)
+    }
     function handleNewReminder(formData){
         const reminder = Object.fromEntries(formData);
         
@@ -67,7 +75,7 @@ export default function Reminder(){
          const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
          const mm = Number(month)
          if (mm > 13 || mm < 1){
-            return
+            /* alert("Invalid Input") */ return
          }else{
            const wordMonth = months[mm - 1];
            return wordMonth; 
@@ -85,7 +93,7 @@ export default function Reminder(){
          if(date.getFullYear() === yyyy && date.getMonth() === mm && date.getDate() === dd){
             return dd
          }else{
-            return 
+            /* alert("Invalid Input") */  return
          }
        }
 
@@ -153,7 +161,7 @@ const filteredReminders = reminderList.filter(item=>{
                                     </div>
                                     <p>14th June, 2025</p>
                                 </div>
-                                <button>View Details</button>
+                                <button onClick={handleOpen}>View Details</button>
                             </div>
                             <div className={styles.tlImg}>
                                 <img src={man} alt="" />
@@ -205,6 +213,9 @@ const filteredReminders = reminderList.filter(item=>{
                     </div>
                 </div>
             </section>
+            <dialog ref={dialogRef} open={isOpen}>
+                <div className={styles.dialog} onClick={handleClose}>PlaceHolder</div>
+            </dialog>
         </div>
     )
 }

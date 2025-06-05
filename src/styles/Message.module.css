@@ -9,7 +9,7 @@
     background-color: #fff;
     display: grid;
     grid-template-columns: 2fr 3fr;
-    gap: 16px;
+    /* gap: 16px; */
     padding: 16px 0;
     border-radius: 12px;
 }
@@ -44,6 +44,8 @@
 }
 .allMessages{
     display: grid;
+    max-height: 560px;
+    overflow-y: auto;
 }
 .message{
     display: flex;
@@ -75,4 +77,106 @@
 .bottom p{
     font-size: 0.875rem;
     font-weight: 400;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 20px;
+}
+.user{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    border-bottom: 1px solid #DBDCE2;
+}
+.userAvatar{
+    width: 48px;
+}
+.user h3{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.chatArea{
+    max-height: 530px;
+    overflow-y: auto;
+    flex-grow: 2;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.chat{
+    max-width: 55%;
+    width: fit-content;
+    display: grid;
+    gap: 10px;
+}
+.chat span{
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+.actualChat{
+    display: flex;
+    gap: 24px;
+    padding: 16px 24px;
+    border-radius: 12px;
+}
+.otherPerson{
+    align-self: flex-start;
+}
+.otherPerson .actualChat{
+    background-color: #F3F4FB;
+}
+.own{
+    align-self: flex-end;
+}
+.own .actualChat{
+    background-color: #03594E;
+    color: #fff;
+}
+.actualChat span{
+    align-self: flex-end;
+}
+.actualChat p{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+}
+.inputArea{
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 0 16px;
+}
+.emoji{
+    position: relative;
+}
+.pickerCtn{
+    position: absolute;
+    bottom: 59px;
+    left: -10px;
+}
+.EmojiPicker ul{
+    flex-direction: column;
+}
+.emoji button, .inputArea button:not(:last-of-type), .inputArea .input button{
+    background-color: transparent;
+    color: var(--primary-color);
+}
+.inputArea button:last-of-type{
+    padding: 14px 20px;
+}
+.inputArea .input{
+    flex: 1;
+    display: flex;
+    gap: 12px;
+    background-color: #F9FAFB;
+    border: 1.5px solid #E5E7EA;
+    border-radius: 12px;
+}
+.inputArea .input input{
+    border: none;
+    flex-grow: 1;
 }
