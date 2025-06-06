@@ -16,6 +16,8 @@ import CompanyMaterials from "./pages/CompanyMaterials";
 import Journal from "./pages/Journal";
 import Message from "./pages/Message";
 import Reminder from "./pages/Reminder";
+import Therapist from "./pages/Therapist";
+import TherapistProfile from "./pages/TherapistProfile";
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
         <Route path="/journal" element={<Journal />} />        
         <Route path="/message" element={<Message />} />        
         <Route path="/reminder" element={<Reminder />} />        
+        <Route path="/book-appointment" element={<Therapist />} />        
+        <Route path="/therapist-profile" element={<TherapistProfile />} />        
       </Routes>
     </BrowserRouter>
   )

@@ -109,7 +109,7 @@ export default function IndvidualDashboard(){
                         <div className={styles.therapy}>
                             <h2>Therapy Sessions</h2>
                             <p>Book 1 on 1 therapy sessions</p>
-                            <Link to=''>Chat with therapist</Link>
+                            <Link to='/book-appointment'>Chat with therapist</Link>
                         </div>
                         <div className={styles.materials}>
                             <h2>Company materials <Link to='/companyresources'><GoArrowRight/></Link></h2>
