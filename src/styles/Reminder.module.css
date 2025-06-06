@@ -156,8 +156,12 @@
     display: flex;
     justify-self: center;    
 }
-.row1 h3:not(:first-of-type), .row2 p:not(:first-of-type), .row2 span{
+.row1 h3:not(:first-of-type), .row2 p:not(:first-of-type){
     text-align: center;
+}
+.row2 button{
+    background-color: transparent;
+    color: var(--primary-color);
 }
 .inActive{
     background-color: #FDECEC;
@@ -168,4 +172,143 @@
     background-color: #ECF8EF;
     border: 1px solid #43B75D;
     color: #43B75D;
+}
+.dialog{
+    width: 35.25rem;
+    background-color: #fff;
+    padding: 32px;
+    border-radius: 16px;
+    display: grid;
+    gap: 32px;
+}
+.dbtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dbtn h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.dbtn button{
+    background-color: transparent;
+    color: var(--primary-color);
+}
+.modalDets{
+    display: grid;
+    gap: 16px;
+}
+.modalImg{
+    width: 500px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+.dets{
+    display: grid;
+    gap: 8px;
+    width: 417px;
+}
+.dets h3{
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.dets > p{
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 26px;
+}
+.dets p:nth-of-type(2){
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 26px;
+}
+.dRows{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.dRows span{
+    font-size: 1rem;
+    font-weight: 400;
+}
+.dRows:last-of-type span{
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+.dialog2{
+    top: 20%;
+}
+.dialogSuccess{
+    background-color: #fff;
+    width: 45rem;
+    padding: 32px;
+    border-radius: 16px;
+    display: grid;
+    gap: 40px;
+}
+.dbt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+.dbt h2{
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.dbt button{
+    background-color: transparent;
+    color: var(--primary-color);
+}
+.dialogSuccess p{
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+.dialogDelete{
+    width: 30rem;
+    background-color: #fff;
+    padding: 32px;
+    display: grid;
+    gap: 32px;
+    border-radius: 16px;
+}
+.deleteImg{
+    width: 153px;
+    margin: auto;
+}
+.deleteDets{
+    display: grid;
+    gap: 48px;
+    width: 299px;
+    margin: auto;
+}
+.ddT{
+    display: grid;
+    gap: 8px;
+    text-align: center;
+}
+.ddT h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.ddT p{
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 26px;
+}
+.dbtns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dbtns button{
+    width: 137px;
+    padding: 14px 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.dbtns button:first-of-type{
+    background-color: #fff;
+    border: 1.5px solid var(--button-color);
+    color: var(--primary-color);
 }
