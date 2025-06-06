@@ -16,8 +16,7 @@ import CompanyMaterials from "./pages/CompanyMaterials";
 import Journal from "./pages/Journal";
 import Message from "./pages/Message";
 import Reminder from "./pages/Reminder";
-import Therapist from "./pages/Therapist";
-import TherapistProfile from "./pages/TherapistProfile";
+import CompanyDashboard from "./pages/CompanyDashboard";
 
 
 function App() {
@@ -34,6 +33,7 @@ function App() {
         <Route path="/compay" element={<CompPayment />} />
         <Route path="/indpay" element={<IndividualPayment />} />
         <Route path="/dashind" element={<IndividualDashboard />} />
+        <Route path="comp-dash" element={<CompanyDashboard />} />
         <Route path="/vsr" element={<VirtualSafeRoom />} />
         <Route path="/scenarios" element={<Scenarios />} />
         <Route path="/companyresources" element={<CompanyMaterials />} />        

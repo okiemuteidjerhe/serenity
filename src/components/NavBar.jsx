@@ -66,7 +66,7 @@ const data = [
 
 
 
-export default function NavBar() {
+export default function NavBar(props) {
     const[messages, setMessages] = useState(data)
     const [notificationOpen, setNotificationOpen] = useState(false)
 
@@ -123,7 +123,42 @@ export default function NavBar() {
         <img src={logo} alt="Serenity logo" />
       </div>
       <nav className={styles.primary}>
-        <ul>
+
+        {
+          props.isCorporate ?       <ul>
+          <li>
+            <NavLink
+              to="/comp-dash"
+              className={({ isActive }) =>
+                isActive ? `${styles.active}` : undefined
+              }
+            >
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? `${styles.active}` : undefined
+              }
+            >
+             Employees
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? `${styles.active}` : undefined
+              }
+            >
+             Resources
+            </NavLink>
+          </li>
+    
+        </ul>  :
+                <ul>
           <li>
             <NavLink
               to="/dashind"
@@ -175,6 +210,8 @@ export default function NavBar() {
             </NavLink>
           </li>
         </ul>
+        }
+  
       </nav>
 
       <nav className={styles.secondary}>
