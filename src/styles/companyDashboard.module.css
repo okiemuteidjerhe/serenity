@@ -1,0 +1,211 @@
+.container {
+    min-height: 100vh;
+    background-color: var(--second-backgroundC);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.container button {
+    width: fit-content;
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: white;
+    font-size: 0.875rem;
+}
+
+.container h3 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--text);
+}
+
+.content {
+    margin-inline: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.content>h2 {
+    color: var(--text);
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.content>.cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+}
+
+
+.cards .left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.cards .left>div,
+.cards .right>div {
+    background-color: white;
+    border-radius: 16px;
+}
+
+.cards .left>div {
+    padding: 32px;
+}
+
+.cards .left .top {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.left .bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.left .bottom .overview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.right .checkIns {
+    padding: 16px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.right .checkIns .bars {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.right .report {
+    padding: 18px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Styling for box component */
+.box {
+    height: 132px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.box .boxTop {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.box .boxTop h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text);
+    color: inherit;
+}
+
+.box .boxTop p {
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 16px;
+    padding: 4px 8px;
+    background-color: #E6EEED;
+    color:#02433B
+}
+
+/* Styling for Event Card */
+
+.eventCard {
+    padding: 16px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.eventCard > div {
+    display:flex;
+    gap: 64px;
+}
+
+.eventCard .texts {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+}
+
+.eventCard .texts > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+}
+
+.eventCard .image {
+    width: 160px;
+    height: 160px;
+    border-radius: 16px;
+    display: flex;
+}
+
+.eventCard .texts > div .time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Styling for bar component */
+
+.barWithLabel {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.barWithLabel p {
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.barWithLabel .left {
+   flex: 1;
+   display: grid;
+   grid-template-columns: 100px 1fr;
+   align-items: center;
+   gap: 0;
+}
