@@ -1,0 +1,105 @@
+.body{
+    background-color: var(--second-backgroundC);
+    padding: 48px 24px 85px;
+}
+.body h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 32px;
+    margin-bottom: 35px;
+}
+.searchTop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.searchTop h3{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.searchTop .searchInput{
+    background-color: #F9FAFB;
+    border: 1.5px solid #E5E7EA;
+    width: 416px;
+    display: flex;
+    gap: 12px;
+    padding-inline: 12px;
+    align-items: center;
+    border-radius: 12px;
+}
+.searchInput input{
+    border: none;
+    flex-grow: 1;
+}
+.therapists{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+.theBox{
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #B1CCC8;
+    border-radius: 16px;
+    height: fit-content;
+}
+.bg{
+    width: 100%;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    overflow: hidden;
+    height: 130px;
+}
+.middleAvatar{
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);;
+}
+.personalInfo{
+    padding: 74px 22px 25px;
+}
+.dets{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.name{
+    display: grid;
+    gap: 4px;
+    
+}
+.name > p{
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+.name p:last-of-type{
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+.dets > p{
+    background-color: #FFF7E6;
+    border: 1.5px solid #FFAA00;
+    color: #FFAA00;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.625rem;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.personalInfo a{
+    background-color: var(--button-color);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    margin-top: 26px;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+}

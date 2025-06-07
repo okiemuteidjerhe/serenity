@@ -5,6 +5,9 @@ import { FiSearch } from 'react-icons/fi'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import NavBar from '../components/NavBar'
 import { useRef, useState } from 'react'
+import { LiaTimesSolid } from 'react-icons/lia'
+import pod from '../images/pod.png'
+import prescription from '../images/prescription.png'
 
 
 const data = [
@@ -41,16 +44,52 @@ const data = [
 
 export default function Reminder(){
     const dialogRef = useRef(null)
+    const dialogRef2 = useRef(null)
+    const dialogRef3 = useRef(null)
+
+
     const [isOpen, setIsOpen] = useState(false)
+    const [isOpen2, setIsOpen2] = useState(false)
+    const [isOpen3, setIsOpen3] = useState(false)
+
+    const [time, setTime] = useState("")
+    const [deleteItem, setDeleteItem] = useState(null)
+
+    const [detailsObj, setDetailsObj] = useState(null) //For the first modal
     const[reminderList, setReminderList] = useState(data)
     const[searchTerm, setSearcTerm] = useState("")
 
-    function handleOpen(){
+    function handleOpen(details){
+        setDetailsObj(details)
+        dialogRef.current.showModal()
         setIsOpen(true)
     }
     function handleClose(){
+        dialogRef.current.close();
         setIsOpen(false)
     }
+
+    function handleOpen2(reminderTime){
+        setTime(reminderTime)
+        dialogRef2.current.showModal();
+        setIsOpen2(true)
+    }
+    function handleClose2(){
+        dialogRef2.current.close()
+        setIsOpen2(false)
+    }
+
+    function handleOpen3(deleteEvent){
+        setDeleteItem(deleteEvent)
+        dialogRef3.current.showModal()
+        setIsOpen3(true)
+    }
+    function handleClose3(){
+        dialogRef3.current.close()
+        setIsOpen3(false)
+        setDeleteItem(null)
+    }
+
     function handleNewReminder(formData){
         const reminder = Object.fromEntries(formData);
         
@@ -105,6 +144,8 @@ export default function Reminder(){
             const nRO = {...newReminderObj, id: prev.length + 1}
             return [...prev, nRO]
         })
+
+        handleOpen2(reminder.time)
     }
 
     function handleDelete(event){
@@ -113,7 +154,12 @@ export default function Reminder(){
       return item.event !== event
     })
   })
+  dialogRef3.current.close()
+  setIsOpen3(false)
+  
+  setDeleteItem(null)
 }
+
 
 function handleSearch(e){
     let word = e.target.value;
@@ -137,7 +183,7 @@ const filteredReminders = reminderList.filter(item=>{
                             <p>{r.time}</p>
                             <p>{r.date}</p>
                             <p className={r.isActive? `${styles.active}` : `${styles.inActive}`}>{r.isActive? `Active` : `Inactive`}</p>
-                            <span onClick={()=>{handleDelete(r.event)}}><RiDeleteBin6Line size={25}/></span>
+                            <button onClick={()=>handleOpen3(r.event)}><RiDeleteBin6Line size={25}/></button>
                         </div>
         )
     })
@@ -161,7 +207,9 @@ const filteredReminders = reminderList.filter(item=>{
                                     </div>
                                     <p>14th June, 2025</p>
                                 </div>
-                                <button onClick={handleOpen}>View Details</button>
+                                <button 
+                                onClick={()=>handleOpen(filteredReminders[1])} //A placeholder for now
+                                >View Details</button>
                             </div>
                             <div className={styles.tlImg}>
                                 <img src={man} alt="" />
@@ -213,8 +261,69 @@ const filteredReminders = reminderList.filter(item=>{
                     </div>
                 </div>
             </section>
+
+            {/* detailsObj should be used here */}
             <dialog ref={dialogRef} open={isOpen}>
-                <div className={styles.dialog} onClick={handleClose}>PlaceHolder</div>
+                <div className={styles.dialog}>
+                    <div className={styles.dbtn}>
+                        <h2>Details</h2>
+                        <button onClick={handleClose}><LiaTimesSolid size={18}/></button>
+                    </div>
+                    <div className={styles.modalDets}>
+                        <div className={styles.modalImg}>
+                            <img src={pod} alt="" />
+                        </div>
+                        <div className={styles.dets}>
+                            <h3>Dealing with depression</h3>
+                            <p>Debugging the Mind: Mental Health in the Tech Era</p>
+                            <p>Tag: Tools, Tactics, and Conversations for Building Psychological Resilience in Tech Teams.</p>
+                            <div className={styles.dRows}>
+                                <span>Host</span>
+                                <span><GoDotFill size={8}/></span>
+                                <span>Austin & Leo</span>
+                            </div>
+                            <div className={styles.dRows}>
+                                <span>Event</span>
+                                <span><GoDotFill size={8}/></span>
+                                <span>Podcast</span>
+                            </div>
+                            <div className={styles.dRows}>
+                                <span>2nd June, 2025</span>
+                                <span><GoDotFill size={5}/></span>
+                                <span>11:00 AM</span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </dialog>
+
+            <dialog className={styles.dialog2} ref={dialogRef2} open={isOpen}>
+                <div className={styles.dialogSuccess}>
+                    <div className={styles.dbt}>
+                        <h2>Reminder</h2>
+                        <button onClick={handleClose2}><LiaTimesSolid size={18}/></button>
+                    </div>
+                    <p>Your reminder has been set for {time}</p>
+                </div>
+            </dialog>
+
+            <dialog ref={dialogRef3} open={isOpen3}>
+                <div className={styles.dialogDelete}>
+                    <div className={styles.deleteImg}>
+                        <img src={prescription} alt="" />
+                    </div>
+                    
+                    <div className={styles.deleteDets}>
+                        <div className={styles.ddT}>
+                            <h2>Delete Reminder</h2>
+                            <p>Are you sure you want to delete this reminder?</p>
+                        </div>
+                        <div className={styles.dbtns}>
+                            <button onClick={()=>{handleDelete(deleteItem)}}>Yes</button>
+                            <button onClick={handleClose3}>No</button>
+                        </div>
+                    </div>
+                </div>
             </dialog>
         </div>
     )

@@ -20,6 +20,10 @@ import CompanyDashboard from "./pages/CompanyDashboard";
 import Employees from "./pages/Employees";
 import Resources from "./pages/Resources";
 import Upload from "./pages/Upload";
+import Therapist from "./pages/Therapist";
+import TherapistProfile from "./pages/TherapistProfile";
+import IndividualProfile from "./pages/IndividualProfile";
+import CompanyProfile from "./pages/CompanyProfile";
 
 
 function App() {
@@ -46,6 +50,10 @@ function App() {
         <Route path="employees" element={<Employees />} />
         <Route path="resources" element={<Resources />} />
         <Route path="upload" element={<Upload />} />
+        <Route path="/book-appointment" element={<Therapist />} />        
+        <Route path="/therapist-profile" element={<TherapistProfile />} />        
+        <Route path="/profile" element={<IndividualProfile />} />        
+        <Route path="/comp-profile" element={<CompanyProfile />} />        
       </Routes>
 
     </BrowserRouter>
