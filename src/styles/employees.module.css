@@ -1,0 +1,138 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--second-backgroundC);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.container button {
+  width: fit-content;
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.container h3 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.content {
+  margin-inline: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: white;
+  padding: 32px;
+  border-radius: 16px;
+}
+
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content .info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info form {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid #E5E7EA;
+}
+
+.info input {
+  flex: 1;
+  outline: 0;
+  border: 0;
+  height: 100%;
+}
+
+/* Styling for table */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+tr {
+  border: 1px solid #DBDCE2;
+}
+
+tr td:first-child {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 16px;
+  min-height: 100%;
+  border: none;
+
+}
+
+th {
+  color: var(--text);
+  font-weight: 600;
+  text-align: center;
+  padding: 12px 15px;
+  font-size: 1.25rem;
+  border: 1px solid #DBDCE2;
+  height: 76px;
+  vertical-align: center;
+
+}
+
+td {
+  border: 1px solid #DBDCE2;
+  font-size: 1.125rem;
+  height: 76px;
+  min-height: 100%;
+  vertical-align: middle;
+  text-align: center;
+  padding: 24px 32px;
+}
+
+td.left {
+  height: 76px;
+  text-align: left;
+  padding: 24px 32px;
+  overflow-wrap: break-word;
+}
+
+td .avatar {
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+}
+
+
+td.status span {
+  border: 1.5px solid #43B75D;
+  background-color: #ECF8EF;
+  color: #43B75D;
+  font-size: 0.75rem;
+  padding-inline: 12px;
+  border-radius: 8px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+

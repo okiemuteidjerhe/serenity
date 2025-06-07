@@ -17,6 +17,9 @@ import Journal from "./pages/Journal";
 import Message from "./pages/Message";
 import Reminder from "./pages/Reminder";
 import CompanyDashboard from "./pages/CompanyDashboard";
+import Employees from "./pages/Employees";
+import Resources from "./pages/Resources";
+import Upload from "./pages/Upload";
 
 
 function App() {
@@ -39,8 +42,12 @@ function App() {
         <Route path="/companyresources" element={<CompanyMaterials />} />        
         <Route path="/journal" element={<Journal />} />        
         <Route path="/message" element={<Message />} />        
-        <Route path="/reminder" element={<Reminder />} />        
+        <Route path="/reminder" element={<Reminder />} />     
+        <Route path="employees" element={<Employees />} />
+        <Route path="resources" element={<Resources />} />
+        <Route path="upload" element={<Upload />} />
       </Routes>
+
     </BrowserRouter>
   )
 }
