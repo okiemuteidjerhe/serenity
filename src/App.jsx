@@ -17,6 +17,8 @@ import Journal from "./pages/Journal";
 import Message from "./pages/Message";
 import Reminder from "./pages/Reminder";
 import CompanyDashboard from "./pages/CompanyDashboard";
+import Therapist from "./pages/Therapist";
+import TherapistProfile from "./pages/TherapistProfile";
 
 
 function App() {
