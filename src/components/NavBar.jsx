@@ -9,7 +9,7 @@ import { NavLink } from "react-router";
 import { GoDotFill } from "react-icons/go";
 import checked from '../images/checked.png'
 import exclamation from '../images/exclamation.png'
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const data = [
     {
@@ -70,6 +70,32 @@ export default function NavBar(props) {
     const[messages, setMessages] = useState(data)
     const [notificationOpen, setNotificationOpen] = useState(false)
 
+    const [isOpen, setIsOpen] = useState(false)
+    const [indLogOutOpen, setIndLogOutOpen] = useState(false)
+
+    const dialogRef = useRef(null)
+    const indDialogRef = useRef(null)
+
+    function handleCompLogOutOpen(){
+      dialogRef.current.showModal()
+      setIsOpen(true)
+    }
+
+    function handleCompLogOutClose(){
+      dialogRef.current.close()
+      setIsOpen(false)
+    }
+
+    function handleIndLogOutOpen(){
+      indDialogRef.current.showModal()
+      setIndLogOutOpen(true)
+    }
+
+    function handleIndLogOutClose(){
+      indDialogRef.current.close()
+      setIndLogOutOpen(false)
+    }
+
     function handleMarkAsRead(){
         setMessages(prev=>{
             return prev.map(x =>{
@@ -118,7 +144,8 @@ export default function NavBar(props) {
 })
     
   return (
-    <header className={styles.Header}>
+    <>
+          <header className={styles.Header}>
       <div className={styles.logoCtn}>
         <img src={logo} alt="Serenity logo" />
       </div>
@@ -217,7 +244,7 @@ export default function NavBar(props) {
       <nav className={styles.secondary}>
         <ul>
           <li>
-            <NavLink to="">
+            <NavLink to={props.isCorporate? "/comp-profile" : "/profile"}>
               <PiGearSixLight size={20}/>
             </NavLink>
           </li>
@@ -228,9 +255,9 @@ export default function NavBar(props) {
             </button>
           </li>
           <li>
-            <NavLink to="">
-              <img src={Avatar} alt="Avatar" /> <TfiAngleDown size={24}/>
-            </NavLink>
+            <button onClick={props.isCorporate ? handleCompLogOutOpen : handleIndLogOutOpen}>
+              <img src={Avatar} alt="Avatar" /> <TfiAngleDown size={14}/>
+            </button>
           </li>
         </ul>
       </nav>
@@ -256,7 +283,43 @@ export default function NavBar(props) {
       </div>
         </div>
      )}
-      
     </header>
+
+
+     <dialog ref={props.isCorporate ? dialogRef : indDialogRef} open={props.isCorporate ? isOpen : indLogOutOpen}>
+        <form action="" className={styles.Dialog}>
+          <button type="button" onClick={props.isCorporate ? handleCompLogOutClose : handleIndLogOutClose}><LiaTimesSolid size={23} color="var(--primary-color)"/></button>
+          <div className={styles.modalImage}>
+            <img src={Avatar} alt="" />
+          </div>
+          <div className={styles.inputs}>
+            <label>
+              <div className={styles.labelText}>{props.isCorporate ? 'Company Name' : 'Name'}</div>
+              <input type="text" value={props.isCorporate ? "Tech Pro" : "Alexi Jane"} readOnly/>
+            </label>
+            <label>
+              <div className={styles.labelText}>{props.isCorporate ? "Description" : "Role"}</div>
+              <input type="text" value={props.isCorporate ? "A company that provides tech solutions for pros" : 'Product Designer'} readOnly/>
+            </label>
+            <label>
+              <div className={styles.labelText}>Email</div>
+              <input type="text" value={props.isCorporate ? "Tech4pro@gmail.com" : "alexisjane@gmail.com"} readOnly/>
+            </label>
+          </div>
+          <button>Log Out</button>
+        </form>
+     </dialog>
+
+     <dialog className={styles.LogOut}>
+        <form action="" className={styles.Confirmation}>
+          <h2>Log Out</h2>
+          <p>Are you sure you want to log out of this account?</p>
+          <div className={styles.BtnsR}>
+            <button>Yes</button>
+            <button>No</button>
+          </div>
+        </form>
+     </dialog>
+    </>
   );
 }

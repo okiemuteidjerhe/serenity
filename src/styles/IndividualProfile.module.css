@@ -1,0 +1,112 @@
+.body{
+    background-color: var(--second-backgroundC);
+    padding: 48px 24px 98px;
+}
+.miniNav{
+    display: flex;
+    align-items: center;
+}
+.miniNav a{
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+.miniNav li:first-of-type a{
+    color: #9EA2AE;
+}
+.pSection{
+    margin: 48px 119px 0;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 64px;
+}
+.pSection h3{
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+.upload{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.profileImage{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.labelText{
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--button-color);
+    cursor: pointer;
+}
+.selector input{
+    display: none;
+}
+.inputFields{
+    display: grid;
+    gap: 24px;
+}
+.R{
+    display: flex;
+    gap: 24px;
+}
+.R label{
+    width: 100%;
+}
+.R label .labelText{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+.inputFields > label{
+    width: 652px;
+}
+.inputFields > label .labelText{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.inputFields input{
+    background-color: #F9FAFB;
+    border: 1.5px solid #E5E7EA;
+}
+.toggles{
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+.noti, .private{
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+.noti p, .private p{
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+.noti button, .private button{
+    background-color: transparent;
+}
+.pSection > button{
+    background-color: transparent;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1.5px solid var(--button-color);
+    color: #6D717F;
+    margin-bottom: 48px;
+}
+.btnGrp{
+    display: flex;
+    justify-self: right;
+    gap: 24px;
+}
+.btnGrp button{
+    padding: 16px 24px;
+}
+.btnGrp button:first-of-type{
+    border: 1.5px solid var(--button-color);
+    background-color: transparent;
+    color: #6D717F;
+}

@@ -34,10 +34,17 @@
     gap: 32px;
     align-items: center;
 }
-.secondary ul li:nth-of-type(3) a{
+.secondary ul li:nth-of-type(3) button{
     display: inline-flex;
     gap: 8px;
     align-items: center;
+    color: var(--primary-color);
+    background-color: transparent;
+}
+.secondary ul li:nth-of-type(3) button img{
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
 }
 .secondary ul li:nth-of-type(2) button{
     background-color: transparent;
@@ -170,4 +177,37 @@
 .scrollArea{
     height: 73vh;
     overflow-y: scroll;
+}
+.Dialog{
+    background-color: #fff;
+    width: 46rem;
+    padding: 32px;
+}
+.Dialog button:first-of-type{
+    display: flex;
+    justify-self: right;
+    background-color: transparent;
+    margin-bottom: 124px;
+}
+.modalImage{
+    display: block;
+    margin: auto;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.inputs{
+    display: grid;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.Dialog button:last-of-type{
+    background-color: transparent;
+    border: 1px solid #DBDCE2;
+    border-radius: 0;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 16px 32px;
 }

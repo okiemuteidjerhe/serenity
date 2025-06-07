@@ -19,6 +19,8 @@ import Reminder from "./pages/Reminder";
 import CompanyDashboard from "./pages/CompanyDashboard";
 import Therapist from "./pages/Therapist";
 import TherapistProfile from "./pages/TherapistProfile";
+import IndividualProfile from "./pages/IndividualProfile";
+import CompanyProfile from "./pages/CompanyProfile";
 
 
 function App() {
@@ -44,6 +46,8 @@ function App() {
         <Route path="/reminder" element={<Reminder />} />        
         <Route path="/book-appointment" element={<Therapist />} />        
         <Route path="/therapist-profile" element={<TherapistProfile />} />        
+        <Route path="/profile" element={<IndividualProfile />} />        
+        <Route path="/comp-profile" element={<CompanyProfile />} />        
       </Routes>
     </BrowserRouter>
   )
