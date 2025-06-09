@@ -13,10 +13,11 @@ import { IoMdPause, IoMdPlay, IoMdSkipBackward, IoMdSkipForward } from "react-ic
 import { FiSearch } from "react-icons/fi";
 import { LiaTimesSolid } from "react-icons/lia";
 import { IoPlayCircleOutline } from "react-icons/io5";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import music from '../media/Jaden_Smith_-_Cabin_Fever.mp3'
 import music1 from '../media/Kendrick_Lamar_ft_SZA_-_luther.mp3'
 import NavBar from "../components/NavBar";
+import ReactPlayer from "react-player";
 
 const data = [
   {
@@ -93,6 +94,54 @@ const data = [
   },
 ]
 
+const videos = [
+  {
+    id: 1,
+    videoUrl : 'https://youtu.be/2a8TQiCqEaA?si=biGC_LM8yvkdo_ll',
+    videoName:"Nature",
+    imageSrc: nature,
+    videoThumbnail: scene,
+    paragraph: "Water's gentle dance and soothing sounds offer a peaceful escape,calming the mind and refreshing the spirit.",
+  },
+  {
+    id: 2,
+    videoUrl : 'https://youtu.be/H5v3kku4y6Q?si=3dvaw1JLiTgTLuE3',
+    videoName:"White noise",
+    imageSrc: whitenoise,
+    videoThumbnail: scene,
+    paragraph: "Water's gentle dance and soothing sounds offer a peaceful escape,calming the mind and refreshing the spirit.",
+  },
+  {
+    id: 3,
+    videoUrl : 'https://youtu.be/2a8TQiCqEaA?si=biGC_LM8yvkdo_ll',
+    videoName:"Water fall",
+    imageSrc: waterfall,
+    videoThumbnail: scene,
+    paragraph: "Water's gentle dance and soothing sounds offer a peaceful escape,calming the mind and refreshing the spirit.",
+  },
+  {
+    id: 4,
+    videoUrl : 'https://youtu.be/2a8TQiCqEaA?si=biGC_LM8yvkdo_ll',
+    videoName:"Rain drops",
+    imageSrc: raindrops,
+    videoThumbnail: scene,
+    paragraph: "Water's gentle dance and soothing sounds offer a peaceful escape,calming the mind and refreshing the spirit.",
+  }
+]
+
+function Scene(props){
+  return(
+    <button onClick={props.handleClick} className={styles.group}>
+      <div className={`${styles.sceneImg} ${props.isActive ? styles.activeGroup : undefined}`}>
+        <img src={props.imageSrc} alt={props.videoName} />
+      </div>
+      <p>{props.videoName}</p>
+    </button>
+  )
+}
+
+
+
 export default function VirtualSafeRoom() {
   const [song, setSong]= useState(null)
   const[isPlayListOpen, setIsPlaylistOpen] = useState(false)
@@ -103,7 +152,49 @@ const [currentTime, setCurrentTime] = useState(0)
 const [duration, setDuration] = useState(0)
 const audioRef = useRef(null)
 
-let progress;
+
+//For Scenes
+const [video, setVideo] = useState(videos[0])
+const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+
+function handleVideo(selectedVideoIndex){
+  setVideo(videos[selectedVideoIndex])
+  setIsVideoPlaying(false)
+}
+
+//Breathing exercise
+
+const [breathing, setBreathing] = useState(false)
+
+useEffect(()=>{
+  let intervalId;
+
+  if(breathing){
+    intervalId = setInterval(()=>{
+      const img = document.getElementById("breathingImg");
+      img.classList.toggle(styles.grow)
+    }, 4000)
+  }
+  return () => clearInterval(intervalId)
+}, [breathing])
+
+function handleToggleBreathing(){
+  setBreathing(prev => !prev)
+}
+
+const scenesArr = videos.map((vid, index)=>{
+  return(
+    <Scene
+    key={vid.id}
+    imageSrc={vid.imageSrc}
+    videoName={vid.videoName}
+    handleClick={()=>handleVideo(index)}
+    isActive={vid === video}
+    />
+  )
+})
+
+
 
   function handleOpenPlaylist(){
     setIsPlaylistOpen(true)
@@ -189,7 +280,7 @@ function handleSeek(e){
   setCurrentTime(newTime);
 }
 
-progress = (currentTime/duration) * 100;
+let progress = (currentTime/duration) * 100;
 
 
   return (
@@ -198,24 +289,42 @@ progress = (currentTime/duration) * 100;
       <section className={styles.mainSide}>
         <div className={styles.leftS}>
           <div className={styles.topLeft}>
-            <h3>Nature scene</h3>
+            <h3>{video.videoName} scene</h3>
             <p>
-              Water's gentle dance and soothing sounds offer a peaceful escape,
-              calming the mind and refreshing the spirit.
+              {video.paragraph}
             </p>
             <div className={styles.tlImg}>
-              <img src={scene} alt="" />
+              {/* <img src={scene} alt="" /> {video.url} */}
+              <ReactPlayer 
+              /* className={styles.reactPlayer} */
+              key={video.videoName}
+              url={video.videoUrl}
+              controls 
+              width="100%" 
+              height="100%" 
+              light={video.videoThumbnail}
+              playIcon={
+                <div className={styles.play}><CiPlay1 size={24} /></div>
+              }
+              playing={isVideoPlaying}
+              onPlay={()=>setIsVideoPlaying(true)}
+              />
             </div>
-            <button className={styles.play}><CiPlay1 size={24} /></button>
-            <button className={styles.resizer}><AiOutlineExpand size={24} /></button>
+            {/* <button className={styles.play}><CiPlay1 size={24} /></button>
+            <button className={styles.resizer}><AiOutlineExpand size={24} /></button> */}
           </div>
           <div className={styles.bottomLeft}>
             <div className={styles.blLeft}>
               <h3>Breathing Exercise</h3>
-              <div className={styles.bllImg}>
-                <img src={breathe} alt="" />
+              <div className={`${styles.bllImg} ${breathing ? styles.grow : undefined}`}
+                id="breathingImg"
+              >
+                <img 
+                src={breathe} 
+                alt="GROWING AND SHRINKING BREATHING IMAGE" 
+                />
               </div>
-              <button>Start Exercise</button>
+              <button onClick={handleToggleBreathing}>{breathing ? "Stop Exercise" : "Start Exercise"}</button>
             </div>
             <div className={styles.blRight}>
               <h3>Affirmation Quotes</h3>
@@ -232,30 +341,7 @@ progress = (currentTime/duration) * 100;
             <div className={styles.change}>
                 <h3>Change Scenes</h3>
                 <div className={styles.sceneCtn}>
-                    <div className={styles.group}>
-                        <div className={styles.sceneImg}>
-                            <img src={nature} alt="" />
-                        </div>
-                        <p>Nature</p>
-                    </div>
-                    <div className={styles.group}>
-                        <div className={styles.sceneImg}>
-                        <img src={whitenoise} alt="" />
-                    </div>
-                    <p>White noise</p>
-                    </div>
-                    <div className={styles.group}>
-                        <div className={styles.sceneImg}>
-                        <img src={waterfall} alt="" />
-                    </div>
-                    <p>Water fall</p>
-                    </div>
-                    <div className={styles.group}>
-                        <div className={styles.sceneImg}>
-                        <img src={raindrops} alt="" />
-                    </div>
-                    <p>Rain drops</p>
-                    </div>
+                    {scenesArr}
                 </div>
             </div>
             <div className={styles.music}>

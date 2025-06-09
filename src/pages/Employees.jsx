@@ -6,7 +6,7 @@ import Employee from '../images/employee.png'
 
 
 export function Row(props) {
-  console.log(props.person)
+  /* console.log(props.person) */
   const { Names, Email, Role, Status, Segmentation } = props.person
   return (
     <tr>
@@ -75,7 +75,7 @@ export default function Employees() {
     />
   ))
 
-  console.log(employees)
+  /* console.log(employees) */
 
   return (
     <div className={styles.container}>

@@ -34,6 +34,7 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    overflow: hidden;
 }
 .labelText{
     font-size: 1.125rem;
@@ -70,14 +71,18 @@
     display: flex;
     gap: 32px;
     align-items: center;
+    cursor: pointer;
+}
+.noti span, .private span{
+    display: inline-flex;
 }
 .noti p, .private p{
     font-size: 1.125rem;
     font-weight: 400;
 }
-.noti button, .private button{
-    background-color: transparent;
-}
+.noti input, .private input{
+    display: none;
+} 
 .cpForm > button{
     background-color: transparent;
     padding: 12px 16px;

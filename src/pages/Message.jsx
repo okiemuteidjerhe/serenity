@@ -170,7 +170,10 @@ function handleEmoji(emojiObj){
                         <EmojiPicker open={isOpen} onEmojiClick={handleEmoji} className={styles.EmojiPicker}/>
                     </div>
                 </div>
-                <button><FaPlus size={16}/></button>
+                <label className={styles.iLabel}>
+                  <FaPlus size={16}/>
+                  <input type="file" name="Media"/>
+                </label>
                 <div className={styles.input}>
                     <input type="text" name="chatMessage" placeholder="Type your message" value={chatInput} onChange={handleChatInput}/>
                     <button><IoMicOutline size={24}/></button>

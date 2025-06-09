@@ -161,7 +161,13 @@
 .EmojiPicker ul{
     flex-direction: column;
 }
-.emoji button, .inputArea button:not(:last-of-type), .inputArea .input button{
+.iLabel{
+    cursor: pointer;
+}
+.iLabel input{
+    display: none;
+}
+.emoji button, .inputArea .input button{
     background-color: transparent;
     color: var(--primary-color);
 }

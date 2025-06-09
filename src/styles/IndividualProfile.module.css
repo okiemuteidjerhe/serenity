@@ -34,6 +34,7 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    overflow: hidden;
 }
 .labelText{
     font-size: 1.125rem;
@@ -81,13 +82,17 @@
     display: flex;
     gap: 32px;
     align-items: center;
+    cursor: pointer;
 }
 .noti p, .private p{
     font-size: 1.125rem;
     font-weight: 400;
 }
-.noti button, .private button{
-    background-color: transparent;
+.noti span, .private span{
+    display: inline-flex;
+}
+.noti input, .private input{
+    display: none;
 }
 .pSection > button{
     background-color: transparent;
