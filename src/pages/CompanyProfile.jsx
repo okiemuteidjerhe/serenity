@@ -8,29 +8,29 @@ import { useState } from "react";
 export default function CompanyProfile() {
   const [logo, setLogo] = useState({
     file: null,
-    url: ""
-  })
+    url: "",
+  });
 
-  const [wantNotification, setWantNotification] = useState(false)
-  
-  const [wantAccountPrivate, setWantAccountPrivate] = useState(false)
+  const [wantNotification, setWantNotification] = useState(false);
 
-  function handleLogo(e){
-        if(e.target.files[0]){
-            setLogo({
-                file: e.target.files[0],
-                url: URL.createObjectURL(e.target.files[0])
-            })
-        }
-    }
+  const [wantAccountPrivate, setWantAccountPrivate] = useState(false);
 
-    function handleWantNotification(){
-      setWantNotification(prev => !prev)
+  function handleLogo(e) {
+    if (e.target.files[0]) {
+      setLogo({
+        file: e.target.files[0],
+        url: URL.createObjectURL(e.target.files[0]),
+      });
     }
-    
-    function handleWantAccountPrivate(){
-      setWantAccountPrivate(prev => !prev)
-    }
+  }
+
+  function handleWantNotification() {
+    setWantNotification((prev) => !prev);
+  }
+
+  function handleWantAccountPrivate() {
+    setWantAccountPrivate((prev) => !prev);
+  }
 
   return (
     <div className={styles.body}>
@@ -53,53 +53,87 @@ export default function CompanyProfile() {
         <h3>Company Profile</h3>
         <div className={styles.upload}>
           <div className={styles.profileImage}>
-            <img src={logo.url ||Avatar} alt="" />
+            <img src={logo.url || Avatar} alt="Company Logo" />
           </div>
           <label className={styles.selector}>
             <div className={styles.labelText}>Upload Logo</div>
-            <input type="file" name="Avatar" onChange={handleLogo}/>
+            <input type="file" name="Avatar" onChange={handleLogo} />
           </label>
         </div>
         <div className={styles.inputs}>
-            <div className={styles.Rws}>
-                <label>
-                    <div className={styles.labelText}>Company Name</div>
-                    <input type="text" name='Name' placeholder="Serenity Wellness Inc."/>
-                </label>
-                <label>
-                    <div className={styles.labelText}>Title</div>
-                    <input type="text" name="Title" placeholder="Title"/>
-                </label>
-            </div>
-            <div className={styles.Rws}>
-                <label>
-                    <div className={styles.labelText}>Email</div>
-                    <input type="text" name='Email' placeholder="info@sernitywellness.com"/>
-                </label>
-                <label>
-                    <div className={styles.labelText}>About</div>
-                    <input type="text" name="About Company" placeholder="About Company"/>
-                </label>
-            </div>
+          <div className={styles.Rws}>
+            <label>
+              <div className={styles.labelText}>Company Name</div>
+              <input
+                type="text"
+                name="Name"
+                placeholder="Serenity Wellness Inc."
+              />
+            </label>
+            <label>
+              <div className={styles.labelText}>Title</div>
+              <input type="text" name="Title" placeholder="Title" />
+            </label>
+          </div>
+          <div className={styles.Rws}>
+            <label>
+              <div className={styles.labelText}>Email</div>
+              <input
+                type="text"
+                name="Email"
+                placeholder="info@sernitywellness.com"
+              />
+            </label>
+            <label>
+              <div className={styles.labelText}>About</div>
+              <input
+                type="text"
+                name="About Company"
+                placeholder="About Company"
+              />
+            </label>
+          </div>
         </div>
         <div className={styles.toggles}>
-                            <label className={styles.noti}>
-                                <input type="checkbox" name="Notification" checked={wantNotification} onChange={handleWantNotification}/>
-                                <p>Notification</p>
-                                <span>{wantNotification ? <MdToggleOn size={50} color="var(--button-color)"/> : <MdToggleOff size={50} color="#E5E7EA"/>}</span>
-                            </label>
-                            <label className={styles.private}>
-                              <input type="checkbox" name="Account Private" checked={wantAccountPrivate} onChange={handleWantAccountPrivate}/>
-                                <p>Account Private</p>
-                                <span>{wantAccountPrivate ? <MdToggleOn size={50} color="var(--button-color)"/> : <MdToggleOff size={50} color="#E5E7EA"/>}</span>
-                            </label>
-                        </div>
-                        <button>Update Payment</button>
-        
-                        <div className={styles.btnGrp}>
-                            <button>Cancel</button>
-                            <button>Save Changes</button>
-                        </div>
+          <label className={styles.noti}>
+            <input
+              type="checkbox"
+              name="Notification"
+              checked={wantNotification}
+              onChange={handleWantNotification}
+            />
+            <p>Notification</p>
+            <span>
+              {wantNotification ? (
+                <MdToggleOn size={50} color="var(--button-color)" />
+              ) : (
+                <MdToggleOff size={50} color="#E5E7EA" />
+              )}
+            </span>
+          </label>
+          <label className={styles.private}>
+            <input
+              type="checkbox"
+              name="Account Private"
+              checked={wantAccountPrivate}
+              onChange={handleWantAccountPrivate}
+            />
+            <p>Account Private</p>
+            <span>
+              {wantAccountPrivate ? (
+                <MdToggleOn size={50} color="var(--button-color)" />
+              ) : (
+                <MdToggleOff size={50} color="#E5E7EA" />
+              )}
+            </span>
+          </label>
+        </div>
+        <button>Update Payment</button>
+
+        <div className={styles.btnGrp}>
+          <button>Cancel</button>
+          <button>Save Changes</button>
+        </div>
       </form>
     </div>
   );

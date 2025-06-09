@@ -54,7 +54,7 @@ export default function IndividualProfile(){
                 <h3>Profile settings</h3>    
                 <div className={styles.upload}>
                     <div className={styles.profileImage}>
-                        <img src={avatar.url||Avatar} alt="" />
+                        <img src={avatar.url||Avatar} alt="User Avatar" />
                     </div>
                     <label className={styles.selector}>                        
                         <div className={styles.labelText}>Upload Image</div>
