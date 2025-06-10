@@ -211,3 +211,41 @@
     font-weight: 400;
     padding: 16px 32px;
 }
+.LogOut{
+    top: 20%;
+}
+.Confirmation{
+    width: 45rem;
+    background-color: #fff;
+    padding: 32px;
+    border-radius: 16px;
+}
+.Confirmation h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-align: center;
+}
+.Confirmation p{
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-bottom: 48px;
+    text-align: center;
+}
+.BtnsR{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-self: center;
+}
+.BtnsR button{
+    padding: 14px 20px;
+    width: 189px;
+}
+.BtnsR button:first-of-type{
+    background-color: #fff;
+    border: 1.5px solid var(--button-color);
+    color: var(--primary-color);
+}
+
+

@@ -9,3 +9,12 @@
 .backArrow:focus{
     outline: none;
 }
+@media screen and (max-width: 760px) {
+    .backArrow{
+        font-size: 0.875rem;
+        font-weight: 400;
+    }
+    .backArrow svg{
+        width: 12px;
+    }
+}

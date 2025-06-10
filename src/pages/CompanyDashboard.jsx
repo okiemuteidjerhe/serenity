@@ -92,7 +92,7 @@ export default function CompanyDashboard() {
                         <div className={styles.bottom}>
                             <div className={styles.overview}>
                                 <h3>Employees wellness overview</h3>
-                                <button> <FaPlus /> Export Report</button>
+                                <button className={styles.cpbtn}> <FaPlus /> Export Report</button>
                             </div>
                             <div>
                                 {/* Bar chart */}
@@ -134,7 +134,7 @@ export default function CompanyDashboard() {
                         <div className={styles.report}>
                             <h3>Top Report</h3>
                             <p>Export all reports</p>
-                            <button>Export Report</button>
+                            <button className={styles.cpbtn}>Export Report</button>
                         </div>
                     </div>
                 </div>

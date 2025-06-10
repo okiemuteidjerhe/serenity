@@ -5,7 +5,7 @@ import { PiGearSixLight } from "react-icons/pi";
 import { BsBell } from "react-icons/bs";
 import { TfiAngleDown } from "react-icons/tfi";
 import { LiaTimesSolid } from "react-icons/lia";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { GoDotFill } from "react-icons/go";
 import checked from '../images/checked.png'
 import exclamation from '../images/exclamation.png'
@@ -72,9 +72,13 @@ export default function NavBar(props) {
 
     const [isOpen, setIsOpen] = useState(false)
     const [indLogOutOpen, setIndLogOutOpen] = useState(false)
+    const [confirmationOpen, setConfirmationOpen] = useState(false)
 
     const dialogRef = useRef(null)
     const indDialogRef = useRef(null)
+    const confirmationRef = useRef(null)
+
+    const navigate = useNavigate()
 
     function handleCompLogOutOpen(){
       dialogRef.current.showModal()
@@ -95,6 +99,32 @@ export default function NavBar(props) {
       indDialogRef.current.close()
       setIndLogOutOpen(false)
     }
+
+    function indConfirmationOpen(){
+        confirmationRef.current.showModal()
+        setConfirmationOpen(true)
+        indDialogRef.current.close()
+        setIndLogOutOpen(false)
+    }
+
+    function compConfirmationOpen(){
+      confirmationRef.current.showModal()
+      setConfirmationOpen(true)
+      dialogRef.current.close()
+      setIsOpen(false)
+    }
+
+    function handleYes(){
+      confirmationRef.current.close()
+      setConfirmationOpen(false)
+      navigate("/")
+    }
+
+    function confirmationClose(){
+      setConfirmationOpen(false);
+      confirmationRef.current.close();
+    }
+
 
     function handleMarkAsRead(){
         setMessages(prev=>{
@@ -306,17 +336,17 @@ export default function NavBar(props) {
               <input type="text" value={props.isCorporate ? "Tech4pro@gmail.com" : "alexisjane@gmail.com"} readOnly/>
             </label>
           </div>
-          <button>Log Out</button>
+          <button type="button" onClick={props.isCorporate ? compConfirmationOpen : indConfirmationOpen}>Log Out</button>
         </form>
      </dialog>
 
-     <dialog className={styles.LogOut}>
+     <dialog ref={confirmationRef} open={confirmationOpen} className={styles.LogOut}>
         <form action="" className={styles.Confirmation}>
           <h2>Log Out</h2>
           <p>Are you sure you want to log out of this account?</p>
           <div className={styles.BtnsR}>
-            <button>Yes</button>
-            <button>No</button>
+            <button type="button" className={styles.Yes} onClick={handleYes}>Yes</button>
+            <button type="button"className={styles.No}  onClick={confirmationClose}>No</button>
           </div>
         </form>
      </dialog>

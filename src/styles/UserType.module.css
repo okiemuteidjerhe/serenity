@@ -44,3 +44,37 @@
     width: 130px;
     height: 117px;
 }
+
+@media screen and (max-width: 760px) {
+    .body{
+        padding: 46px 48px 252px;
+    }
+    .sectionCtn{
+        /* padding-inline: 83px; */
+    }
+    .sectionCtn h2{
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+    .ctn{
+        flex-direction: column;
+    }
+    .ctn figure{
+        width: 225px;
+        height: 230px;
+    }
+    .ctn figure:first-of-type, .ctn figure:last-of-type{
+        gap: 48px;
+    }
+    .ctn figcaption{
+        font-weight: 600;
+    }
+    .imgCtn{
+        width: 152px;
+        height: 95px;
+    }
+    .indCtn{
+        width: 84px;
+        height: 67px;
+    }
+}
