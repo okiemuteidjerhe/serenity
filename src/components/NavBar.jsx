@@ -10,6 +10,7 @@ import { GoDotFill } from "react-icons/go";
 import checked from '../images/checked.png'
 import exclamation from '../images/exclamation.png'
 import { useRef, useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const data = [
     {
@@ -290,6 +291,96 @@ export default function NavBar(props) {
             </button>
           </li>
         </ul>
+      </nav>
+      <button className={styles.hamburger} type="button"><GiHamburgerMenu size={24} color="var(--primary-color)"/></button>
+      <nav className={styles.mobileNav}>
+          {
+          props.isCorporate ?       <ul>
+          <li>
+            <NavLink
+              to="/comp-dash"
+              className={({ isActive }) =>
+                isActive ? `${styles.active}` : undefined
+              }
+            >
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? `${styles.active}` : undefined
+              }
+            >
+             Employees
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? `${styles.active}` : undefined
+              }
+            >
+             Resources
+            </NavLink>
+          </li>
+    
+        </ul>  :
+                <ul>
+          <li>
+            <NavLink
+              to="/dashind"
+              className={({ isActive }) =>
+                isActive ? `${styles.active}` : undefined
+              }
+            >
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/vsr"
+              className={({ isActive }) =>
+                isActive ? `${styles.active}` : undefined
+              }
+            >
+              Safe Room
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/journal"
+              className={({ isActive }) =>
+                isActive ? `${styles.active}` : undefined
+              }
+            >
+              Journal
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/message"
+              className={({ isActive }) =>
+                isActive ? `${styles.active}` : undefined
+              }
+            >
+              Message
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/reminder"
+              className={({ isActive }) =>
+                isActive ? `${styles.active}` : undefined
+              }
+            >
+              Reminder
+            </NavLink>
+          </li>
+        </ul>
+        }      
       </nav>
      
      {notificationOpen && (

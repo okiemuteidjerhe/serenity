@@ -60,3 +60,10 @@ button{
     border-radius: 12px;
     cursor: pointer;
 }
+@media screen and (max-width:760px) {
+    input{
+        font-size: 0.875rem;
+        font-weight: 400;
+        padding: 8px 12px;
+    }
+}

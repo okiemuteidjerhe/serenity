@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import BackArrow from "../components/BackArrow";
 import Button from "../components/Button";
 import LeftPanel from "../components/LeftPanel";
@@ -6,6 +7,12 @@ import well from "../images/well.png";
 import styles from "../styles/Questionnaire.module.css";
 
 export default function Questionnaire() {
+  const navigate = useNavigate()
+
+  function handleNext(){
+    navigate("/indpay")
+  }
+  
   return (
     <div className={styles.body}>
       <BackArrow linkTo="/signupind" />
@@ -24,6 +31,7 @@ export default function Questionnaire() {
         />
 
         <form className={styles.right}>
+          <p className={styles.hidden}>Your Journey to better mental health starts here</p>
           <div className={styles.qtns}>
             <div className={styles.work}>
               <h2>Work Environment</h2>
@@ -92,7 +100,7 @@ export default function Questionnaire() {
               </div>
             </div>
           </div>
-          <Button text="Continue" />
+          <Button text="Continue" doSum={handleNext}/>
         </form>
       </section>
     </div>

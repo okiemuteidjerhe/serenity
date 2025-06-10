@@ -94,7 +94,7 @@ export default function IndvidualDashboard(){
                             </div>
                         </div>
                         </Link>
-                        <Link to='/scenarios'>
+                        
                             <div className={styles.scenarios}>
                             <h2>Scenarios</h2>
                             <p>"What Would You Do?"</p>
@@ -102,8 +102,9 @@ export default function IndvidualDashboard(){
                             <div className={styles.sImg}>
                                 <img src={focused} alt="" />
                             </div>
+                            <Link to='/scenarios'>Start Interaction</Link>
                         </div>
-                        </Link>
+                        
                     </div>
                     <div className={styles.bottomL}>
                         <div className={styles.therapy}>

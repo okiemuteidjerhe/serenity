@@ -24,7 +24,7 @@ export default function IndividualSignUp() {
   const handleClose = () => {
     setIsOpen(false);
     dialogRef.current.close();
-    navigate("/indpay");
+    navigate("/questions");
   };
 
   return (
@@ -46,7 +46,7 @@ export default function IndividualSignUp() {
           />
         </div>
         <div className={styles.right}>
-          <SocialSignup h2text="Sign Up with Serenity" />
+          <SocialSignup h2text="Sign Up with Serenity" hidden="Let's get started on your path to wellness"/>
           <form className={styles.form} action="">
             <div className={styles.inputField}>
               <div className={styles.name}>
@@ -61,7 +61,7 @@ export default function IndividualSignUp() {
 
               <Password name="Password" />
               <TextLabel type="text" name="Company Code" placeholder="445098" />
-              <TextLabel type="text" name="Role" placeholder="HR Intern" />
+              {/* <TextLabel type="text" name="Role" placeholder="HR Intern" /> */}
             </div>
             <Button text="Sign Up" doSum={handleOpen} />
 

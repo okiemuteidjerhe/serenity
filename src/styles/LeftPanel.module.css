@@ -6,3 +6,8 @@
     font-size: 1.5rem;
     font-weight: 500;
 }
+@media screen and (max-width: 760px) {
+    .ldiv{
+        display: none;
+    }
+}

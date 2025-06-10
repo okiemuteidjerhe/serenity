@@ -7,6 +7,7 @@ export default function SocialSignup(props) {
   return (
     <div className={styles.div}>
       <h2 className={styles.h2Txt}>{props.h2text}</h2>
+      <p className={styles.hidden}>{props.hidden}</p>
       <div className={styles.altLinks}>
         <Link to="/">
           <div className={styles.logos}>

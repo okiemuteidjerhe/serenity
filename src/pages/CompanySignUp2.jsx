@@ -45,6 +45,8 @@ healthier mind."
         </div>
         <form className={styles.right} action="">
           <h2>Company Information</h2>
+          <p className={styles.hidden}>Achieve work life harmony. Discover tailored strategies for mental well being and a 
+healthier mind.</p>
           <div className={styles.inputField}>
             <TextLabel name="Company Name" type="text" placeholder="Serenity" />
             <TextLabel

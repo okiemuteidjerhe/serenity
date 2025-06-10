@@ -10,6 +10,9 @@
 .h2Txt, .p{
     text-align: center;
 }
+.hidden{
+    display: none;
+}
 .altLinks{
     display: flex;
     gap: 24px;
@@ -30,4 +33,30 @@
 }
 .logos{
     width: 24px;
+}
+
+@media screen and (max-width: 760px) {
+    .h2Txt{
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+    .hidden{
+        display: block;
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: center;
+    }
+    .altLinks{
+        gap: 10px;
+    }
+    .altLinks a{
+        font-size: 0.75rem;
+        font-weight: 400;
+        padding: 19px 8px;
+        gap: 8px;
+    }
+    .p{
+        font-size: 0.75rem;
+        font-weight: 400;
+    }
 }

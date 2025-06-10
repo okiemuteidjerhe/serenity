@@ -28,6 +28,7 @@ export default function CompanySignUp() {
         </div>
         <form className={styles.right} action="">
           <h2>Account Creation</h2>
+          <p className={styles.hidden}>Balance work and life with ease. Unlock a calmer, more focused mind with personalized mental wellness tools.</p>
           <div className={styles.inputField}>
             <TextLabel
               name="Admin"

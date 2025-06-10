@@ -1,5 +1,6 @@
 .body{
     background-color: var(--second-backgroundC);
+    min-height: 100vh;
 }
 .mainSide{
     padding: 24px;
@@ -173,6 +174,8 @@
 }
 .cover{
     width: 300px;
+    height: 300px;
+    border-radius: 50%;
     margin: auto;
 }
 .queue{
@@ -299,4 +302,104 @@
     font-weight: 500;
     text-align: center;
     padding-top: 50%;
+}
+.chng{
+    display: none;
+}
+@media screen and (max-width: 760px) {
+    .mainSide{
+        padding: 32px 24px 48px;
+        display: flex;
+        flex-direction: column;
+    }
+    .chng{
+        display: grid;
+        gap: 16px;
+        background-color: #fff;
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .change{
+        display: none;
+    }
+    .bottomLeft{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .topLeft{
+        padding: 16px 24px;
+    }
+    .topLeft h3, .chng h3, .blRight h3, .blLeft h3{
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+    .blLeft h3{
+        text-align: center;
+    }
+    .bllImg{
+        width: 94px;
+        height: 94px;
+    }
+    .blLeft button{
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        width: 147px;
+    }
+    .group{
+        gap: 8px;
+    }
+    .group p{
+        font-size: 0.75rem;
+        font-weight: 400;
+    }
+    .topLeft p, .blRight p{
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 22px;
+    }
+    .tlImg{
+        width: 344px;
+        height: 280px;
+    }
+    .blRight p:first-of-type{
+        margin-bottom: 32px;
+    }
+    .blRight p:last-of-type{
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 28px;
+    }
+    .title h3{
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .title svg{
+        width: 20px;
+    }
+    .cover{
+        width: 153px;
+        height: 153px;
+    }
+    .queue p:first-of-type{
+        font-size: 1.125rem;
+        font-weight: 400;
+    }
+    .queue p:last-of-type{
+        font-size: 0.875rem;
+        font-weight: 400;
+    }
+    .slider{
+        height: 4px;
+    }
+    .slider::-webkit-slider-thumb{
+        width: 13px;
+        height: 13px;
+    }
+    .control button svg{
+        width: 20px;
+    }
+    .search svg{
+        width: 24px;
+    }
 }

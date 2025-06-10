@@ -288,6 +288,12 @@ let progress = (currentTime/duration) * 100;
       <NavBar/>
       <section className={styles.mainSide}>
         <div className={styles.leftS}>
+          <div className={styles.chng}>
+                <h3>Change Scenes</h3>
+                <div className={styles.sceneCtn}>
+                    {scenesArr}
+                </div>
+            </div>
           <div className={styles.topLeft}>
             <h3>{video.videoName} scene</h3>
             <p>

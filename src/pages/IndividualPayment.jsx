@@ -59,7 +59,7 @@ const content = data.map(datum=>{
 })
   return (
     <div className={styles.body}>
-      <BackArrow linkTo="/signupind" />
+      <BackArrow linkTo="/questions" />
 
       <div className={styles.pagination}>
         <div className={styles.line}></div>

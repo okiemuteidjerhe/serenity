@@ -86,3 +86,22 @@
     display: grid;
     gap: 16px;
 }
+@media screen and (max-width: 760px) {
+    .body{
+        padding: 48px 24px;
+    }
+    .left{
+        display: none;
+    }
+    .section{
+        padding-top: 48px;
+        gap: 0;
+    }
+    .right{
+        padding: 32px 24px;
+    }
+    .form a{
+        font-size: 0.75rem;
+        font-weight: 400;
+    }
+}

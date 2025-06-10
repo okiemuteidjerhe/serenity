@@ -113,6 +113,17 @@
     width: 33px;
     margin-left: 118px;
 }
+.scenarios a{
+    background-color: var(--button-color);
+    padding: 14px 20px;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 72px;
+    display: flex;
+    justify-self: center;
+}
 .bottomL{
     display: grid;
     gap: 33px;
@@ -220,4 +231,140 @@ dialog::backdrop {
     background-color: var(--button-color);
     color: #fff;
     border-radius: 16px;
+}
+@media screen and (max-width: 760px) {
+    .mainS{
+        padding: 32px 24px 48px;
+    }
+    .top{
+        display: flex;
+        flex-direction: column-reverse;
+        
+    }
+    .topLeft{
+        display: flex;
+        padding: 24px 32px;
+        gap: 16px;
+        align-items: center;
+    }
+    .topLeft h2{
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-align: left;
+        line-height: 22px;
+        margin: 0;
+        width: 143px;
+        
+    }
+    .tlImg{
+        width: 40px;
+        margin: 0;
+    }
+    .topLeft button{
+        padding: 6px 8px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin: 0;
+        flex-grow: 1;
+        height: fit-content;
+    }
+    .topRight{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .trTexts h1{
+        font-size: 1.125rem;
+        font-weight: 600;
+        line-height: 26px;
+        width: 103px;
+    }
+    .trTexts p{
+        font-size: 0.875rem;
+        font-weight: 400;
+    }
+    .trImg{
+        width: 108px;
+    }
+    .trTexts a{
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        font-weight: 400;
+    }
+    .bottom{
+        display: flex;
+        flex-direction: column;
+    }
+    .bottomR{
+        display: flex;
+        flex-direction: column;
+    }
+    .bottomL{
+        display: flex;
+        flex-direction: column;
+    }
+    .journal h2, .scenarios h2{
+        font-size: 1.125rem;
+        font-weight: 600;
+        text-align: center;
+    }
+    .journal p, .scenarios p{
+        font-size: 0.875rem;
+        font-weight: 400;
+        text-align: center;
+    }
+    .jImg{
+        width: 102px;
+    }
+    .scenarios h2, .therapy h2, .materials h2{
+        font-size: 1.125rem;
+        font-weight: 600;
+        text-align: left;
+    }
+    .scenarios p, .therapy p, .materials p{
+        font-size: 0.875rem;
+        font-weight: 400;
+        text-align: left;
+    }
+    .posi{
+        width: 29px;
+    }
+    .scenarios a{
+        margin-top: 14px;
+    }
+    .sImg{
+        width: 164px;
+    }
+    .therapy a{
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-top: 16px;
+    }
+    .materials p svg{
+        width: 24px;
+    }
+    .materials h2 a{
+        display: flex;
+        align-self: center;
+    }
+    .dialog{
+        width: 25rem;
+    }
+    .dialogTexts h2{
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+    .dialogTexts p{
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    .emojiList{
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .emojiList button p{
+        font-size: 0.875rem;
+        font-weight: 400;
+    }
 }

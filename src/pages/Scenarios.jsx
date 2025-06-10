@@ -52,7 +52,7 @@ const last = current >= data.length
       </header>
       <section className={styles.qS}>
         <h2>"What would you do?" Scenarios</h2>
-        {last ? <p>That's all</p>
+        {last ? <p>Check back later for more scenerios.</p>
          : <Question
         key={current}
         question={data[current].question}

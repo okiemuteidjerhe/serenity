@@ -59,7 +59,7 @@ export default function SignIn() {
           />
         </div>
         <div className={styles.right}>
-          <SocialSignup h2text="Welcome Back!" />
+          <SocialSignup h2text="Welcome Back!" hidden="Let's personalize your experience"/>
 
           <form className={styles.form} action="">
             <div className={styles.inputField}>

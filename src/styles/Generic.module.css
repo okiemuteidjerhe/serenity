@@ -24,3 +24,15 @@ dialog::backdrop {
   margin-top: 50%;
   transform: translateY(-50%); 
 }
+@media screen and (max-width:760px) {
+  dialog[open]{
+    top: 55%;
+  }
+  dialog[open]::backdrop{
+    background-color: red;
+  }
+  .dialog{
+    width: 27.5rem;
+    
+  }
+}
