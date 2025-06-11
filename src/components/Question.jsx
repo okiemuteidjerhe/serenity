@@ -29,7 +29,7 @@ export default function Question(props){
                     </label>
                   </div>
                   <div className={styles.message}>
-                    <input type="text" placeholder="Message..."/>
+                    <input type="text" name='message' placeholder="Message..."/>
                     <button type='button' onClick={props.handleNext}>Send</button>
                   </div>
                 </form>

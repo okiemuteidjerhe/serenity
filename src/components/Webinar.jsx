@@ -29,7 +29,7 @@ export function Pdf(props) {
       </div>
       <h3>{props.heading}</h3>
       <div className={styles.pr1}>
-        <span>File:</span>
+        <span>File type:</span>
         <span>PDF</span>
       </div>
       <div className={styles.pr2}>

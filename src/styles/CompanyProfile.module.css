@@ -104,3 +104,51 @@
     background-color: transparent;
     color: #6D717F;
 }
+@media screen and (max-width: 760px) {
+    .body{
+        padding: 48px 23px;
+        min-height: 100vh;
+    }
+    .cpForm{
+        margin: 0;
+        margin-top: 32px;
+        padding: 32px;
+    }
+    .cpForm h3{
+        margin-bottom: 32px;
+    }
+    .profileImage{
+        width: 76px;
+        height: 76px;
+    }
+    .labelText{
+        font-size: 0.875rem;
+    }
+    .inputs{
+        display: flex;
+        flex-direction: column;
+    }
+    .Rws{
+        flex-direction: column;
+    }
+    .toggles{
+        gap: 23px;
+    }
+    .private, .noti{
+        gap: 23px;
+    }
+    .noti p, .private p{
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    .cpForm > button{
+        padding: 8px 12px;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    .btnGrp button{
+        padding: 8px 12px;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+}

@@ -98,8 +98,8 @@
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 0.75rem;
-    margin-top: 26px;
     display: flex;
-    justify-self: center;
-    justify-content: center;
+    width: fit-content;
+    margin: auto;
+    margin-top: 26px;
 }

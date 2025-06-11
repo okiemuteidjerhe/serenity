@@ -107,7 +107,7 @@
     .name{
         gap: 10px;
     }
-    .textSize{
+    .textSize, .p{
         font-size: 0.75rem;
         font-weight: 400;
     }

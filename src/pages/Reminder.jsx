@@ -4,10 +4,12 @@ import man from '../images/man.png'
 import { FiSearch } from 'react-icons/fi'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import NavBar from '../components/NavBar'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { LiaTimesSolid } from 'react-icons/lia'
 import pod from '../images/pod.png'
 import prescription from '../images/prescription.png'
+import { TfiAngleRight } from 'react-icons/tfi'
+import { FaPlus } from 'react-icons/fa6'
 
 
 const data = [
@@ -43,6 +45,21 @@ const data = [
 
 
 export default function Reminder(){
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 760);
+    const [activePage, setActivePage] = useState('table')
+    
+    useEffect(()=>{
+        const handleResize = () =>{
+            setIsMobile(window.innerWidth <= 768)
+        }
+    
+        window.addEventListener("resize", handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+
+
     const dialogRef = useRef(null)
     const dialogRef2 = useRef(null)
     const dialogRef3 = useRef(null)
@@ -180,20 +197,46 @@ const filteredReminders = reminderList.filter(item=>{
             key={r.id}
             className={styles.row2}>
                             <p>{r.event}</p>
+                            <div className={styles.rb}>
+                            <div className={styles.rg}>
                             <p>{r.time}</p>
                             <p>{r.date}</p>
+                            </div>
                             <p className={r.isActive? `${styles.active}` : `${styles.inActive}`}>{r.isActive? `Active` : `Inactive`}</p>
                             <button onClick={()=>handleOpen3(r.event)}><RiDeleteBin6Line size={25}/></button>
+                            </div>
                         </div>
         )
     })
 
     return (
         <div className={styles.body}>
-            <NavBar/>
+            {activePage === "table" ? <NavBar/> :
+            <header className={styles.jHeader}>
+                                <nav className={styles.miniNav}>
+                                  <ul>
+                                    <li>
+                                      <button onClick={()=>setActivePage("entries")}>Reminder</button>
+                                    </li>
+                                    <li>
+                                      <TfiAngleRight size={14} />
+                                    </li>
+                                    <li>
+                                      <p>New Reminder</p>
+                                    </li>
+                                  </ul>
+                                </nav>
+                                </header>
+            }
             
             <section className={styles.rSection}>
-                <div className={styles.top}>
+                <div className={`${styles.top} ${isMobile ? styles.diff : undefined}`}>
+                {isMobile && <div className={styles.searchBar}>
+                            <FiSearch size={24}/>
+                            <input type="text" placeholder="Search" value={searchTerm} onChange={handleSearch}/>
+                        </div>}
+
+                 {(!isMobile || activePage === 'table') &&   
                     <div className={styles.topLeft}>
                         <h3>Upcoming Events</h3>
                         <div className={styles.tlBox}>
@@ -215,7 +258,10 @@ const filteredReminders = reminderList.filter(item=>{
                                 <img src={man} alt="" />
                             </div>
                         </div>
-                    </div>
+                    </div>   
+}
+
+{(!isMobile || activePage === 'newReminder') &&
                     <form action={handleNewReminder} className={styles.topRight}>
                         <h3>Set Reminder</h3>
                         <div className={styles.inputField}>
@@ -240,14 +286,17 @@ const filteredReminders = reminderList.filter(item=>{
                         </div>
                         <button>Set Reminder</button>
                     </form>
-                </div>
+}                    
+                </div>                
+ 
+ {(!isMobile || activePage === 'table') &&
                 <div className={styles.bottom}>
                     <div className={styles.topBottom}>
                         <h2>Reminder</h2>
-                        <div className={styles.searchBar}>
+                       { !isMobile ? <div className={styles.searchBar}>
                             <FiSearch size={24}/>
                             <input type="text" placeholder="Search" value={searchTerm} onChange={handleSearch}/>
-                        </div>
+                        </div> : <FaPlus/>}
                     </div>
                     <div className={styles.reminderTable}>
                         <div className={styles.row1}>
@@ -260,6 +309,7 @@ const filteredReminders = reminderList.filter(item=>{
                         {reminders}
                     </div>
                 </div>
+}                
             </section>
 
             {/* detailsObj should be used here */}

@@ -4,10 +4,10 @@ import { FiSearch } from "react-icons/fi";
 import { BiCheckDouble } from "react-icons/bi";
 import NavBar from "../components/NavBar";
 import { BsEmojiSmile } from "react-icons/bs";
-import { FaPlus } from "react-icons/fa6";
+import { FaAngleLeft, FaPlus } from "react-icons/fa6";
 import { IoMicOutline } from "react-icons/io5";
 import EmojiPicker from 'emoji-picker-react'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const allMessages = [
   {
@@ -46,12 +46,33 @@ const allMessages = [
     message: "Good Morning Doctor, how are...",
   },
   {
-    id:7,
+    id:8,
     name: "Dr.  Happy Martins",
     message: "Good Morning Doctor, how are...",
   },
 ];
+
+
 export default function Message() {
+
+const [isMobile, setIsMobile] = useState(window.innerWidth <= 760);
+const [activePage, setActivePage] = useState('contacts')
+
+useEffect(()=>{
+    const handleResize = () =>{
+        setIsMobile(window.innerWidth <= 768)
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+}, [])
+
+
+
+
+
+
+
 const[isOpen, setIsOpen] = useState(false)
 const[chatInput, setChatInput] = useState("")
 
@@ -72,7 +93,9 @@ function handleEmoji(emojiObj){
     return (
       <div 
       key={e.id}
-      className={styles.message}>
+      className={styles.message}
+      onClick={()=>setActivePage("chat")}
+      >
         <div className={styles.avatarCtn}>
           <img src={Avatar} alt="" />
         </div>
@@ -91,9 +114,12 @@ function handleEmoji(emojiObj){
   });
 
   return (
-    <div className={styles.body}>
-      <NavBar />
-      <section className={styles.messageSection}>
+    <div className={`${styles.body} ${activePage === 'chat' ? styles.bod : undefined}`}>
+      {activePage === 'contacts' && <NavBar />}
+
+      <section className={`${styles.messageSection} ${activePage === 'chat' ? styles.msgSect : undefined}`}>
+      {(!isMobile || activePage === 'contacts') &&
+       
         <div className={styles.left}>
           <div className={styles.box}>
             <div className={styles.inputB}>
@@ -104,9 +130,12 @@ function handleEmoji(emojiObj){
           </div>
           <div className={styles.allMessages}>{messageArr}</div>
         </div>
+}
 
+      {(!isMobile || activePage === "chat") &&
         <div className={styles.right}>
             <div className={styles.user}>
+              {isMobile && <button onClick={()=>setActivePage("contacts")}><FaAngleLeft/></button> }
                 <div className={styles.userAvatar}>
                     <img src={Avatar} alt="" />
                 </div>
@@ -178,9 +207,10 @@ function handleEmoji(emojiObj){
                     <input type="text" name="chatMessage" placeholder="Type your message" value={chatInput} onChange={handleChatInput}/>
                     <button><IoMicOutline size={24}/></button>
                 </div>
-                <button>Send</button>
+                <button className={styles.send}>Send</button>
             </div>
         </div>
+}
       </section>
     </div>
   );

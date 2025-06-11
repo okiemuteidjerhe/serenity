@@ -1,6 +1,7 @@
 .body{
     background-color: var(--second-backgroundC);
     padding-bottom: 32px;
+    height: 100vh;
 }
 .jSection{
     margin: 32px 100px;
@@ -32,6 +33,7 @@
 }
 .inputB input{
     border: none;
+    padding: 0;
 }
 .entry{
     display: grid;
@@ -111,5 +113,77 @@
 .save{
     padding: 14px 20px;
     display: flex;
-    justify-self: right;
+    margin-left: auto;
+}
+@media screen and (max-width:760px) {
+    .jSection{
+        margin: 32px 24px 80px;
+        padding: 0;
+        grid-template-columns: 1fr;
+    }
+    .left{
+        gap: 8px;
+    }
+    .box{
+        display: flex;
+        align-items: center;
+        padding: 16px 24px;
+        gap: 24px;
+    }
+    .box button{
+        background-color: transparent;
+        color: var(--primary-color);
+    }
+    .inputB{
+        margin: 0;
+        flex-grow: 1;
+    }
+    .entry h3{
+        font-size: 1rem;
+    }
+    .jHeader{
+        padding: 24px;
+        margin-bottom: 8px;
+    }
+    .miniNav li:first-of-type button{
+        background-color: transparent;
+        color: #9EA2AE;
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+    .miniNav li:last-of-type p{
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+    .container{
+        display: none;
+    }
+    .right textarea{
+        background-size: 360px 664px;
+        background-repeat: no-repeat;
+        width: 360px;
+        padding: 16px;
+        margin: auto;
+    }
+    .right h2{
+        padding: 16px 16px 0;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .save{
+        margin-right: 16px;
+        margin-bottom: 16px;
+    }
+    .read{
+        height: 80vh;
+        display: block;
+        padding: 16px;
+    }
+    .topH{
+        margin-bottom: 24px;
+        align-items: flex-end;
+    }
+    .topH h2{
+        padding-left: 0;
+    }
 }

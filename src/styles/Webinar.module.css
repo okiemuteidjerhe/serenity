@@ -12,7 +12,7 @@
     overflow: hidden;
 }
 .wCard h3, .pCard h3{
-    font-weight: 1.125rem;
+    font-size: 1.125rem;
     font-weight: 600;
 }
 .row1, .row2{
@@ -38,8 +38,26 @@
 }
 .pr1 span, .pr2 span{
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 600;
 }
 .pr1 span:last-of-type, .pr2 span:last-of-type{
     font-weight: 400;
+}
+@media screen and (max-width: 760px) {
+    .wImg{
+        width: 330px;
+    }
+    .wCard h3, .pCard h3{
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .row1 span:first-of-type, .row1 span:last-of-type{
+        font-size: 0.875rem;
+    }
+    .row2 span:first-of-type, .row2 span:last-of-type{
+        font-size: 0.75rem;
+    }
+    .pr1 span, .pr2 span{
+        font-size: 0.9rem;
+    }
 }

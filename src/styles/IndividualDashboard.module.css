@@ -120,9 +120,10 @@
     border-radius: 12px;
     font-size: 1rem;
     font-weight: 400;
-    margin-top: 72px;
+    margin: auto;
     display: flex;
-    justify-self: center;
+    margin-top: 72px;
+    width: fit-content;
 }
 .bottomL{
     display: grid;

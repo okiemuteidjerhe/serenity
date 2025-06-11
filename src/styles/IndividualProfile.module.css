@@ -1,6 +1,7 @@
 .body{
     background-color: var(--second-backgroundC);
     padding: 48px 24px 98px;
+    min-height: 100vh;
 }
 .miniNav{
     display: flex;
@@ -104,7 +105,7 @@
 }
 .btnGrp{
     display: flex;
-    justify-self: right;
+    justify-content: flex-end;
     gap: 24px;
 }
 .btnGrp button{
@@ -114,4 +115,58 @@
     border: 1.5px solid var(--button-color);
     background-color: transparent;
     color: #6D717F;
+}
+@media screen and (max-width: 760px) {
+    .body{
+        padding: 24px 23px;
+    }
+    .pSection{
+        margin: 0;
+        margin-top: 32px;
+        padding: 24px 32px;
+    }
+    .pSection h3{
+        margin-bottom: 32px;
+    }
+    .profileImage{
+        width: 76px;
+        height: 76px;
+    }
+    .labelText{
+        font-size: 0.875rem;
+    }
+    .R{
+        flex-direction: column;
+    }
+    .inputFields{
+        display: flex;
+        flex-direction: column;
+    }
+    /* .inputFields input{
+        min-width: 0;
+        width: 100%;
+    } */
+    .inputFields > label{
+        width: 100%;
+    }
+    .toggles{
+        gap: 23px;
+    }
+    .private, .noti{
+        gap: 23px;
+    }
+    .noti p, .private p{
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    .pSection > button{
+        padding: 8px 12px;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    .btnGrp button{
+        padding: 8px 12px;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
 }

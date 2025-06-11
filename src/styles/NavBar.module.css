@@ -188,7 +188,7 @@
 }
 .Dialog button:first-of-type{
     display: flex;
-    justify-self: right;
+    margin-left: auto;
     background-color: transparent;
     margin-bottom: 124px;
 }
@@ -239,7 +239,7 @@
     display: flex;
     gap: 24px;
     align-items: center;
-    justify-self: center;
+    justify-content: center;
 }
 .BtnsR button{
     padding: 14px 20px;
@@ -261,5 +261,70 @@
     }
     .primary, .secondary{
         display: none;
+    }
+    .open{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+        padding: 16px 0;
+        z-index: 1000;
+    }
+    .hidebtn{
+        display: none !important;
+    }
+    .mobileNav ul{
+        display: flex;
+        flex-direction: column;
+    }
+    .mobileNav ul li a{
+        padding: 16px 32px;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+        font-size: 1.125rem;
+    }
+    .mobileNav ul li:first-of-type button{
+        display: flex;
+        margin-left: auto;
+        color: black;
+        background-color: transparent;
+        padding: 16px 32px;
+    }
+    .logoC{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    .mobileNav ul li:nth-of-type(2){
+        margin: auto;
+        margin-bottom: 12px;
+    }
+    .active{
+        color: var(--primary-color);
+        border-radius: 0;
+    }
+    .active, .mobileNav ul li a:hover{
+        background-color: #e7eeee;
+    }
+    .first[open]{
+        top: 40%;
+    }
+    .Dialog{
+        width: 24rem;
+    }
+    .Confirmation{
+        width: 24rem;
+    }
+    .Confirmation h2{
+        font-size: 1.125rem;
+    }
+    .Confirmation p{
+        font-size: 0.875rem;
+    }
+    .LogOut[open]{
+        top: 25%;
     }
 }

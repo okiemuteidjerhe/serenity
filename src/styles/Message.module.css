@@ -1,6 +1,7 @@
 .body{
     background-color: var(--second-backgroundC);
     padding-bottom: 80px;
+    min-height: 100vh;
 }
 
 .messageSection{
@@ -171,7 +172,7 @@
     background-color: transparent;
     color: var(--primary-color);
 }
-.inputArea button:last-of-type{
+.send{
     padding: 14px 20px;
 }
 .inputArea .input{
@@ -185,4 +186,46 @@
 .inputArea .input input{
     border: none;
     flex-grow: 1;
+}
+@media screen and (max-width: 760px) {
+    .body{
+        padding: 0;
+    }
+    .messageSection{
+        margin: 32px 24px 0;
+        grid-template-columns: 1fr;
+        border-radius: 0;
+    }
+    .allMessages{
+        max-height: 700px;
+    }
+    .bod{
+        padding: 54px 24px;
+    }
+    .user button{
+        background-color:transparent;
+        color: var(--primary-color);
+    }
+    .msgSect{
+        margin: 0;
+    }
+    .chatArea{
+        max-height: 700px;
+    }
+    .inputArea{
+        gap: 8px;
+    }
+    .inputArea .input{
+        gap: 10px;
+        padding: 6px;
+    }
+    .inputArea .input input{
+        padding: 0;
+    }
+    .emoji button{
+        padding: 0;
+    }
+    .send{
+        padding: 12px;
+    }
 }

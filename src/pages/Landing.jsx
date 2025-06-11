@@ -9,7 +9,7 @@ import person from "../images/person.png"
 import company from "../images/company.png"
 import { Link } from "react-router";
 import FaqItem from "../components/FaqItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa6";
 import { FiInstagram } from "react-icons/fi";
 import { CiLinkedin, CiTwitter } from "react-icons/ci";
@@ -69,6 +69,14 @@ export default function Landing() {
     });
   }
 
+  useEffect(()=>{
+    if (menuOpen){
+      document.body.style.overflow = 'hidden'
+    }else{
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   const items = copyOfData.map((datum) => {
     return (
       <FaqItem
@@ -91,14 +99,14 @@ export default function Landing() {
 
   return (
     <div className={styles.body}>
-      <header className={styles.lHeader}>
+      <header id="top" className={styles.lHeader}>
         <div className={styles.logoCtn}>
           <img src={logo} alt="Serenity logo" />
         </div>
         <nav className={styles.middleNav}>
           <ul>
             <li>
-              <Link to="">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <a href="#features">Features</a>
@@ -123,18 +131,20 @@ export default function Landing() {
             </li>
           </ul>
         </nav>
-        <button type="button"><GiHamburgerMenu size={24} color="var(--primary-color)"/></button>
-        <nav className={styles.mobileNav}>
+        <button type="button" className={menuOpen ? `${styles.hidebtn}` : undefined} onClick={handleMenuOpen}><GiHamburgerMenu size={24} color="var(--primary-color)"/></button>
+       {menuOpen &&
+        <nav className={`${styles.mobileNav} ${menuOpen ? styles.open : undefined}`}>
           <ul>
-            <li><LiaTimesSolid/></li>
-            <li><Link>Home</Link></li>
-            <li><Link>Pricing</Link></li>
-            <li><Link>Features</Link></li>
-            <li><Link>FAQs</Link></li>
-            <li><Link>Sign in</Link></li>
-            <li><Link>Sign Up</Link></li>
+            <li><button onClick={handleCloseMenu}><LiaTimesSolid size={30}/></button></li>
+            <li><Link to='/' onClick={handleCloseMenu}>Home</Link></li>
+            <li><a href='#features' onClick={handleCloseMenu}>Features</a></li>
+            <li><a href='#features' onClick={handleCloseMenu}>Pricing</a></li>
+            <li><a href='#faq' onClick={handleCloseMenu}>FAQs</a></li>
+            <li><Link to='/signin' onClick={handleCloseMenu}>Sign in</Link></li>
+            <li><Link to='/choose' onClick={handleCloseMenu}>Sign Up</Link></li>
           </ul>
         </nav>
+}
       </header>
 
       <section className={styles.section}>
@@ -264,9 +274,9 @@ export default function Landing() {
       <footer className={styles.lfoot}>
         
           <div className={styles.footerLogo}>
-            <div className={styles.logoCtn}>
+            <a href='#top' className={styles.logoCtn}>
               <img src={logo} alt="Serenity logo" />
-            </div>
+            </a>
             <p>Your Mental Wellness Company</p>
             <div className={styles.smIcons}>
               <Link to="">

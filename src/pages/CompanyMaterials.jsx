@@ -15,7 +15,7 @@ const webinarData = [
         host: "Austin & Leo",
         src: pod,
         alt: "Talking",
-        url: "https://serenity.com",
+        url: "https://serenitymentalwellnesslaboratory.com",
         date: "2nd June, 2025",
         time: "11:00 AM"
     },
@@ -159,7 +159,7 @@ const pdfs = pdfData.map(item=>{
                         <div className={styles.dRows}>
                             <div className={styles.link}>
                                 <span><GoLink/></span>
-                                <span>{trigger ? trigger.url : ''}</span>
+                                <span>{trigger ? (trigger.url.length > 32 ? trigger.url.slice(0, 20) + "..." : trigger.url) : ''}</span>
                             </div>
                             <button type='button' onClick={handleCopy}>
                             <GoCopy size={16} color='var(--primary-color)'/>

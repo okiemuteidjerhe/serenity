@@ -92,3 +92,29 @@
     align-items: center;
     color: #0095FF;
 }
+@media screen and (max-width: 760px) {
+    .body{
+        padding: 24px 24px 48px;
+    }
+    .cHeader{
+        padding-left: 0;
+    }
+    .cSection{
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .webinar h2, .pdf h2{
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .cardCnt{
+        gap: 24px;
+    }
+    .dRows:nth-of-type(3) span{
+        font-size: 0.875rem;
+    }
+    .link span:last-of-type{
+        font-weight: 400;
+    }
+}
