@@ -308,7 +308,11 @@
 }
 @media screen and (max-width: 760px) {
     .mainSide{
-        padding: 32px 24px 48px;
+        margin: 32px auto 48px;
+        display: flex;
+        flex-direction: column;
+    }
+    .leftS{
         display: flex;
         flex-direction: column;
     }
@@ -332,6 +336,10 @@
     .topLeft h3, .chng h3, .blRight h3, .blLeft h3{
         font-size: 1.125rem;
         font-weight: 600;
+    }
+    .blLeft{
+        display: flex;
+        flex-direction: column;
     }
     .blLeft h3{
         text-align: center;
@@ -359,7 +367,10 @@
         line-height: 22px;
     }
     .tlImg{
-        width: 344px;
+        display: flex;
+        margin: auto;
+        width: 100%;
+        /* max-width: 340px; */
         height: 280px;
     }
     .blRight p:first-of-type{

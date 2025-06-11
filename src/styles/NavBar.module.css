@@ -89,7 +89,7 @@
     top: 24px;
     right: 24px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    z-index: 2;
+    z-index: 99999;
     width: 465px;
     /* transform: translateY(-100%); */
     opacity: 0;
@@ -264,7 +264,7 @@
     }
     .open{
         display: block;
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         width: 100%;
@@ -306,8 +306,17 @@
         color: var(--primary-color);
         border-radius: 0;
     }
-    .active, .mobileNav ul li a:hover{
+    .active, .mobileNav ul li a:hover, .navBtn {
         background-color: #e7eeee;
+    }
+    .navBtn{
+        background-color: transparent;
+        color: var(--primary-color);
+        padding: 16px 32px;
+        width: 100%;
+        text-align: left;
+        transition: all 0.3s ease-in-out;
+        font-size: 1.125rem;
     }
     .first[open]{
         top: 40%;

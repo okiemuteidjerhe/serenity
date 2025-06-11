@@ -121,7 +121,7 @@
         width: 76px;
         height: 76px;
     }
-    .labelText{
+    .Rws label .labelText{
         font-size: 0.875rem;
     }
     .inputs{
@@ -132,13 +132,14 @@
         flex-direction: column;
     }
     .toggles{
-        gap: 23px;
+        gap: 0;
+        flex-direction: column;
     }
     .private, .noti{
         gap: 23px;
     }
     .noti p, .private p{
-        font-size: 0.75rem;
+        font-size: 0.875rem;
         font-weight: 500;
     }
     .cpForm > button{

@@ -5,7 +5,7 @@ import { PiGearSixLight } from "react-icons/pi";
 import { BsBell } from "react-icons/bs";
 import { TfiAngleDown } from "react-icons/tfi";
 import { LiaTimesSolid } from "react-icons/lia";
-import { NavLink, useNavigate } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 import { GoDotFill } from "react-icons/go";
 import checked from "../images/checked.png";
 import exclamation from "../images/exclamation.png";
@@ -75,11 +75,25 @@ export default function NavBar(props) {
     setMenuOpen(false);
   }
 
+  const location = useLocation()
+  const prevPath = useRef(location.pathname)
+
+  useEffect(()=> {
+    if(location.pathname !== prevPath.current){
+      setMenuOpen(false)
+    document.body.style.overflow = ""
+    prevPath.current = location.pathname
+    }
+}, [location.pathname])
+
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = ''
     }
   }, [menuOpen]);
 
@@ -151,6 +165,7 @@ export default function NavBar(props) {
 
   function handleOpening() {
     setNotificationOpen(true);
+    setMenuOpen(false)
   }
 
   function handleClosing() {
@@ -327,6 +342,43 @@ export default function NavBar(props) {
           <GiHamburgerMenu size={24} color="var(--primary-color)" />
         </button>
 
+
+
+{notificationOpen && (
+          <div
+            className={`${styles.backdrop} ${
+              notificationOpen ? styles.backdropOpen : undefined
+            }`}
+          >
+            <div
+              className={`${styles.notifications} ${
+                notificationOpen ? styles.open : undefined
+              }`}
+            >
+              <div className={styles.topSide}>
+                <div className={styles.tt}>
+                  <h3>Notification</h3>
+                  <button onClick={handleClosing}>
+                    <LiaTimesSolid size={24} />
+                  </button>
+                </div>
+                <div className={styles.tb}>
+                  <button>General</button>
+                  <button onClick={handleMarkAsRead}>Mark all as read</button>
+                </div>
+              </div>
+              <div
+                className={`${styles.dropdown} ${
+                  messages.length < 5 ? undefined : styles.scrollArea
+                }`}
+              >
+                {dropdownContent}
+              </div>
+            </div>
+          </div>
+        )}
+
+
         <nav
           className={`${styles.mobileNav} ${
             menuOpen ? styles.open : undefined
@@ -429,43 +481,37 @@ export default function NavBar(props) {
                   Reminder
                 </NavLink>
               </li>
+
+              <li>
+              <NavLink to={props.isCorporate ? "/comp-profile" : "/profile"}>
+                Profile Settings
+              </NavLink>
+            </li>
+            <li>
+              <button className={styles.navBtn} onClick={handleOpening}>
+                Notification
+                {newNotification ? (
+                  <span>
+                    <GoDotFill size={16} color=" #43B75D" />
+                  </span>
+                ) : null}
+              </button>
+            </li>
+            <li>
+              <button
+              className={styles.navBtn}
+                onClick={
+                  props.isCorporate ? handleCompLogOutOpen : handleIndLogOutOpen
+                }
+              >
+                Log Out
+              </button>
+            </li>
+
             </ul>
           )}
         </nav>
 
-        {notificationOpen && (
-          <div
-            className={`${styles.backdrop} ${
-              notificationOpen ? styles.backdropOpen : undefined
-            }`}
-          >
-            <div
-              className={`${styles.notifications} ${
-                notificationOpen ? styles.open : undefined
-              }`}
-            >
-              <div className={styles.topSide}>
-                <div className={styles.tt}>
-                  <h3>Notification</h3>
-                  <button onClick={handleClosing}>
-                    <LiaTimesSolid size={24} />
-                  </button>
-                </div>
-                <div className={styles.tb}>
-                  <button>General</button>
-                  <button onClick={handleMarkAsRead}>Mark all as read</button>
-                </div>
-              </div>
-              <div
-                className={`${styles.dropdown} ${
-                  messages.length < 5 ? undefined : styles.scrollArea
-                }`}
-              >
-                {dropdownContent}
-              </div>
-            </div>
-          </div>
-        )}
       </header>
 
       <dialog

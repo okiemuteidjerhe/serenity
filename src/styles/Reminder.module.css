@@ -344,15 +344,13 @@
         flex-direction: column;
         gap: 20px;
         align-items: flex-start;
-        width: 392px;
     }
     .row2 > p{
         font-size: 0.875rem;
     }
     .rb{
         display: flex;
-        justify-content: space-between;
-        
+        gap: 34px;    
     }
     .rg{
         display: flex;
