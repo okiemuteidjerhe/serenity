@@ -199,8 +199,12 @@
     .allMessages{
         max-height: 700px;
     }
+    .chat{
+        display: flex;
+        flex-direction: column;
+    }
     .bod{
-        padding: 54px 24px;
+        padding: 24px;
     }
     .user button{
         background-color:transparent;
@@ -214,6 +218,7 @@
     }
     .inputArea{
         gap: 8px;
+        padding: 0 13px;
     }
     .inputArea .input{
         gap: 10px;
@@ -224,6 +229,9 @@
     }
     .emoji button{
         padding: 0;
+    }
+    .emoji button svg{
+        width: 20px;
     }
     .send{
         padding: 12px;

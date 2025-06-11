@@ -135,7 +135,7 @@ function handleEmoji(emojiObj){
       {(!isMobile || activePage === "chat") &&
         <div className={styles.right}>
             <div className={styles.user}>
-              {isMobile && <button onClick={()=>setActivePage("contacts")}><FaAngleLeft/></button> }
+              {isMobile && <button onClick={()=>setActivePage("contacts")}><FaAngleLeft size={16}/></button> }
                 <div className={styles.userAvatar}>
                     <img src={Avatar} alt="" />
                 </div>
