@@ -21,7 +21,7 @@ export default function CompanySignUp2() {
   const handleClose = () => {
     setIsOpen(false);
     dialogRef.current.close();
-    navigate("/compay");
+    navigate("/register/compay");
   };
 
   return (

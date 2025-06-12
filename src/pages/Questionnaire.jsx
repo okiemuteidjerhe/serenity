@@ -10,7 +10,7 @@ export default function Questionnaire() {
   const navigate = useNavigate()
 
   function handleNext(){
-    navigate("/indpay")
+    navigate("/register/indpay")
   }
   
   return (

@@ -24,7 +24,7 @@ export default function IndividualSignUp() {
   const handleClose = () => {
     setIsOpen(false);
     dialogRef.current.close();
-    navigate("/questions");
+    navigate("/register/questions");
   };
 
   return (

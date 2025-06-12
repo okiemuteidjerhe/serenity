@@ -50,7 +50,7 @@ export default function CompanySignUp() {
               textSize={styles.textSize}
             />
           </div>
-          <Link to="/signupnext">
+          <Link to="/register/signupnext">
             <Button text="Continue" />
           </Link>
         </form>

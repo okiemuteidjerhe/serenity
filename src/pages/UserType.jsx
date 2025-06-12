@@ -13,7 +13,7 @@ export default function UserType() {
       <section className={styles.sectionCtn}>
         <h2>Select Account Type</h2>
         <div className={styles.ctn}>
-          <Link to="/signupcomp">
+          <Link to="/register/signupcomp">
             <figure>
               <div className={styles.imgCtn}>
                 <img src={company} alt="Company" />
@@ -22,7 +22,7 @@ export default function UserType() {
             </figure>
           </Link>
 
-          <Link to="/signupind">
+          <Link to="/register/signupind">
             <figure>
               <div className={styles.indCtn}>
                 <img src={person} alt="Individual" />

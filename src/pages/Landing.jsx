@@ -20,7 +20,7 @@ import ctaVector from '../images/ctaVector.png'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LiaTimesSolid } from "react-icons/lia";
 
-/*This will come from api */
+
 let data = [
   {
     id: 1,
@@ -31,25 +31,39 @@ let data = [
   },
   {
     id: 2,
-    question: "What is Serenity?",
+    question: "Is my data confidential?",
     answer:
-      "Serenity is your private, personalized mental health and wellness space at work. Serenity is not a performance tracker. It supports your mental health, not monitor it.",
+      "Yes, all your data in Serenity is completely confidential. Your information is not shared with your employer or anyone else without your explicit consent.",
     isOpen: false,
   },
   {
     id: 3,
-    question: "What is Serenity?",
+    question: "How often should I use Serenity?",
     answer:
-      "Serenity is your private, personalized mental health and wellness space at work. Serenity is not a performance tracker. It supports your mental health, not monitor it.",
+      "You can use Serenity as often as you need. We recommend checking in at least once a week to maintain consistent mental wellness practices.",
     isOpen: false,
   },
   {
     id: 4,
-    question: "What is Serenity?",
+    question: "Can Serenity replace therapy?",
     answer:
-      "Serenity is your private, personalized mental health and wellness space at work. Serenity is not a performance tracker. It supports your mental health, not monitor it.",
+      "While Serenity provides mental health support, it's not a replacement for professional therapy. It's designed to complement your existing mental health care.",
     isOpen: false,
   },
+  {
+    id: 5,
+    question: "Who developed Serenity?",
+    answer:
+      "Serenity was developed by a team of mental health professionals and workplace wellness experts to create a safe space for employee wellbeing.",
+    isOpen: false,
+  },
+  {
+    id: 6,
+    question: "What features does Serenity offer?",
+    answer:
+      "Serenity offers guided meditations, mood tracking, stress management tools, and personalized wellness recommendations tailored to your needs.",
+    isOpen: false,
+  }
 ];
 
 
