@@ -12,7 +12,7 @@ export default function Questionnaire() {
 
   const location = useLocation();
   const form = location.state
-  const [form2, setForm2] = useState({form})
+  const [form2, setForm2] = useState(form)
 
   function handleNext(formData){
     const workEnviron = formData.get("Work Environment")

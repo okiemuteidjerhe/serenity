@@ -19,7 +19,7 @@ export default function CompanySignUp2() {
 
   console.log(form)
 
-  const [form2, setForm2] = useState({form})
+  const [form2, setForm2] = useState({...form})
 
   const handleOpen = (formData) => {
     window.scrollTo(0, 0);
@@ -34,7 +34,7 @@ export default function CompanySignUp2() {
     setIsOpen(false);
     dialogRef.current.close();
     console.log(form2)
-    /* navigate("/compay", {state: form2}); */
+    navigate("/compay", {state: form2});
   };
 
   return (

@@ -7,25 +7,17 @@ import Password from "../components/Password";
 import SelectLabel from "../components/SelectLabel";
 import Button from "../components/Button";
 import { Link, useNavigate } from "react-router";
-import { useState } from "react";
 
 export default function CompanySignUp() {
-  const [form, setForm] = useState({
-    usertype: " Company"
-  })
 
   const navigate = useNavigate()
 
-  function handleNext(formData){
+  function handleNext(formData) {
     const dataFromForm = Object.fromEntries(formData);
     console.log(dataFromForm)
-    setForm(prev=> {
-      return {...prev, ...dataFromForm}
-      });
-    navigate("/signupnext", {state: form})
-    console.log(form)
+    navigate("/signupnext", { state: { usertype: "Company", ...dataFromForm } })
   }
-  
+
   return (
     <div className={styles.body}>
       <BackArrow linkTo="/choose" />
@@ -69,9 +61,9 @@ export default function CompanySignUp() {
               textSize={styles.textSize}
             />
           </div>
-          
-            <Button text="Continue" type="submit"/>
-          
+
+          <Button text="Continue" type="submit" />
+
         </form>
       </section>
     </div>

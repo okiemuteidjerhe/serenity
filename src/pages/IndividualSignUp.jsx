@@ -14,12 +14,10 @@ import Sunshine from "../images/sunshine.png";
 
 
 
-
-
 export default function IndividualSignUp() {
-const [form, setForm] = useState({
-  usertype: "Individual"
-})
+  const [form, setForm] = useState({
+    usertype: "Individual"
+  })
 
 
   const dialogRef = useRef(null);
@@ -29,19 +27,23 @@ const [form, setForm] = useState({
   const handleOpen = (formData) => {
     window.scrollTo(0, 0);
     const dataFromForm = Object.fromEntries(formData)
-    setForm(prev=> {
-      return {...prev, ...dataFromForm}
-      });
+    setForm(prev => {
+      return { ...prev, ...dataFromForm }
+    });
     setIsOpen(true);
     dialogRef.current.showModal();
   };
+
+  console.log(form)
+
   const handleClose = () => {
     setIsOpen(false);
     dialogRef.current.close();
-    navigate("/questions", {state: form});
+    console.log(form);
+    navigate("/questions", { state: form });
   };
 
-  
+
 
   return (
     <div className={styles.body}>
@@ -62,7 +64,7 @@ const [form, setForm] = useState({
           />
         </div>
         <div className={styles.right}>
-          <SocialSignup h2text="Sign Up with Serenity" hidden="Let's get started on your path to wellness"/>
+          <SocialSignup h2text="Sign Up with Serenity" hidden="Let's get started on your path to wellness" />
           <form className={styles.form} action={handleOpen}>
             <div className={styles.inputField}>
               <div className={styles.name}>
@@ -77,11 +79,11 @@ const [form, setForm] = useState({
               />
 
               <Password name="Password" />
-              <TextLabel type="text" nameL="Company Code" name='companyCode' placeholder="445098" required={false}  />
+              <TextLabel type="text" nameL="Company Code" name='companyCode' placeholder="445098" required={false} />
               {/* <TextLabel type="text" name="Role" placeholder="HR Intern" /> */}
             </div>
-            <Button text="Sign Up" type='submit' /* doSum={handleOpen} */  />
-            
+            <Button text="Sign Up" type='submit' /* doSum={handleOpen} */ />
+
 
 
             <SelectLabel

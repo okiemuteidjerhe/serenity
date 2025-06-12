@@ -7,28 +7,30 @@ import { useLocation } from "react-router";
 
 
 const data = [
-  {heading:"Professional Plan",
+  {
+    heading: "Professional Plan",
     subheading: "Ideal for Growing teams or Midsize companies",
     cost: 35,
     features: [
       "Full Company Mental Health Dashboard",
-      "Unlimited mood check-ins & journaling" ,
-      "Unlimited wellness programs & scheduling", 
-      "Group therapy session access", 
-      "Mental health leave request tracking", 
+      "Unlimited mood check-ins & journaling",
+      "Unlimited wellness programs & scheduling",
+      "Group therapy session access",
+      "Mental health leave request tracking",
       "Virtual Safe Room"],
     buttonText: "Get Professional Plan"
   },
-  {heading:"Enterprise Plan",
+  {
+    heading: "Enterprise Plan",
     subheading: "Ideal for Large companies",
     cost: 60,
     features: [
-      "Includes all Professional features", 
+      "Includes all Professional features",
       "Unlimited therapist bookings",
       "Monthly usage reports & quarterly wellness reports",
       "Premium support (24/7 Responds)",
       "1-on-1 therapist sessions (for employees)"
-      ],
+    ],
     buttonText: "Get Enterprise Plan"
   }
 ]
@@ -39,26 +41,26 @@ export default function CompPayment() {
 
   console.log(form)
 
-  function handleFinalSubmit(formData){
+  function handleFinalSubmit(formData) {
     const payment = Object.fromEntries(formData)
-    const registerInfo = {...form, ...payment}
+    const registerInfo = { ...form, ...payment }
     console.log(registerInfo)
   }
 
 
-  const content = data.map(datum=>{
-  return (
-    <ContentForm
-    key={datum.heading}
-    heading={datum.heading}
-    subheading={datum.subheading}
-    cost={datum.cost.toFixed(2)}
-    features={datum.features}
-    buttonText={datum.buttonText}
-    action={handleFinalSubmit}
-    />
-  )
-})
+  const content = data.map(datum => {
+    return (
+      <ContentForm
+        key={datum.heading}
+        heading={datum.heading}
+        subheading={datum.subheading}
+        cost={datum.cost.toFixed(2)}
+        features={datum.features}
+        buttonText={datum.buttonText}
+        action={handleFinalSubmit}
+      />
+    )
+  })
 
   return (
     <div className={styles.body}>
