@@ -24,44 +24,69 @@ import Therapist from "./pages/Therapist";
 import TherapistProfile from "./pages/TherapistProfile";
 import IndividualProfile from "./pages/IndividualProfile";
 import CompanyProfile from "./pages/CompanyProfile";
+import AuthLayout, { AuthContext } from "./context/AuthContext";
+import { useContext } from "react";
 
 
-
-function App() {
+function Navigation() {
+  const isLoggedIn = useContext(AuthContext)
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/choose" element={<UserType />} />
-        <Route path="/signin" element={<SignIn />} />
+        {
+          isLoggedIn ?
+            <>
+              <Route path="/dashind" element={<IndividualDashboard />} />
+              <Route path="comp-dash" element={<CompanyDashboard />} />
+              <Route path="/vsr" element={<VirtualSafeRoom />} />
+              <Route path="/scenarios" element={<Scenarios />} />
+              <Route path="/companyresources" element={<CompanyMaterials />} />
+              <Route path="/journal" element={<Journal />} />
+              <Route path="/message" element={<Message />} />
+              <Route path="/reminder" element={<Reminder />} />
+              <Route path="employees" element={<Employees />} />
+              <Route path="resources" element={<Resources />} />
+              <Route path="upload" element={<Upload />} />
+              <Route path="/book-appointment" element={<Therapist />} />
+              <Route path="/therapist-profile" element={<TherapistProfile />} />
+              <Route path="/profile" element={<IndividualProfile />} />
+              <Route path="/comp-profile" element={<CompanyProfile />} />
+
+              <Route
+                path="*"
+                element={<IndividualDashboard />} />
+            </>
+            :
+            <>
+              <Route path="/" element={<Landing />} />
+              <Route path="/choose" element={<UserType />} />
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/signupind" element={<IndividualSignUp />} />
+              <Route path="/questions" element={<Questionnaire />} />
+              <Route path="/signupcomp" element={<CompanySignUp />} />
+              <Route path="/signupnext" element={<CompanySignUp2 />} />
+              <Route path="/compay" element={<CompPayment />} />
+              <Route path="/indpay" element={<IndividualPayment />} />
+              <Route
+                path="*"
+                element={<Landing />} />
+            </>
+        }
 
 
-        <Route path="/signupind" element={<IndividualSignUp />} />
-        <Route path="/questions" element={<Questionnaire />} />
-        <Route path="/signupcomp" element={<CompanySignUp />} />
-        <Route path="/signupnext" element={<CompanySignUp2 />} />
-        <Route path="/compay" element={<CompPayment />} />
-        <Route path="/indpay" element={<IndividualPayment />} />
-  
 
-        <Route path="/dashind" element={<IndividualDashboard />} />
-        <Route path="comp-dash" element={<CompanyDashboard />} />
-        <Route path="/vsr" element={<VirtualSafeRoom />} />
-        <Route path="/scenarios" element={<Scenarios />} />
-        <Route path="/companyresources" element={<CompanyMaterials />} />        
-        <Route path="/journal" element={<Journal />} />        
-        <Route path="/message" element={<Message />} />        
-        <Route path="/reminder" element={<Reminder />} />     
-        <Route path="employees" element={<Employees />} />
-        <Route path="resources" element={<Resources />} />
-        <Route path="upload" element={<Upload />} />
-        <Route path="/book-appointment" element={<Therapist />} />        
-        <Route path="/therapist-profile" element={<TherapistProfile />} />        
-        <Route path="/profile" element={<IndividualProfile />} />        
-        <Route path="/comp-profile" element={<CompanyProfile />} />        
+
       </Routes>
 
     </BrowserRouter>
+  )
+}
+
+function App() {
+  return (
+    <AuthLayout>
+      <Navigation />
+    </AuthLayout>
   )
 }
 
