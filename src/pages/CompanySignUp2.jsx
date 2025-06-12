@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import BackArrow from "../components/BackArrow";
 import LeftPanel from "../components/LeftPanel";
 import TextLabel from "../components/TELabel";
@@ -13,20 +13,33 @@ export default function CompanySignUp2() {
   const dialogRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   let navigate = useNavigate();
-  const handleOpen = () => {
+
+  const location = useLocation()
+  const form = location.state
+
+  console.log(form)
+
+  const [form2, setForm2] = useState({form})
+
+  const handleOpen = (formData) => {
     window.scrollTo(0, 0);
+    const dataFromForm2 = Object.fromEntries(formData)
+    setForm2(prev=>{
+      return {...prev, ...dataFromForm2}
+    })
     setIsOpen(true);
     dialogRef.current.showModal();
   };
   const handleClose = () => {
     setIsOpen(false);
     dialogRef.current.close();
-    navigate("/register/compay");
+    console.log(form2)
+    /* navigate("/compay", {state: form2}); */
   };
 
   return (
     <div className={styles.body}>
-      <BackArrow linkTo="/register/signupcomp" />
+      <BackArrow linkTo="/signupcomp" />
       <section className={styles.section}>
         <div className={styles.left}>
           <div className={styles.pagination}>
@@ -43,7 +56,7 @@ healthier mind."
             wrapper={styles.wrapper}
           />
         </div>
-        <form className={styles.right} action="">
+        <form className={styles.right} action={handleOpen}>
           <h2>Company Information</h2>
           <p className={styles.hidden}>Achieve work life harmony. Discover tailored strategies for mental well being and a 
 healthier mind.</p>
@@ -68,7 +81,7 @@ healthier mind.</p>
               placeholder="help@serenity.com"
             />
           </div>
-          <Button text="Create Account" doSum={handleOpen} />
+          <Button type="submit" text="Create Account"/>
         </form>
       </section>
       <GenericModal ref={dialogRef} isOpen={isOpen} pad={styles.pad}>

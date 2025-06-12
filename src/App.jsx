@@ -24,7 +24,7 @@ import Therapist from "./pages/Therapist";
 import TherapistProfile from "./pages/TherapistProfile";
 import IndividualProfile from "./pages/IndividualProfile";
 import CompanyProfile from "./pages/CompanyProfile";
-import { RegisterProvider } from "./contexts/RegisterContext";
+
 
 
 function App() {
@@ -35,19 +35,14 @@ function App() {
         <Route path="/choose" element={<UserType />} />
         <Route path="/signin" element={<SignIn />} />
 
-<Route path = '/register/*'
-element={
-<RegisterProvider>
-  <Routes>
+
         <Route path="/signupind" element={<IndividualSignUp />} />
         <Route path="/questions" element={<Questionnaire />} />
         <Route path="/signupcomp" element={<CompanySignUp />} />
         <Route path="/signupnext" element={<CompanySignUp2 />} />
         <Route path="/compay" element={<CompPayment />} />
         <Route path="/indpay" element={<IndividualPayment />} />
-  </Routes>
-</RegisterProvider>
-}/>
+  
 
         <Route path="/dashind" element={<IndividualDashboard />} />
         <Route path="comp-dash" element={<CompanyDashboard />} />

@@ -9,46 +9,39 @@ import SelectLabel from "../components/SelectLabel";
 import Button from "../components/Button";
 import LeftPanel from "../components/LeftPanel";
 import GenericModal from "../components/GenericModal";
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Sunshine from "../images/sunshine.png";
 
-import { RegisterContext } from "../contexts/RegisterContext";
+
 
 
 
 export default function IndividualSignUp() {
-const {registerData, setRegisterData} = useContext(RegisterContext);
-/* const navigate = useNavigate(); */
-
-/* const [form, setForm] = useState({
-  usertype: "Individual",
-  firstName: "",
-  lastName: "",
-  email: "",
-  Password: "",
-  companyCode: ""
-}) */
+const [form, setForm] = useState({
+  usertype: "Individual"
+})
 
 
   const dialogRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   let navigate = useNavigate();
 
-  const handleOpen = () => {
+  const handleOpen = (formData) => {
     window.scrollTo(0, 0);
-    /* console.log(Object.fromEntries(formData)) */
+    const dataFromForm = Object.fromEntries(formData)
+    setForm(prev=> {
+      return {...prev, ...dataFromForm}
+      });
     setIsOpen(true);
     dialogRef.current.showModal();
   };
   const handleClose = () => {
     setIsOpen(false);
     dialogRef.current.close();
-    navigate("/register/questions");
+    navigate("/questions", {state: form});
   };
 
-  function handleForm (formData){
-    console.log(Object.fromEntries(formData))
-  }
+  
 
   return (
     <div className={styles.body}>
@@ -70,7 +63,7 @@ const {registerData, setRegisterData} = useContext(RegisterContext);
         </div>
         <div className={styles.right}>
           <SocialSignup h2text="Sign Up with Serenity" hidden="Let's get started on your path to wellness"/>
-          <form className={styles.form} action={handleForm}>
+          <form className={styles.form} action={handleOpen}>
             <div className={styles.inputField}>
               <div className={styles.name}>
                 <TextLabel type="text" nameL="First Name" name='firstName' placeholder="Jane" />
@@ -104,7 +97,7 @@ const {registerData, setRegisterData} = useContext(RegisterContext);
           </p>
         </div>
       </section>
-      {/* <GenericModal ref={dialogRef} isOpen={isOpen} pad={styles.pad}>
+      <GenericModal ref={dialogRef} isOpen={isOpen} pad={styles.pad}>
         <div className={styles.box}>
           <div className={styles.ctn}>
             <img src={Sunshine} alt="A smiling sun" />
@@ -115,7 +108,7 @@ const {registerData, setRegisterData} = useContext(RegisterContext);
           </p>
           <Button text="Continue" doSum={handleClose} />
         </div>
-      </GenericModal> */}
+      </GenericModal>
     </div>
   );
 }

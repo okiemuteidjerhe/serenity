@@ -3,6 +3,7 @@ import BackArrow from "../components/BackArrow";
 import styles from "../styles/CompPayment.module.css";
 
 import ContentForm from "../components/ContentForm";
+import { useLocation } from "react-router";
 
 const data = [
   {
@@ -44,6 +45,14 @@ buttonText: "Get Premium Plan"
   },
 ]
 export default function IndividualPayment() {
+  const location = useLocation();
+  const form = location.state
+
+  function handleFinalSubmit(formData){
+    const payment = Object.fromEntries(formData)
+    const registerInfo = {...form, ...payment}
+    console.log(registerInfo)
+  }
 
 const content = data.map(datum=>{
   return (
@@ -54,12 +63,13 @@ const content = data.map(datum=>{
     cost={datum.cost.toFixed(2)}
     features={datum.features}
     buttonText={datum.buttonText}
+    action={handleFinalSubmit}
     />
   )
 })
   return (
     <div className={styles.body}>
-      <BackArrow linkTo="/register/questions" />
+      <BackArrow linkTo="/questions" />
 
       <div className={styles.pagination}>
         <div className={styles.line}></div>

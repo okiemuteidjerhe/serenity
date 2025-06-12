@@ -1,12 +1,18 @@
-import Button from "./Button"
 import InfoForm from "./InfoForm"
 import styles from '../styles/ContentForm.module.css'
 import { IoMdCheckmark } from "react-icons/io"
 
 export default function ContentForm(props){
+
+    function handleChange(e){
+        if(e.target.checked){
+            e.target.form.requestSubmit();
+        }
+    }
+
     return(
         <InfoForm>
-<form action="" className={styles.formCnt}>
+<form action={props.action} className={styles.formCnt}>
             <div className={styles.info}>
                 
                 <div className={styles.con}>
@@ -20,6 +26,7 @@ export default function ContentForm(props){
                     <div className={styles.cont} key={feature}>
                           <IoMdCheckmark size={18} fontWeight={400} />
                           <p className={styles.pa}>{feature}</p>
+
                         </div>
                         )
                     }
@@ -27,7 +34,9 @@ export default function ContentForm(props){
                 
                 </div>
             </div>
-            <Button text={props.buttonText} />
+            <label className={styles.hidCheck}> <input type="checkbox" onChange={handleChange} name="paymentType" value={props.heading}/>
+            <div className={styles.hidCheckText}>{props.buttonText}</div>   
+            </label>
           </form>
         </InfoForm>
     )

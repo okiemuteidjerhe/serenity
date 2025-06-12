@@ -6,9 +6,26 @@ import TextLabel from "../components/TELabel";
 import Password from "../components/Password";
 import SelectLabel from "../components/SelectLabel";
 import Button from "../components/Button";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useState } from "react";
 
 export default function CompanySignUp() {
+  const [form, setForm] = useState({
+    usertype: " Company"
+  })
+
+  const navigate = useNavigate()
+
+  function handleNext(formData){
+    const dataFromForm = Object.fromEntries(formData);
+    console.log(dataFromForm)
+    setForm(prev=> {
+      return {...prev, ...dataFromForm}
+      });
+    navigate("/signupnext", {state: form})
+    console.log(form)
+  }
+  
   return (
     <div className={styles.body}>
       <BackArrow linkTo="/choose" />
@@ -26,7 +43,7 @@ export default function CompanySignUp() {
             wrapper={styles.ctn}
           />
         </div>
-        <form className={styles.right} action="">
+        <form className={styles.right} action={handleNext}>
           <h2>Account Creation</h2>
           <p className={styles.hidden}>Balance work and life with ease. Unlock a calmer, more focused mind with personalized mental wellness tools.</p>
           <div className={styles.inputField}>
@@ -52,9 +69,9 @@ export default function CompanySignUp() {
               textSize={styles.textSize}
             />
           </div>
-          <Link to="/register/signupnext">
-            <Button text="Continue" />
-          </Link>
+          
+            <Button text="Continue" type="submit"/>
+          
         </form>
       </section>
     </div>
