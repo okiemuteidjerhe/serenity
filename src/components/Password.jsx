@@ -15,7 +15,7 @@ export default function Password(props) {
       <div className={styles.inputBox}>
         <input
           type={visible ? "text" : "password"}
-          name="Password"
+          name="password"
           required
           placeholder="Password"
         />

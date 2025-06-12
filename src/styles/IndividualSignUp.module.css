@@ -55,6 +55,9 @@
     display: flex;
     gap: 16px;
 }
+.name label{
+    flex-grow: 1;
+}
 .h{
     font-size: 1.5rem;
     font-weight: 500;

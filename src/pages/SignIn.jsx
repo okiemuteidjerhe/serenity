@@ -64,7 +64,8 @@ export default function SignIn() {
           <form className={styles.form} action="">
             <div className={styles.inputField}>
               <TextLabel
-                name="Email"
+                nameL="Email"
+                name='email'
                 type="email"
                 placeholder="johndoe@gmail.com"
               />
@@ -93,7 +94,7 @@ export default function SignIn() {
         <form action="" className={styles.fg}>
           <h2>Forgot Password</h2>
           <p>A code will be sent to your Email</p>
-          <TextLabel type="email" placeholder="jane@gmail.com" name="Email"/>
+          <TextLabel type="email" placeholder="jane@gmail.com" nameL="Email" name='email'/>
           <Button text="Submit" doSum={() => handleOpen(1)} />
         </form>
       </GenericModal>

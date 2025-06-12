@@ -31,12 +31,14 @@ export default function CompanySignUp() {
           <p className={styles.hidden}>Balance work and life with ease. Unlock a calmer, more focused mind with personalized mental wellness tools.</p>
           <div className={styles.inputField}>
             <TextLabel
-              name="Admin"
+              nameL="Admin"
+              name='admin'
               type="text"
               placeholder="Kate (Hr department)"
             />
             <TextLabel
-              name="Email"
+              nameL="Email"
+              name='email'
               type="email"
               placeholder="kate@serenity.com"
             />

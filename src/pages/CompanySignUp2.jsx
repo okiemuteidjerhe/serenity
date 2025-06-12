@@ -48,19 +48,22 @@ healthier mind."
           <p className={styles.hidden}>Achieve work life harmony. Discover tailored strategies for mental well being and a 
 healthier mind.</p>
           <div className={styles.inputField}>
-            <TextLabel name="Company Name" type="text" placeholder="Serenity" />
+            <TextLabel nameL="Company Name" name='companyName' type="text" placeholder="Serenity" />
             <TextLabel
-              name="Number of Employees"
+              nameL="Number of Employees"
+              name='numberOfEmployees'
               type="text"
               placeholder="1297"
             />
             <TextLabel
-              name="Country/Region"
+              nameL="Country/Region"
+              name='country/region'
               type="text"
               placeholder="Nigeria"
             />
             <TextLabel
-              name="Company Email"
+              nameL="Company Email"
+              name='companyEmail'
               type="email"
               placeholder="help@serenity.com"
             />

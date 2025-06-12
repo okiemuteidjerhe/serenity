@@ -9,15 +9,34 @@ import SelectLabel from "../components/SelectLabel";
 import Button from "../components/Button";
 import LeftPanel from "../components/LeftPanel";
 import GenericModal from "../components/GenericModal";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import Sunshine from "../images/sunshine.png";
 
+import { RegisterContext } from "../contexts/RegisterContext";
+
+
+
 export default function IndividualSignUp() {
+const {registerData, setRegisterData} = useContext(RegisterContext);
+/* const navigate = useNavigate(); */
+
+/* const [form, setForm] = useState({
+  usertype: "Individual",
+  firstName: "",
+  lastName: "",
+  email: "",
+  Password: "",
+  companyCode: ""
+}) */
+
+
   const dialogRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   let navigate = useNavigate();
+
   const handleOpen = () => {
     window.scrollTo(0, 0);
+    /* console.log(Object.fromEntries(formData)) */
     setIsOpen(true);
     dialogRef.current.showModal();
   };
@@ -26,6 +45,10 @@ export default function IndividualSignUp() {
     dialogRef.current.close();
     navigate("/register/questions");
   };
+
+  function handleForm (formData){
+    console.log(Object.fromEntries(formData))
+  }
 
   return (
     <div className={styles.body}>
@@ -47,23 +70,26 @@ export default function IndividualSignUp() {
         </div>
         <div className={styles.right}>
           <SocialSignup h2text="Sign Up with Serenity" hidden="Let's get started on your path to wellness"/>
-          <form className={styles.form} action="">
+          <form className={styles.form} action={handleForm}>
             <div className={styles.inputField}>
               <div className={styles.name}>
-                <TextLabel type="text" name="First Name" placeholder="Jane" />
-                <TextLabel type="text" name="Last Name" placeholder="Doe" />
+                <TextLabel type="text" nameL="First Name" name='firstName' placeholder="Jane" />
+                <TextLabel type="text" nameL="Last Name" name='lastName' placeholder="Doe" />
               </div>
               <TextLabel
                 type="email"
-                name="Email"
+                nameL="Email"
+                name="email"
                 placeholder="janedoe@yahoo.com"
               />
 
               <Password name="Password" />
-              <TextLabel type="text" name="Company Code" placeholder="445098" />
+              <TextLabel type="text" nameL="Company Code" name='companyCode' placeholder="445098" required={false}  />
               {/* <TextLabel type="text" name="Role" placeholder="HR Intern" /> */}
             </div>
-            <Button text="Sign Up" doSum={handleOpen} />
+            <Button text="Sign Up" type='submit' /* doSum={handleOpen} */  />
+            
+
 
             <SelectLabel
               text="Agree to Terms of Service & Data Privacy Policy."
@@ -78,7 +104,7 @@ export default function IndividualSignUp() {
           </p>
         </div>
       </section>
-      <GenericModal ref={dialogRef} isOpen={isOpen} pad={styles.pad}>
+      {/* <GenericModal ref={dialogRef} isOpen={isOpen} pad={styles.pad}>
         <div className={styles.box}>
           <div className={styles.ctn}>
             <img src={Sunshine} alt="A smiling sun" />
@@ -89,7 +115,7 @@ export default function IndividualSignUp() {
           </p>
           <Button text="Continue" doSum={handleClose} />
         </div>
-      </GenericModal>
+      </GenericModal> */}
     </div>
   );
 }
