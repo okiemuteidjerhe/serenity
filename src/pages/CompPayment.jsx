@@ -3,7 +3,7 @@ import BackArrow from "../components/BackArrow";
 import styles from "../styles/CompPayment.module.css";
 
 import ContentForm from "../components/ContentForm";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 
 const data = [
@@ -38,6 +38,7 @@ const data = [
 export default function CompPayment() {
   const location = useLocation()
   const form = location.state
+  const navigate = useNavigate()
 
   console.log(form)
 
@@ -45,6 +46,7 @@ export default function CompPayment() {
     const payment = Object.fromEntries(formData)
     const registerInfo = { ...form, ...payment }
     console.log(registerInfo)
+    navigate("/comp-dash")
   }
 
 

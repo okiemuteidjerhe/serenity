@@ -23,16 +23,17 @@ export default function Questionnaire() {
       workEnvironment: workEnviron
     }
     /* const dataFromForm2 = Object.fromEntries(answers) */
+    console.log(answers)
     setForm2(prev => {
       return {
         ...prev, ...answers
       }
     })
+    console.log(form2)
     navigate("/indpay", {state: form2})
   }
 
   
-  console.log(form2)
   return (
     <div className={styles.body}>
       <BackArrow linkTo="/signupind" />
