@@ -9,11 +9,16 @@ import BackArrow from "../components/BackArrow";
 import LeftPanel from "../components/LeftPanel";
 import Reading from "../images/reading.png";
 import GenericModal from "../components/GenericModal";
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import OtpInput from "react-otp-input";
+import { AuthReducerContext } from "../context/AuthContext";
 
 export default function SignIn() {
- 
+
+  // Dispatch for auth context
+  const dispatch = useContext(AuthReducerContext)
+
+
   //Modal
   const dialogRef = useRef(null);
   const dialog2Ref = useRef(null);
@@ -24,7 +29,7 @@ export default function SignIn() {
 
   const handleOpen = (index) => {
     refs.map((ref) => {
-     return ref.current.close();
+      return ref.current.close();
     });
     const currentRef = refs[index];
     window.scrollTo(0, 0);
@@ -35,15 +40,30 @@ export default function SignIn() {
 
   const closeModal = () => {
     refs.map((ref) => {
-     return ref.current.close();
+      return ref.current.close();
     });
     setIsOpen(false);
   };
 
   //OTP
   const [otp, setOtp] = useState("");
- 
-  
+
+  const logIn = (formData) => {
+    console.log(Object.fromEntries(formData))
+    // Using password as acct type for demo purposes
+
+    const acctType = formData.get('password')
+    console.log(acctType)
+    // Assumption that the call with the backend was successful
+    dispatch({
+      type: true,
+      token: {
+        userType: acctType,
+      }
+    })
+  }
+
+
 
   return (
     <div className={styles.body}>
@@ -59,9 +79,9 @@ export default function SignIn() {
           />
         </div>
         <div className={styles.right}>
-          <SocialSignup h2text="Welcome Back!" hidden="Let's personalize your experience"/>
+          <SocialSignup h2text="Welcome Back!" hidden="Let's personalize your experience" />
 
-          <form className={styles.form} action="">
+          <form className={styles.form} action={logIn}>
             <div className={styles.inputField}>
               <TextLabel
                 nameL="Email"
@@ -74,14 +94,18 @@ export default function SignIn() {
             <a to="#" onClick={() => handleOpen(0)}>
               Forgot Password?
             </a>
-            
-            <Link to="/dashind"><Button text="Sign In" /></Link>
-            
+
+            <Button
+              text="Sign In"
+              type="submit"
+            />
+
             <SelectLabel
               type="checkbox"
               name="Remember Me"
               value="Remember"
               text="Remember Me"
+              required={false}
               textSize={styles.textSize}
             />
           </form>
@@ -94,7 +118,7 @@ export default function SignIn() {
         <form action="" className={styles.fg}>
           <h2>Forgot Password</h2>
           <p>A code will be sent to your Email</p>
-          <TextLabel type="email" placeholder="jane@gmail.com" nameL="Email" name='email'/>
+          <TextLabel type="email" placeholder="jane@gmail.com" nameL="Email" name='email' />
           <Button text="Submit" doSum={() => handleOpen(1)} />
         </form>
       </GenericModal>

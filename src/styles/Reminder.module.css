@@ -84,6 +84,20 @@
     display: flex;
     gap: 24px;
 }
+
+.inputRow > * {
+    flex: 1;
+}
+
+.lab > input {
+    text-align: center;
+}
+
+
+.lab > input[type="date"]::-webkit-calendar-picker-indicator, 
+.lab > input[type="time"]::-webkit-calendar-picker-indicator  {
+    display: none;
+  }
 .topRight button{
     padding: 14px 20px;
     border-radius: 12px;
