@@ -9,8 +9,9 @@ import { NavLink, useLocation, useNavigate } from "react-router";
 import { GoDotFill } from "react-icons/go";
 import checked from "../images/checked.png";
 import exclamation from "../images/exclamation.png";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { AuthReducerContext } from "../context/AuthContext";
 
 const data = [
   {
@@ -66,6 +67,9 @@ const data = [
 ];
 
 export default function NavBar(props) {
+
+  const dispatch = useContext(AuthReducerContext)
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   function handleMenuOpen() {
@@ -147,7 +151,10 @@ export default function NavBar(props) {
   function handleYes() {
     confirmationRef.current.close();
     setConfirmationOpen(false);
-    navigate("/");
+    dispatch({
+      type: false,
+      token: null
+    })
   }
 
   function confirmationClose() {
@@ -252,7 +259,7 @@ export default function NavBar(props) {
             <ul>
               <li>
                 <NavLink
-                  to="/dashind"
+                  to="/"
                   className={({ isActive }) =>
                     isActive ? `${styles.active}` : undefined
                   }

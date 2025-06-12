@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 import Landing from './pages/Landing';
 import UserType from "./pages/UserType";
 import IndividualSignUp from "./pages/IndividualSignUp";
@@ -36,25 +36,36 @@ function Navigation() {
         {
           isLoggedIn ?
             <>
-              <Route path="/dashind" element={<IndividualDashboard />} />
-              <Route path="comp-dash" element={<CompanyDashboard />} />
-              <Route path="/vsr" element={<VirtualSafeRoom />} />
-              <Route path="/scenarios" element={<Scenarios />} />
-              <Route path="/companyresources" element={<CompanyMaterials />} />
-              <Route path="/journal" element={<Journal />} />
-              <Route path="/message" element={<Message />} />
-              <Route path="/reminder" element={<Reminder />} />
-              <Route path="employees" element={<Employees />} />
-              <Route path="resources" element={<Resources />} />
-              <Route path="upload" element={<Upload />} />
-              <Route path="/book-appointment" element={<Therapist />} />
-              <Route path="/therapist-profile" element={<TherapistProfile />} />
-              <Route path="/profile" element={<IndividualProfile />} />
-              <Route path="/comp-profile" element={<CompanyProfile />} />
+              {isLoggedIn.userType === "ind" ?
+                <>
+                  <Route path="/" element={<IndividualDashboard />} />
+                  <Route path="/vsr" element={<VirtualSafeRoom />} />
+                  <Route path="/scenarios" element={<Scenarios />} />
+                  <Route path="/journal" element={<Journal />} />
+                  <Route path="/message" element={<Message />} />
+                  <Route path="/reminder" element={<Reminder />} />
+                  <Route path="/book-appointment" element={<Therapist />} />
+                  <Route path="/therapist-profile" element={<TherapistProfile />} />
+                  <Route path="/profile" element={<IndividualProfile />} />
+                  <Route
+                    path="*"
+                    element={<Navigate to="/" replace />}
+                  />
+                </>
+                :
+                <>
+                  <Route path="/" element={<CompanyDashboard />} />
+                  <Route path="/companyresources" element={<CompanyMaterials />} />
+                  <Route path="employees" element={<Employees />} />
+                  <Route path="resources" element={<Resources />} />
+                  <Route path="upload" element={<Upload />} />
+                  <Route path="/comp-profile" element={<CompanyProfile />} />
+                  <Route
+                    path="*"
+                    element={<Navigate to="/" replace />}
+                  />
+                </>}
 
-              <Route
-                path="*"
-                element={<IndividualDashboard />} />
             </>
             :
             <>
