@@ -15,7 +15,7 @@ export default function Questionnaire() {
   
   return (
     <div className={styles.body}>
-      <BackArrow linkTo="/signupind" />
+      <BackArrow linkTo="/register/signupind" />
       <div className={styles.pagination}>
         <div className={styles.line}></div>
         <div className={styles.line}></div>

@@ -46,7 +46,7 @@ const content = data.map(datum=>{
 export default function CompPayment() {
   return (
     <div className={styles.body}>
-      <BackArrow linkTo="/signupnext" />
+      <BackArrow linkTo="/register/signupnext" />
       <div className={styles.pagination}>
         <div className={styles.line}></div>
         <div className={styles.line}></div>

@@ -26,7 +26,7 @@ export default function CompanySignUp2() {
 
   return (
     <div className={styles.body}>
-      <BackArrow linkTo="/signupcomp" />
+      <BackArrow linkTo="/register/signupcomp" />
       <section className={styles.section}>
         <div className={styles.left}>
           <div className={styles.pagination}>
