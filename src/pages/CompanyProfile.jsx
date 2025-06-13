@@ -1,11 +1,17 @@
 import { TfiAngleRight } from "react-icons/tfi";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import styles from "../styles/CompanyProfile.module.css";
 import Avatar from "../images/Avatar.png";
 import { MdToggleOff, MdToggleOn } from "react-icons/md";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext, AuthReducerContext } from "../context/AuthContext";
 
 export default function CompanyProfile() {
+  const dispatch = useContext(AuthReducerContext)
+      const token = useContext(AuthContext)
+      const navigate = useNavigate()
+  
+
   const [logo, setLogo] = useState({
     file: null,
     url: "",
@@ -32,6 +38,29 @@ export default function CompanyProfile() {
     setWantAccountPrivate((prev) => !prev);
   }
 
+  const defaultValues = {
+        companyName : token.companyName,
+        email: token.companyEmail
+    }
+
+    const [formValues, setFormValues] = useState(defaultValues);
+
+    function handleChangeOfFormValues(e){
+        const {name, value} = e.target;
+        setFormValues((prev) => {
+            return {...prev, [name] : value}
+        })
+    }
+
+  function handleUpdate(formData) {
+        const data = (Object.fromEntries(formData))
+        dispatch({
+            type: true,
+            token: { ...token, ...data, logo }
+        })
+        navigate('/')
+    }
+
   return (
     <div className={styles.body}>
       <header className={styles.cpHeader}>
@@ -49,7 +78,7 @@ export default function CompanyProfile() {
           </ul>
         </nav>
       </header>
-      <form action="" className={styles.cpForm}>
+      <form action={handleUpdate} className={styles.cpForm}>
         <h3>Company Profile</h3>
         <div className={styles.upload}>
           <div className={styles.profileImage}>
@@ -67,6 +96,8 @@ export default function CompanyProfile() {
               <input
                 type="text"
                 name="Name"
+                value={formValues.companyName}
+                onChange={handleChangeOfFormValues}
                 placeholder="Serenity Wellness Inc."
               />
             </label>
@@ -80,7 +111,9 @@ export default function CompanyProfile() {
               <div className={styles.labelText}>Email</div>
               <input
                 type="text"
-                name="Email"
+                name="companyEmail"
+                value={formValues.email}
+                onChange={handleChangeOfFormValues}
                 placeholder="info@sernitywellness.com"
               />
             </label>
@@ -88,7 +121,7 @@ export default function CompanyProfile() {
               <div className={styles.labelText}>About</div>
               <input
                 type="text"
-                name="About Company"
+                name="aboutCompany"
                 placeholder="About Company"
               />
             </label>

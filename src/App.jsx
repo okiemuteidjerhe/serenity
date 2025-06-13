@@ -47,6 +47,7 @@ function Navigation() {
                   <Route path="/book-appointment" element={<Therapist />} />
                   <Route path="/therapist-profile" element={<TherapistProfile />} />
                   <Route path="/profile" element={<IndividualProfile />} />
+                  <Route path="/companyresources" element={<CompanyMaterials />} />
                   <Route
                     path="*"
                     element={<Navigate to="/" replace />}
@@ -55,7 +56,7 @@ function Navigation() {
                 :
                 <>
                   <Route path="/" element={<CompanyDashboard />} />
-                  <Route path="/companyresources" element={<CompanyMaterials />} />
+                  
                   <Route path="employees" element={<Employees />} />
                   <Route path="resources" element={<Resources />} />
                   <Route path="upload" element={<Upload />} />

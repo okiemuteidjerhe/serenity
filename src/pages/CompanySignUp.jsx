@@ -47,7 +47,7 @@ export default function CompanySignUp() {
             />
             <TextLabel
               nameL="Email"
-              name='email'
+              name='adminEmail'
               type="email"
               placeholder="kate@serenity.com"
             />

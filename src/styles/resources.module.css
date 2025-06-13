@@ -6,7 +6,7 @@
     gap: 48px;
   }
   
-  .container button {
+  .heading button {
     width: fit-content;
     padding: 12px 20px;
     display: flex;
@@ -46,7 +46,6 @@
     margin-bottom: 24px;
   }
 
-
   .webinars {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -62,6 +61,7 @@
   }
 
   .webinar .image {
+    width: 420px;
     height: 250px;
     background-color: #D9D9D9;
     border-radius: 16px;

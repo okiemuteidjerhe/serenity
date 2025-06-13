@@ -2,12 +2,13 @@ import styles from '../styles/resources.module.css'
 import NavBar from '../components/NavBar'
 import { GoDotFill, GoPlus } from 'react-icons/go'
 import Document from '../images/pdf.png'
+import pod from '../images/pod.png'
 
 function WebinarCard(props) {
     return (
         <div className={styles.webinar}>
             <div className={styles.image}>
-
+                <img src={pod} alt="" />
             </div>
             <div className={styles.details}>
                 <h5>{props.title}</h5>
@@ -36,7 +37,7 @@ export function Doc(props) {
 export default function Resources() {
     return (
         <div className={styles.container}>
-            <NavBar />
+            <NavBar isCorporate={true}/>
             <div className={styles.content}>
                 <div>
                     <div className={styles.heading}>
@@ -48,6 +49,20 @@ export default function Resources() {
                     </div>
 
                     <div className={styles.webinars}>
+                        <WebinarCard
+                            title="Dealing with depression"
+                            type="Podcast"
+                            author="Austin & Leo"
+                            date="2nd June 2025"
+                            time="11:00 AM"
+                        />
+                        <WebinarCard
+                            title="Dealing with depression"
+                            type="Podcast"
+                            author="Austin & Leo"
+                            date="2nd June 2025"
+                            time="11:00 AM"
+                        />
                         <WebinarCard
                             title="Dealing with depression"
                             type="Podcast"

@@ -335,7 +335,7 @@ export default function NavBar(props) {
                   props.isCorporate ? handleCompLogOutOpen : handleIndLogOutOpen
                 }
               >
-                <img src={(token.avatar?.url) || Avatar} alt="Avatar" /> <TfiAngleDown size={14} />
+                <img src={(token.avatar?.url) || (token.logo?.url) || Avatar} alt="Avatar" /> <TfiAngleDown size={14} />
               </button>
             </li>
           </ul>
@@ -537,7 +537,7 @@ export default function NavBar(props) {
             <LiaTimesSolid size={23} color="var(--primary-color)" />
           </button>
           <div className={styles.modalImage}>
-            <img src={Avatar} alt="" />
+            <img src={(token.avatar?.url)|| (token.logo?.url) || Avatar} alt="" />
           </div>
           <div className={styles.inputs}>
             <label>
@@ -547,7 +547,7 @@ export default function NavBar(props) {
               <input
                 type="text"
                 name="Name"
-                value={props.isCorporate ? "Tech Pro" : "Alexi Jane"}
+                value={props.isCorporate ? token.companyName : `${token.firstName} ${token.lastName}`}
                 readOnly
               />
             </label>
@@ -560,8 +560,8 @@ export default function NavBar(props) {
                 name={props.isCorporate ? "Description" : "Role"}
                 value={
                   props.isCorporate
-                    ? "A company that provides tech solutions for pros"
-                    : "Product Designer"
+                    ? token.aboutCompany
+                    : token.role
                 }
                 readOnly
               />
@@ -573,8 +573,8 @@ export default function NavBar(props) {
                 name="Email"
                 value={
                   props.isCorporate
-                    ? "Tech4pro@gmail.com"
-                    : "alexisjane@gmail.com"
+                    ? token.companyEmail
+                    : token.email
                 }
                 readOnly
               />

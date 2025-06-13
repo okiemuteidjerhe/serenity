@@ -39,6 +39,22 @@ export default function IndividualProfile() {
         setWantAccountPrivate(prev => !prev)
     }
 
+
+    const defaultValues = {
+        firstName : token.firstName,
+        lastName: token.lastName,
+        email: token.email
+    }
+
+    const [formValues, setFormValues] = useState(defaultValues);
+
+    function handleChangeOfFormValues(e){
+        const {name, value} = e.target;
+        setFormValues((prev) => {
+            return {...prev, [name] : value}
+        })
+    }
+
     function handleUpdate(formData) {
         const data = (Object.fromEntries(formData))
         dispatch({
@@ -81,17 +97,17 @@ export default function IndividualProfile() {
                     <div className={styles.R}>
                         <label>
                             <div className={styles.labelText}>First Name</div>
-                            <input type="text" name="firstName" placeholder="John" />
+                            <input type="text" name="firstName" placeholder="John" value={formValues.firstName} onChange={handleChangeOfFormValues}/>
                         </label>
                         <label>
                             <div className={styles.labelText}>Last Name</div>
-                            <input type="text" name="lastName" placeholder="Doe" />
+                            <input type="text" name="lastName" placeholder="Doe" value={formValues.lastName} onChange={handleChangeOfFormValues} />
                         </label>
                     </div>
                     <div className={styles.R}>
                         <label>
                             <div className={styles.labelText}>Email</div>
-                            <input type="email" name="email" placeholder="joe@gmail.com" />
+                            <input type="email" name="email" placeholder="joe@gmail.com" value={formValues.email} onChange={handleChangeOfFormValues}/>
                         </label>
                         <label>
                             <div className={styles.labelText}>Role</div>
@@ -100,7 +116,7 @@ export default function IndividualProfile() {
                     </div>
                     <label>
                         <div className={styles.labelText}>Password</div>
-                        <input type="password" name="password" placeholder="Password" />
+                        <input type="password" name="password" placeholder="Password" value={token.password}/>
                     </label>
                 </div>
 

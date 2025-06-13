@@ -57,8 +57,12 @@
     border-radius: 16px;
 }
 
-.cards .left>div {
+.cards .left .top {
     padding: 32px;
+}
+
+.cards .left .bottom{
+    padding: 22px 22px 12px 22px;
 }
 
 .cards .left .top {
@@ -101,7 +105,7 @@
 .right .checkIns .bars {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 26px;
 }
 
 .right .report {
@@ -152,7 +156,7 @@
     padding: 16px 32px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 40px;
 }
 
 .eventCard > div {
