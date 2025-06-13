@@ -17,13 +17,17 @@ import { PiGearSixLight } from "react-icons/pi"
 import { BsBell } from "react-icons/bs"
 import { TfiAngleDown } from "react-icons/tfi"
 import { GoArrowRight, GoFile, GoVideo } from "react-icons/go"
-import { useRef, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import NavBar from "../components/NavBar"
+import { AuthContext } from "../context/AuthContext"
 
 export default function IndvidualDashboard(){
  const [mood, setMood] = useState(null);
  const [isOpen, setIsOpen] = useState(false)
  const dialogRef = useRef(null);
+
+ const token = useContext(AuthContext)
+ console.log(token)
 
  function handleMood(selectedMood){
     setMood(selectedMood);
@@ -78,7 +82,7 @@ export default function IndvidualDashboard(){
                         <div className={styles.trImg}><img src={zen} alt="" /></div>
                     </div>
                     <div className={styles.topLeft}>
-                        <h2>Hi Alexis, how are you feeling?</h2>
+                        <h2>Hi {token.firstName}, how are you feeling?</h2>
                         <div className={styles.tlImg}><img src={mood? mood.src : happy} alt={mood ? mood.alt : "happy"} /></div>
                         <button onClick={handleOpen}>Change Mood</button>
                     </div>

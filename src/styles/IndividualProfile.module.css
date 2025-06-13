@@ -36,6 +36,7 @@
     height: 80px;
     border-radius: 50%;
     overflow: hidden;
+    display: flex;
 }
 .labelText{
     font-size: 1.125rem;

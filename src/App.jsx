@@ -36,7 +36,7 @@ function Navigation() {
         {
           isLoggedIn ?
             <>
-              {isLoggedIn.userType === "ind" ?
+              {isLoggedIn.usertype === "Individual" ?
                 <>
                   <Route path="/" element={<IndividualDashboard />} />
                   <Route path="/vsr" element={<VirtualSafeRoom />} />

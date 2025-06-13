@@ -4,6 +4,8 @@ import styles from "../styles/CompPayment.module.css";
 
 import ContentForm from "../components/ContentForm";
 import { useLocation, useNavigate } from "react-router";
+import { useContext } from "react";
+import { AuthReducerContext } from "../context/AuthContext";
 
 
 const data = [
@@ -39,6 +41,7 @@ export default function CompPayment() {
   const location = useLocation()
   const form = location.state
   const navigate = useNavigate()
+  const dispatch = useContext(AuthReducerContext)
 
   console.log(form)
 
@@ -46,7 +49,11 @@ export default function CompPayment() {
     const payment = Object.fromEntries(formData)
     const registerInfo = { ...form, ...payment }
     console.log(registerInfo)
-    navigate("/comp-dash")
+ 
+    dispatch({
+      type:true,
+      token: registerInfo
+    })
   }
 
 

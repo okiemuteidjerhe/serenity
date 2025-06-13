@@ -11,7 +11,7 @@ import checked from "../images/checked.png";
 import exclamation from "../images/exclamation.png";
 import { useContext, useEffect, useRef, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { AuthReducerContext } from "../context/AuthContext";
+import { AuthContext, AuthReducerContext } from "../context/AuthContext";
 
 const data = [
   {
@@ -69,6 +69,7 @@ const data = [
 export default function NavBar(props) {
 
   const dispatch = useContext(AuthReducerContext)
+  const token = useContext(AuthContext)
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -226,7 +227,7 @@ export default function NavBar(props) {
             <ul>
               <li>
                 <NavLink
-                  to="/comp-dash"
+                  to="/"
                   className={({ isActive }) =>
                     isActive ? `${styles.active}` : undefined
                   }
@@ -236,7 +237,7 @@ export default function NavBar(props) {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/employees"
                   className={({ isActive }) =>
                     isActive ? `${styles.active}` : undefined
                   }
@@ -246,7 +247,7 @@ export default function NavBar(props) {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/resources"
                   className={({ isActive }) =>
                     isActive ? `${styles.active}` : undefined
                   }
@@ -334,7 +335,7 @@ export default function NavBar(props) {
                   props.isCorporate ? handleCompLogOutOpen : handleIndLogOutOpen
                 }
               >
-                <img src={Avatar} alt="Avatar" /> <TfiAngleDown size={14} />
+                <img src={(token.avatar?.url) || Avatar} alt="Avatar" /> <TfiAngleDown size={14} />
               </button>
             </li>
           </ul>

@@ -58,7 +58,7 @@ export default function SignIn() {
     dispatch({
       type: true,
       token: {
-        userType: acctType,
+        usertype: acctType,
       }
     })
   }
