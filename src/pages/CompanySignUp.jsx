@@ -15,7 +15,9 @@ export default function CompanySignUp() {
   function handleNext(formData) {
     const dataFromForm = Object.fromEntries(formData);
     console.log(dataFromForm)
-    navigate("/signupnext", { state: { usertype: "Company", ...dataFromForm } })
+    const role = dataFromForm.role.toLowerCase()
+    console.log(role)
+    navigate("/signupnext", { state: {...dataFromForm, role} /* { usertype: "Company", ...dataFromForm } */ })
   }
 
   return (
@@ -40,19 +42,24 @@ export default function CompanySignUp() {
           <p className={styles.hidden}>Balance work and life with ease. Unlock a calmer, more focused mind with personalized mental wellness tools.</p>
           <div className={styles.inputField}>
             <TextLabel
-              nameL="Admin"
-              name='admin'
+              nameL=/* "Admin" */ "Role"
+              name=/* 'admin' */ 'role'
               type="text"
-              placeholder="Kate (Hr department)"
+              placeholder=/* "Kate (Hr department)" */ 'Admin'
             />
             <TextLabel
               nameL="Email"
-              name='adminEmail'
+              name='email'
               type="email"
               placeholder="kate@serenity.com"
             />
             <Password name="Password" />
-            <Password name="Confirm Password" />
+            {/* <Password name="Confirm Password" /> */}
+            <TextLabel
+            nameL='Company Code'
+            name='company_code'
+            type='text'
+            />
             <SelectLabel
               text="Agree to Terms of Service & Data Privacy Policy."
               type="checkbox"

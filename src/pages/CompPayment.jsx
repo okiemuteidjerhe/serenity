@@ -40,20 +40,38 @@ const data = [
 export default function CompPayment() {
   const location = useLocation()
   const form = location.state
-  const navigate = useNavigate()
   const dispatch = useContext(AuthReducerContext)
 
   console.log(form)
 
-  function handleFinalSubmit(formData) {
+  async function handleFinalSubmit(formData) {
     const payment = Object.fromEntries(formData)
-    const registerInfo = { ...form, ...payment }
-    console.log(registerInfo)
- 
-    dispatch({
+    const company_work_environment = {environ: "Hybrid"}
+    const company_challenges = ["Sleep"]
+    const register_info = { ...form, ...payment, company_challenges, company_work_environment }
+    console.log(register_info)
+
+    console.log('sending request')
+
+    try{
+      const response = await fetch("https://vivianmukhongo.pythonanywhere.com/api/core/user/", {
+        method: "POST",
+        headers: {
+          "Content-Type" : "application/json"
+        },
+        body: JSON.stringify(register_info)
+      })
+
+      const data = await response.json()
+      console.log(data)
+      dispatch({
       type:true,
-      token: registerInfo
+      token: data
     })
+    } catch(error){
+      console.log(error)
+    }
+
   }
 
 

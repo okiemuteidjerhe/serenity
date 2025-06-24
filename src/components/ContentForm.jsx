@@ -34,7 +34,7 @@ export default function ContentForm(props){
                 
                 </div>
             </div>
-            <label className={styles.hidCheck}> <input type="checkbox" onChange={handleChange} name="paymentType" value={props.heading}/>
+            <label className={styles.hidCheck}> <input type="checkbox" onChange={handleChange} name="payment_type" value={props.heading}/>
             <div className={styles.hidCheckText}>{props.buttonText}</div>   
             </label>
           </form>

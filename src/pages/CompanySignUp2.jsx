@@ -19,7 +19,7 @@ export default function CompanySignUp2() {
 
   console.log(form)
 
-  const [form2, setForm2] = useState({...form})
+  const [form2, setForm2] = useState(form)
 
   const handleOpen = (formData) => {
     window.scrollTo(0, 0);
@@ -61,22 +61,22 @@ healthier mind."
           <p className={styles.hidden}>Achieve work life harmony. Discover tailored strategies for mental well being and a 
 healthier mind.</p>
           <div className={styles.inputField}>
-            <TextLabel nameL="Company Name" name='companyName' type="text" placeholder="Serenity" />
+            <TextLabel nameL="Company Name" name='company_name' type="text" placeholder="Serenity" />
             <TextLabel
               nameL="Number of Employees"
-              name='numberOfEmployees'
+              name='company_num_of_employees'
               type="text"
               placeholder="1297"
             />
             <TextLabel
               nameL="Country/Region"
-              name='country/region'
+              name='company_country'
               type="text"
               placeholder="Nigeria"
             />
             <TextLabel
               nameL="Company Email"
-              name='companyEmail'
+              name='company_email'
               type="email"
               placeholder="help@serenity.com"
             />

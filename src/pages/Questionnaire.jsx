@@ -12,6 +12,7 @@ export default function Questionnaire() {
 
   const location = useLocation();
   const form = location.state
+  console.log(form)
   const [form2, setForm2] = useState(form)
 
   function handleNext(formData){
@@ -24,10 +25,9 @@ export default function Questionnaire() {
     }
     /* const dataFromForm2 = Object.fromEntries(answers) */
     console.log(answers)
+    
     setForm2(prev => {
-      return {
-        ...prev, ...answers
-      }
+      return {...answers, ...prev}
     })
     console.log(form2)
     navigate("/indpay", {state: form2})

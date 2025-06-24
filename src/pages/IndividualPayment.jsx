@@ -49,18 +49,32 @@ const data = [
 export default function IndividualPayment() {
   const location = useLocation();
   const form = location.state
-  const navigate = useNavigate()
   const dispatch = useContext(AuthReducerContext)
 
   console.log(form)
 
-  function handleFinalSubmit(formData) {
+  async function handleFinalSubmit(formData) {
     const payment = Object.fromEntries(formData)
-    const registerInfo = { ...form, ...payment }
+    const registerInfo = { ...form, ...payment, mood: "happy" }
     console.log(registerInfo)
+console.log("Sending request")
+
+    const response = await fetch("https://vivianmukhongo.pythonanywhere.com/api/core/user/", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify(registerInfo)
+    })
+    
+    const data = await response.json()
+    console.log(data)
+    /* const {user, token} = data
+    console.log(user , token) */
+    
     dispatch({
       type: true,
-      token: registerInfo
+      token: data
     })
   }
 

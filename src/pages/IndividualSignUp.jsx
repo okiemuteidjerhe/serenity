@@ -68,8 +68,8 @@ export default function IndividualSignUp() {
           <form className={styles.form} action={handleOpen}>
             <div className={styles.inputField}>
               <div className={styles.name}>
-                <TextLabel type="text" nameL="First Name" name='firstName' placeholder="Jane" />
-                <TextLabel type="text" nameL="Last Name" name='lastName' placeholder="Doe" />
+                <TextLabel type="text" nameL="First Name" name='first_name' placeholder="Jane" />
+                <TextLabel type="text" nameL="Last Name" name='last_name' placeholder="Doe" />
               </div>
               <TextLabel
                 type="email"
@@ -79,7 +79,7 @@ export default function IndividualSignUp() {
               />
 
               <Password name="Password" />
-              <TextLabel type="text" nameL="Company Code" name='companyCode' placeholder="445098" required={false} />
+              <TextLabel type="text" nameL="Company Code" name='company_code_input' placeholder="445098" required={false} />
               {/* <TextLabel type="text" name="Role" placeholder="HR Intern" /> */}
             </div>
             <Button text="Sign Up" type='submit' /* doSum={handleOpen} */ />
