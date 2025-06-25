@@ -48,11 +48,35 @@ export default function SignIn() {
   //OTP
   const [otp, setOtp] = useState("");
 
-  const logIn = (formData) => {
-    console.log(Object.fromEntries(formData))
+  async function logIn(formData){
+    /* const loginDets = Object.fromEntries(formData)
+
+    console.log(loginDets) */
+
+    console.log("Sending")
+    try{
+      const response = await fetch("https://vivianmukhongo.pythonanywhere.com/api/core/user/login/", {
+      method: "POST",
+      /* headers: {
+        "Content-type": "application/formData"
+      }, */
+      body: formData
+    })
+
+    const data = await response.json()
+    console.log(data)
+
+    dispatch({
+      type: true,
+      token: data
+    })
+
+    } catch( err){
+      console.log("Error: ", err.message)
+    }
     // Using password as acct type for demo purposes
 
-    const acctType = formData.get('password')
+    /* const acctType = formData.get('password')
     console.log(acctType)
     // Assumption that the call with the backend was successful
     dispatch({
@@ -60,7 +84,7 @@ export default function SignIn() {
       token: {
         usertype: acctType,
       }
-    })
+    }) */
   }
 
 
@@ -85,7 +109,7 @@ export default function SignIn() {
             <div className={styles.inputField}>
               <TextLabel
                 nameL="Email"
-                name='email'
+                name='username'
                 type="email"
                 placeholder="johndoe@gmail.com"
               />

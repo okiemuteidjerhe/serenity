@@ -30,13 +30,15 @@ import { useContext } from "react";
 
 function Navigation() {
   const isLoggedIn = useContext(AuthContext)
+  console.log(isLoggedIn)
   return (
     <BrowserRouter>
       <Routes>
         {
           isLoggedIn ?
             <>
-              {isLoggedIn.user.role === "employee" ?
+              {
+              (isLoggedIn?.user?.role === "employee" || isLoggedIn?.employee) ?
                 <>
                   <Route path="/" element={<IndividualDashboard />} />
                   <Route path="/vsr" element={<VirtualSafeRoom />} />
