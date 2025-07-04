@@ -25,6 +25,7 @@ import TherapistProfile from "./pages/TherapistProfile";
 import IndividualProfile from "./pages/IndividualProfile";
 import CompanyProfile from "./pages/CompanyProfile";
 import AuthLayout, { AuthContext } from "./context/AuthContext";
+import UserInfoProvider from "./context/UserInfoContext";
 import { useContext } from "react";
 
 
@@ -99,7 +100,9 @@ function Navigation() {
 function App() {
   return (
     <AuthLayout>
-      <Navigation />
+      <UserInfoProvider>
+        <Navigation />
+      </UserInfoProvider>
     </AuthLayout>
   )
 }

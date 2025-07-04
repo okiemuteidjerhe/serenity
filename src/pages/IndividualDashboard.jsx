@@ -1,7 +1,5 @@
 import styles from "../styles/IndividualDashboard.module.css"
-import logo from "../images/serenity.svg"
 import { Link } from "react-router"
-import Avatar from '../images/Avatar.png'
 import zen from '../images/zen.png'
 import journal from '../images/journal.png'
 import happy from '../images/Happy.png'
@@ -13,25 +11,56 @@ import angry from '../images/Angry.png'
 import sad from '../images/Sad.png'
 import focused from '../images/focused.png'
 import focusedballoon from '../images/focused-balloon.png'
-import { PiGearSixLight } from "react-icons/pi"
-import { BsBell } from "react-icons/bs"
-import { TfiAngleDown } from "react-icons/tfi"
 import { GoArrowRight, GoFile, GoVideo } from "react-icons/go"
-import { useContext, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import NavBar from "../components/NavBar"
 import { AuthContext } from "../context/AuthContext"
+import { UserDispatchContext, UserInformationContext } from "../context/UserInfoContext"
 
 export default function IndvidualDashboard(){
  const [mood, setMood] = useState(null);
  const [isOpen, setIsOpen] = useState(false)
  const dialogRef = useRef(null);
+ /* const [userInfo, setUserInfo] = useState(null) */
 
  const token /* {user} */ = useContext(AuthContext)
  console.log(token /* user */)
 
- function handleMood(selectedMood){
+
+ //Trying out UserInfoContext and UserDispatchContext
+const info = useContext(UserInformationContext)
+const dispatch = useContext(UserDispatchContext)
+
+
+
+console.log(info)
+
+
+ async function handleMood(selectedMood){
     setMood(selectedMood);
     dialogRef.current.close();
+
+    try{
+        const response = await fetch("https://vivianmukhongo.pythonanywhere.com/api/core/user/1/", {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${token.token}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            mood: selectedMood.alt.toLowerCase()
+        })
+    })
+
+    if(response.ok){
+        const message = await response.json()
+        console.log(message)
+    } else{
+        throw new Error("Failed to update: " + response.status)
+    }   
+    }catch(err){
+        console.log("Error message: ", err.message)
+    }
  }
  function handleOpen(){
     setIsOpen(true);
@@ -68,6 +97,41 @@ export default function IndvidualDashboard(){
         alt: "Sad"
     },
  ]
+
+ async function getUser(){
+    try{
+        const response = await fetch("https://vivianmukhongo.pythonanywhere.com/api/core/user/1/",{
+        method: "GET",
+        headers: {
+            "Authorization": `Token ${token.token}`,
+            "Content-Type": "application/json"
+        }
+    })
+
+    if(response.ok){
+        const data = await response.json()
+        console.log(data)
+        /* setUserInfo(data) */
+        
+        dispatch({
+            type: "set_user",
+            user: data
+        })
+
+        const matchMood = moods.find(mood => mood.alt.toLowerCase() === data.mood.toLowerCase())
+        setMood(matchMood)
+    }else{
+        throw new Error("Failed request. Status: " + response.status)
+    }
+    }catch(err){
+        console.log("This went wrong -> ", err.message)
+    }
+ }
+/* console.log(userInfo) */
+ useEffect(()=>{
+    getUser()
+ }, [])
+
     return(
         <div className={styles.body}>
             <NavBar/>
@@ -82,7 +146,7 @@ export default function IndvidualDashboard(){
                         <div className={styles.trImg}><img src={zen} alt="" /></div>
                     </div>
                     <div className={styles.topLeft}>
-                        <h2>Hi {token.firstName /* user.first_name */}, how are you feeling?</h2>
+                        <h2>Hi { info? info.userInfo.first_name : null /*token.firstName*/}, how are you feeling?</h2>
                         <div className={styles.tlImg}><img src={mood? mood.src : happy} alt={mood ? mood.alt : "happy"} /></div>
                         <button onClick={handleOpen}>Change Mood</button>
                     </div>

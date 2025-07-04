@@ -12,6 +12,7 @@ import exclamation from "../images/exclamation.png";
 import { useContext, useEffect, useRef, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AuthContext, AuthReducerContext } from "../context/AuthContext";
+import { UserInformationContext } from "../context/UserInfoContext";
 
 const data = [
   {
@@ -70,6 +71,16 @@ export default function NavBar(props) {
 
   const dispatch = useContext(AuthReducerContext)
   const token = useContext(AuthContext)
+  console.log(token)
+
+  //Trying out userInfoContext
+const info = useContext(UserInformationContext)
+console.log(info)
+
+
+
+
+
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -547,7 +558,7 @@ export default function NavBar(props) {
               <input
                 type="text"
                 name="Name"
-                value={props.isCorporate ? token.companyName : `${token.firstName} ${token.lastName}`}
+                value={props.isCorporate ? token.companyName : (info ? `${info.userInfo.first_name} ${info.userInfo.last_name}`: null)}
                 readOnly
               />
             </label>
@@ -561,7 +572,7 @@ export default function NavBar(props) {
                 value={
                   props.isCorporate
                     ? token.aboutCompany
-                    : token.role
+                    : info.userInfo.role
                 }
                 readOnly
               />
@@ -574,7 +585,7 @@ export default function NavBar(props) {
                 value={
                   props.isCorporate
                     ? token.companyEmail
-                    : token.email
+                    : info.userInfo.email
                 }
                 readOnly
               />
