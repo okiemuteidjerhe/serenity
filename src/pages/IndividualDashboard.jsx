@@ -146,7 +146,7 @@ console.log(info)
                         <div className={styles.trImg}><img src={zen} alt="" /></div>
                     </div>
                     <div className={styles.topLeft}>
-                        <h2>Hi { info? info.userInfo.first_name : null /*token.firstName*/}, how are you feeling?</h2>
+                        <h2>Hi { info.first_name }, how are you feeling?</h2>
                         <div className={styles.tlImg}><img src={mood? mood.src : happy} alt={mood ? mood.alt : "happy"} /></div>
                         <button onClick={handleOpen}>Change Mood</button>
                     </div>

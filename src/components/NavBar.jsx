@@ -558,7 +558,7 @@ console.log(info)
               <input
                 type="text"
                 name="Name"
-                value={props.isCorporate ? token.companyName : (info ? `${info.userInfo.first_name} ${info.userInfo.last_name}`: null)}
+                value={props.isCorporate ? token.companyName : `${info.first_name} ${info.last_name}`}
                 readOnly
               />
             </label>
@@ -572,7 +572,7 @@ console.log(info)
                 value={
                   props.isCorporate
                     ? token.aboutCompany
-                    : info.userInfo.role
+                    : info.role
                 }
                 readOnly
               />
@@ -585,7 +585,7 @@ console.log(info)
                 value={
                   props.isCorporate
                     ? token.companyEmail
-                    : info.userInfo.email
+                    : info.email
                 }
                 readOnly
               />
