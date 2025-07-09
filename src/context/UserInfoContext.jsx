@@ -5,7 +5,7 @@ export const UserDispatchContext = createContext(null)
 
 function userReducer(state, action){
     switch(action.type){
-        case 'set_user': {
+        case 'update_user': {
             return {...state, ...action.user}
         }
         default : 

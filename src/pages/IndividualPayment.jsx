@@ -6,6 +6,7 @@ import ContentForm from "../components/ContentForm";
 import { useLocation, useNavigate } from "react-router";
 import { useContext } from "react";
 import { AuthReducerContext } from "../context/AuthContext";
+import { UserDispatchContext } from "../context/UserInfoContext";
 
 const data = [
   {
@@ -50,6 +51,7 @@ export default function IndividualPayment() {
   const location = useLocation();
   const form = location.state
   const dispatch = useContext(AuthReducerContext)
+  const userDispatch =  useContext(UserDispatchContext)
 
   console.log(form)
 
@@ -74,7 +76,12 @@ console.log("Sending request")
     
     dispatch({
       type: true,
-      token: data
+      token: {token: data.token}
+    })
+
+    userDispatch({
+      type: update_user,
+      user: data.user
     })
   }
 

@@ -29,10 +29,9 @@ export default function Questionnaire() {
     setForm2(prev => {
       return {...answers, ...prev}
     })
-    console.log(form2)
     navigate("/indpay", {state: form2})
   }
-
+  console.log(form2)
   
   return (
     <div className={styles.body}>

@@ -12,11 +12,13 @@ import GenericModal from "../components/GenericModal";
 import React, { useContext, useRef, useState } from "react";
 import OtpInput from "react-otp-input";
 import { AuthReducerContext } from "../context/AuthContext";
+import { UserDispatchContext } from "../context/UserInfoContext";
 
 export default function SignIn() {
 
   // Dispatch for auth context
   const dispatch = useContext(AuthReducerContext)
+  const userDispatch = useContext(UserDispatchContext)
 
 
   //Modal
@@ -68,7 +70,12 @@ export default function SignIn() {
 
     dispatch({
       type: true,
-      token: data
+      token: {token: data.token}
+    })
+
+    userDispatch({
+      type: "update_user",
+      user: {employee: data.employee}
     })
 
     } catch( err){

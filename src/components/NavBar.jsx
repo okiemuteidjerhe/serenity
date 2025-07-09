@@ -124,7 +124,6 @@ console.log(info)
   const indDialogRef = useRef(null);
   const confirmationRef = useRef(null);
 
-  const navigate = useNavigate();
 
   function handleCompLogOutOpen() {
     dialogRef.current.showModal();

@@ -29,7 +29,7 @@ export default function IndvidualDashboard(){
 
  //Trying out UserInfoContext and UserDispatchContext
 const info = useContext(UserInformationContext)
-const dispatch = useContext(UserDispatchContext)
+const userDispatch = useContext(UserDispatchContext)
 
 
 
@@ -113,8 +113,8 @@ console.log(info)
         console.log(data)
         /* setUserInfo(data) */
         
-        dispatch({
-            type: "set_user",
+        userDispatch({
+            type: "update_user",
             user: data
         })
 

@@ -25,13 +25,15 @@ import TherapistProfile from "./pages/TherapistProfile";
 import IndividualProfile from "./pages/IndividualProfile";
 import CompanyProfile from "./pages/CompanyProfile";
 import AuthLayout, { AuthContext } from "./context/AuthContext";
-import UserInfoProvider from "./context/UserInfoContext";
+import UserInfoProvider, { UserInformationContext } from "./context/UserInfoContext";
 import { useContext } from "react";
 
 
 function Navigation() {
   const isLoggedIn = useContext(AuthContext)
+  const user = useContext(UserInformationContext)
   console.log(isLoggedIn)
+  console.log(user)
   return (
     <BrowserRouter>
       <Routes>
@@ -39,7 +41,7 @@ function Navigation() {
           isLoggedIn ?
             <>
               {
-              (isLoggedIn?.user?.role === "employee" || isLoggedIn?.employee) ?
+              (/* isLoggedIn?. */user?.role === "employee" || /* isLoggedIn?. */user?.employee) ?
                 <>
                   <Route path="/" element={<IndividualDashboard />} />
                   <Route path="/vsr" element={<VirtualSafeRoom />} />
